@@ -3245,7 +3245,7 @@ or want to combine the <code>sel</code> and permissions check statements into a 
   `(try ~@body
         (catch ApiException e#
           {:status (.getStatusCode e#)
-           :body (.getMessage e#)})))</pre></td></tr><tr><td class="docs"><p>If RESPONSE isn't already a map with keys :status and :body, wrap it in one (using status 200).</p>
+           :body (.getMessage e#)})))</pre></td></tr><tr><td class="docs"><p>If RESPONSE isn't already a map with keys <code>:status</code> and <code>:body</code>, wrap it in one (using status 200).</p>
 </td><td class="codes"><pre class="brush: clojure">(defn wrap-response-if-needed
   [response]
   (letfn [(is-wrapped? [resp] (and (map? resp)
