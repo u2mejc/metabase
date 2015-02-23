@@ -2974,7 +2974,7 @@ net.brehaut.ClojureTools = (function (SH) {
   (:import com.metabase.corvus.api.ApiException))</pre></td></tr><tr><td class="docs"><h2>DYNAMIC VARIABLES</h2>
 
 <p>These get bound by middleware for each HTTP request.</p>
-</td><td class="codes"></td></tr><tr><td class="docs"><p>Int ID or nil of user associated with current API call.</p>
+</td><td class="codes"></td></tr><tr><td class="docs"><p>Int ID or <code>nil</code> of user associated with current API call.</p>
 </td><td class="codes"><pre class="brush: clojure">(def ^:dynamic *current-user-id*
   nil)</pre></td></tr><tr><td class="docs"><p>Delay that returns the <code>User</code> (or nil) associated with the current API call.
    ex. <code>@*current-user*</code></p>
