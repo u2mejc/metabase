@@ -1,0 +1,8 @@
+/.lein-*
+/.nrepl-*
+/docs/
+/frontend_client/
+/metabase.db.*
+/node_modules/
+/src/
+/target/
