@@ -3231,7 +3231,7 @@ or want to combine the <code>sel</code> and permissions check statements into a 
             *auto-parse-types*                                       ; {:parser ... }
             :parser                                                  ; Integer/parseInt
             ((fn [parser] `(when ~arg-symbol (~parser ~arg-symbol)))) ; (when id (Integer/parseInt id))
-            ((partial vector arg-symbol)))))                         ; [id (Integer/parseInt id)]</pre></td></tr><tr><td class="docs"><p>Create a <code>let</code> form that applies corresponding parse-fn for any symbols in ARGS that are present in <code>auto-*parse-types*</code>.</p>
+            ((partial vector arg-symbol)))))                         ; [id (Integer/parseInt id)]</pre></td></tr><tr><td class="docs"><p>Create a <code>let</code> form that applies corresponding parse-fn for any symbols in ARGS that are present in <code>*auto-parse-types*</code>.</p>
 </td><td class="codes"><pre class="brush: clojure">(defmacro auto-parse
   [args &amp; body]
   (let [let-forms (-&gt;&gt; args
