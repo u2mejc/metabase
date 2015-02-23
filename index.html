@@ -2959,7 +2959,7 @@ net.brehaut.ClojureTools = (function (SH) {
   (del Card :id id))</pre></td></tr><tr><td class="docs"><p>/:id/favorite</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint GET  [id]
   {:favorite (boolean (some-&gt;&gt; *current-user-id*
-                               (sel :one CardFavorite :card_id id :owner_id)))})</pre></td></tr><tr><td class="docs"><p>/:card-id/favorite</p>
+                               (exists? CardFavorite :card_id id :owner_id)))})</pre></td></tr><tr><td class="docs"><p>/:card-id/favorite</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint POST  [card-id]
   (ins CardFavorite :card_id card-id :owner_id *current-user-id*))</pre></td></tr><tr><td class="docs"><p>/:card-id/favorite</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint DELETE  [card-id]
@@ -4120,7 +4120,7 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
 </td><td class="codes"><pre class="brush: clojure">(defmacro sel
   [one-or-many entity &amp; forms]
   {:pre [(contains? #{:one :many} one-or-many)]}
-  `(-&gt;&gt; (-sel-select ~entity ~@forms)
+  `(-&gt;&gt; (-sel-select ~entity ~@forms ~@(when (= one-or-many :one) `((limit 1))))
         (map (partial post-select (entity-&gt;korma ~entity)))
         ~(case one-or-many
            :one 'first
