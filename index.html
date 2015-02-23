@@ -3213,7 +3213,7 @@ or want to combine the <code>sel</code> and permissions check statements into a 
        (filterv identity)))</pre></td></tr><tr><td class="docs"><p>Expand a ROUTE string like "/:id" into a Compojure route form that uses regexes to match
    parameters whose name matches a regex from <code>*auto-parse-arg-name-patterns*</code>.</p>
 
-<pre><code>(typify-route "/:id/card") -&gt; ["/:id/card" :id #"[0-9]+"
+<pre><code>(typify-route "/:id/card") -&gt; ["/:id/card" :id #"[0-9]+"]
 </code></pre>
 </td><td class="codes"><pre class="brush: clojure">(defn typify-route
   [route]
