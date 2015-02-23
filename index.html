@@ -3126,8 +3126,9 @@ ex.</p>
 macros eliminate a bit of the redundancy around doing so.
 They support two forms:</p>
 
-<p>   (read-check my-table) ; checks @(:can_read my-table)
-   (read-check Table 1)  ; checks @(:can_read (sel :one Table :id 1))</p>
+<pre><code>(read-check my-table) ; checks @(:can_read my-table)
+(read-check Table 1)  ; checks @(:can_read (sel :one Table :id 1))
+</code></pre>
 
 <ul>
 <li>The first form is useful when you've already fetched an object (especially in threading forms such as <code>-&gt;404</code>).</li>
