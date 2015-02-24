@@ -2866,7 +2866,7 @@ net.brehaut.ClojureTools = (function (SH) {
   };
 })(SyntaxHighlighter);
 </script><title>metabase -- Marginalia</title></head><body><table><tr><td class="docs"><div class="header"><h1 class="project-name"><a href="http://metabase.com/">metabase</a></h1><h2 class="project-version">metabase-0.1.0-SNAPSHOT</h2><br /><p>Metabase Community Edition</p>
-</div><div class="dependencies"><h3>dependencies</h3><table><tr><td class="dep-name">org.clojure/clojure</td><td class="dotted"><hr /></td><td class="dep-version">1.6.0</td></tr><tr><td class="dep-name">org.clojure/core.async</td><td class="dotted"><hr /></td><td class="dep-version">LATEST</td></tr><tr><td class="dep-name">org.clojure/core.match</td><td class="dotted"><hr /></td><td class="dep-version">0.3.0-alpha4</td></tr><tr><td class="dep-name">org.clojure/math.numeric-tower</td><td class="dotted"><hr /></td><td class="dep-version">0.0.4</td></tr><tr><td class="dep-name">org.clojure/core.memoize</td><td class="dotted"><hr /></td><td class="dep-version">0.5.6</td></tr><tr><td class="dep-name">org.clojure/data.csv</td><td class="dotted"><hr /></td><td class="dep-version">0.1.2</td></tr><tr><td class="dep-name">org.clojure/data.json</td><td class="dotted"><hr /></td><td class="dep-version">0.2.5</td></tr><tr><td class="dep-name">org.clojure/java.jdbc</td><td class="dotted"><hr /></td><td class="dep-version">0.3.6</td></tr><tr><td class="dep-name">org.clojure/tools.logging</td><td class="dotted"><hr /></td><td class="dep-version">0.3.1</td></tr><tr><td class="dep-name">org.clojure/tools.macro</td><td class="dotted"><hr /></td><td class="dep-version">0.1.2</td></tr><tr><td class="dep-name">clj-http</td><td class="dotted"><hr /></td><td class="dep-version">1.0.1</td></tr><tr><td class="dep-name">clj-time</td><td class="dotted"><hr /></td><td class="dep-version">0.5.1</td></tr><tr><td class="dep-name">com.cemerick/friend</td><td class="dotted"><hr /></td><td class="dep-version">0.2.1</td></tr><tr><td class="dep-name">com.h2database/h2</td><td class="dotted"><hr /></td><td class="dep-version">1.3.170</td></tr><tr><td class="dep-name">com.mattbertolini/liquibase-slf4j</td><td class="dotted"><hr /></td><td class="dep-version">1.2.1</td></tr><tr><td class="dep-name">compojure</td><td class="dotted"><hr /></td><td class="dep-version">1.3.1</td></tr><tr><td class="dep-name">environ</td><td class="dotted"><hr /></td><td class="dep-version">0.5.0</td></tr><tr><td class="dep-name">korma</td><td class="dotted"><hr /></td><td class="dep-version">0.4.0</td></tr><tr><td class="dep-name">log4j/log4j</td><td class="dotted"><hr /></td><td class="dep-version">1.2.17</td></tr><tr><td class="dep-name">marginalia</td><td class="dotted"><hr /></td><td class="dep-version">0.7.1</td></tr><tr><td class="dep-name">medley</td><td class="dotted"><hr /></td><td class="dep-version">0.5.5</td></tr><tr><td class="dep-name">org.liquibase/liquibase-core</td><td class="dotted"><hr /></td><td class="dep-version">3.3.2</td></tr><tr><td class="dep-name">org.slf4j/slf4j-log4j12</td><td class="dotted"><hr /></td><td class="dep-version">1.7.1</td></tr><tr><td class="dep-name">org.yaml/snakeyaml</td><td class="dotted"><hr /></td><td class="dep-version">1.14</td></tr><tr><td class="dep-name">postgresql</td><td class="dotted"><hr /></td><td class="dep-version">9.1-901.jdbc4</td></tr><tr><td class="dep-name">ring/ring-json</td><td class="dotted"><hr /></td><td class="dep-version">0.3.1</td></tr><tr><td class="dep-name">swiss-arrows</td><td class="dotted"><hr /></td><td class="dep-version">1.0.0</td></tr></table></div></td><td class="codes" style="text-align: center; vertical-align: middle;color: #666;padding-right:20px"><br /><br /><br />(this space intentionally left almost blank)</td></tr><tr><td class="docs"><div class="toc"><a name="toc"><h3>namespaces</h3></a><ul><li><a href="#metabase.api.annotation">metabase.api.annotation</a></li><li><a href="#metabase.api.card">metabase.api.card</a></li><li><a href="#metabase.api.common">metabase.api.common</a></li><li><a href="#metabase.api.common.internal">metabase.api.common.internal</a></li><li><a href="#metabase.api.dash">metabase.api.dash</a></li><li><a href="#metabase.api.emailreport">metabase.api.emailreport</a></li><li><a href="#metabase.api.meta.dataset">metabase.api.meta.dataset</a></li><li><a href="#metabase.api.meta.db">metabase.api.meta.db</a></li><li><a href="#metabase.api.meta.field">metabase.api.meta.field</a></li><li><a href="#metabase.api.meta.table">metabase.api.meta.table</a></li><li><a href="#metabase.api.org">metabase.api.org</a></li><li><a href="#metabase.api.qs">metabase.api.qs</a></li><li><a href="#metabase.api.query">metabase.api.query</a></li><li><a href="#metabase.api.result">metabase.api.result</a></li><li><a href="#metabase.api.routes">metabase.api.routes</a></li><li><a href="#metabase.api.search">metabase.api.search</a></li><li><a href="#metabase.api.session">metabase.api.session</a></li><li><a href="#metabase.api.user">metabase.api.user</a></li><li><a href="#metabase.bootstrap">metabase.bootstrap</a></li><li><a href="#metabase.config">metabase.config</a></li><li><a href="#metabase.core">metabase.core</a></li><li><a href="#metabase.db">metabase.db</a></li><li><a href="#metabase.db.internal">metabase.db.internal</a></li><li><a href="#metabase.driver">metabase.driver</a></li><li><a href="#metabase.driver.metadata">metabase.driver.metadata</a></li><li><a href="#metabase.driver.native">metabase.driver.native</a></li><li><a href="#metabase.driver.postgres">metabase.driver.postgres</a></li><li><a href="#metabase.driver.postgres.metadata">metabase.driver.postgres.metadata</a></li><li><a href="#metabase.driver.postgres.sync">metabase.driver.postgres.sync</a></li><li><a href="#metabase.http-client">metabase.http-client</a></li><li><a href="#metabase.middleware.current-user">metabase.middleware.current-user</a></li><li><a href="#metabase.middleware.format">metabase.middleware.format</a></li><li><a href="#metabase.middleware.log-api-call">metabase.middleware.log-api-call</a></li><li><a href="#metabase.models.annotation">metabase.models.annotation</a></li><li><a href="#metabase.models.card">metabase.models.card</a></li><li><a href="#metabase.models.card-favorite">metabase.models.card-favorite</a></li><li><a href="#metabase.models.common">metabase.models.common</a></li><li><a href="#metabase.models.dashboard">metabase.models.dashboard</a></li><li><a href="#metabase.models.dashboard-card">metabase.models.dashboard-card</a></li><li><a href="#metabase.models.dashboard-subscription">metabase.models.dashboard-subscription</a></li><li><a href="#metabase.models.database">metabase.models.database</a></li><li><a href="#metabase.models.emailreport">metabase.models.emailreport</a></li><li><a href="#metabase.models.emailreport-executions">metabase.models.emailreport-executions</a></li><li><a href="#metabase.models.emailreport-recipients">metabase.models.emailreport-recipients</a></li><li><a href="#metabase.models.field">metabase.models.field</a></li><li><a href="#metabase.models.field-values">metabase.models.field-values</a></li><li><a href="#metabase.models.foreign-key">metabase.models.foreign-key</a></li><li><a href="#metabase.models.hydrate">metabase.models.hydrate</a></li><li><a href="#metabase.models.org">metabase.models.org</a></li><li><a href="#metabase.models.org-perm">metabase.models.org-perm</a></li><li><a href="#metabase.models.query">metabase.models.query</a></li><li><a href="#metabase.models.query-execution">metabase.models.query-execution</a></li><li><a href="#metabase.models.session">metabase.models.session</a></li><li><a href="#metabase.models.table">metabase.models.table</a></li><li><a href="#metabase.models.table-segment">metabase.models.table-segment</a></li><li><a href="#metabase.models.user">metabase.models.user</a></li><li><a href="#metabase.routes">metabase.routes</a></li><li><a href="#metabase.util">metabase.util</a></li></ul></div></td><td class="codes">&nbsp;</td></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.annotation" name="metabase.api.annotation"><h1 class="project-name">metabase.api.annotation</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+</div><div class="dependencies"><h3>dependencies</h3><table><tr><td class="dep-name">org.clojure/clojure</td><td class="dotted"><hr /></td><td class="dep-version">1.6.0</td></tr><tr><td class="dep-name">org.clojure/core.async</td><td class="dotted"><hr /></td><td class="dep-version">LATEST</td></tr><tr><td class="dep-name">org.clojure/core.match</td><td class="dotted"><hr /></td><td class="dep-version">0.3.0-alpha4</td></tr><tr><td class="dep-name">org.clojure/math.numeric-tower</td><td class="dotted"><hr /></td><td class="dep-version">0.0.4</td></tr><tr><td class="dep-name">org.clojure/core.memoize</td><td class="dotted"><hr /></td><td class="dep-version">0.5.6</td></tr><tr><td class="dep-name">org.clojure/data.csv</td><td class="dotted"><hr /></td><td class="dep-version">0.1.2</td></tr><tr><td class="dep-name">org.clojure/data.json</td><td class="dotted"><hr /></td><td class="dep-version">0.2.5</td></tr><tr><td class="dep-name">org.clojure/java.jdbc</td><td class="dotted"><hr /></td><td class="dep-version">0.3.6</td></tr><tr><td class="dep-name">org.clojure/tools.logging</td><td class="dotted"><hr /></td><td class="dep-version">0.3.1</td></tr><tr><td class="dep-name">org.clojure/tools.macro</td><td class="dotted"><hr /></td><td class="dep-version">0.1.2</td></tr><tr><td class="dep-name">clj-http</td><td class="dotted"><hr /></td><td class="dep-version">1.0.1</td></tr><tr><td class="dep-name">clj-time</td><td class="dotted"><hr /></td><td class="dep-version">0.5.1</td></tr><tr><td class="dep-name">com.cemerick/friend</td><td class="dotted"><hr /></td><td class="dep-version">0.2.1</td></tr><tr><td class="dep-name">com.h2database/h2</td><td class="dotted"><hr /></td><td class="dep-version">1.3.170</td></tr><tr><td class="dep-name">com.mattbertolini/liquibase-slf4j</td><td class="dotted"><hr /></td><td class="dep-version">1.2.1</td></tr><tr><td class="dep-name">compojure</td><td class="dotted"><hr /></td><td class="dep-version">1.3.1</td></tr><tr><td class="dep-name">environ</td><td class="dotted"><hr /></td><td class="dep-version">0.5.0</td></tr><tr><td class="dep-name">korma</td><td class="dotted"><hr /></td><td class="dep-version">0.4.0</td></tr><tr><td class="dep-name">log4j/log4j</td><td class="dotted"><hr /></td><td class="dep-version">1.2.17</td></tr><tr><td class="dep-name">marginalia</td><td class="dotted"><hr /></td><td class="dep-version">0.7.1</td></tr><tr><td class="dep-name">medley</td><td class="dotted"><hr /></td><td class="dep-version">0.5.5</td></tr><tr><td class="dep-name">org.liquibase/liquibase-core</td><td class="dotted"><hr /></td><td class="dep-version">3.3.2</td></tr><tr><td class="dep-name">org.slf4j/slf4j-log4j12</td><td class="dotted"><hr /></td><td class="dep-version">1.7.1</td></tr><tr><td class="dep-name">org.yaml/snakeyaml</td><td class="dotted"><hr /></td><td class="dep-version">1.14</td></tr><tr><td class="dep-name">postgresql</td><td class="dotted"><hr /></td><td class="dep-version">9.1-901.jdbc4</td></tr><tr><td class="dep-name">ring/ring-json</td><td class="dotted"><hr /></td><td class="dep-version">0.3.1</td></tr><tr><td class="dep-name">swiss-arrows</td><td class="dotted"><hr /></td><td class="dep-version">1.0.0</td></tr></table></div></td><td class="codes" style="text-align: center; vertical-align: middle;color: #666;padding-right:20px"><br /><br /><br />(this space intentionally left almost blank)</td></tr><tr><td class="docs"><div class="toc"><a name="toc"><h3>namespaces</h3></a><ul><li><a href="#metabase.api.annotation">metabase.api.annotation</a></li><li><a href="#metabase.api.card">metabase.api.card</a></li><li><a href="#metabase.api.common">metabase.api.common</a></li><li><a href="#metabase.api.common.internal">metabase.api.common.internal</a></li><li><a href="#metabase.api.dash">metabase.api.dash</a></li><li><a href="#metabase.api.emailreport">metabase.api.emailreport</a></li><li><a href="#metabase.api.meta.dataset">metabase.api.meta.dataset</a></li><li><a href="#metabase.api.meta.db">metabase.api.meta.db</a></li><li><a href="#metabase.api.meta.field">metabase.api.meta.field</a></li><li><a href="#metabase.api.meta.table">metabase.api.meta.table</a></li><li><a href="#metabase.api.org">metabase.api.org</a></li><li><a href="#metabase.api.qs">metabase.api.qs</a></li><li><a href="#metabase.api.query">metabase.api.query</a></li><li><a href="#metabase.api.result">metabase.api.result</a></li><li><a href="#metabase.api.routes">metabase.api.routes</a></li><li><a href="#metabase.api.search">metabase.api.search</a></li><li><a href="#metabase.api.session">metabase.api.session</a></li><li><a href="#metabase.api.user">metabase.api.user</a></li><li><a href="#metabase.bootstrap">metabase.bootstrap</a></li><li><a href="#metabase.bootstrap-db">metabase.bootstrap-db</a></li><li><a href="#metabase.config">metabase.config</a></li><li><a href="#metabase.core">metabase.core</a></li><li><a href="#metabase.db">metabase.db</a></li><li><a href="#metabase.db.internal">metabase.db.internal</a></li><li><a href="#metabase.driver">metabase.driver</a></li><li><a href="#metabase.driver.connection">metabase.driver.connection</a></li><li><a href="#metabase.driver.generic-sql.sync">metabase.driver.generic-sql.sync</a></li><li><a href="#metabase.driver.h2.connection">metabase.driver.h2.connection</a></li><li><a href="#metabase.driver.h2.sync">metabase.driver.h2.sync</a></li><li><a href="#metabase.driver.metadata">metabase.driver.metadata</a></li><li><a href="#metabase.driver.native">metabase.driver.native</a></li><li><a href="#metabase.driver.postgres">metabase.driver.postgres</a></li><li><a href="#metabase.driver.postgres.connection">metabase.driver.postgres.connection</a></li><li><a href="#metabase.driver.postgres.metadata">metabase.driver.postgres.metadata</a></li><li><a href="#metabase.driver.postgres.sync">metabase.driver.postgres.sync</a></li><li><a href="#metabase.driver.sync">metabase.driver.sync</a></li><li><a href="#metabase.driver.util">metabase.driver.util</a></li><li><a href="#metabase.http-client">metabase.http-client</a></li><li><a href="#metabase.middleware.current-user">metabase.middleware.current-user</a></li><li><a href="#metabase.middleware.format">metabase.middleware.format</a></li><li><a href="#metabase.middleware.log-api-call">metabase.middleware.log-api-call</a></li><li><a href="#metabase.models.annotation">metabase.models.annotation</a></li><li><a href="#metabase.models.card">metabase.models.card</a></li><li><a href="#metabase.models.card-favorite">metabase.models.card-favorite</a></li><li><a href="#metabase.models.common">metabase.models.common</a></li><li><a href="#metabase.models.dashboard">metabase.models.dashboard</a></li><li><a href="#metabase.models.dashboard-card">metabase.models.dashboard-card</a></li><li><a href="#metabase.models.dashboard-subscription">metabase.models.dashboard-subscription</a></li><li><a href="#metabase.models.database">metabase.models.database</a></li><li><a href="#metabase.models.emailreport">metabase.models.emailreport</a></li><li><a href="#metabase.models.emailreport-executions">metabase.models.emailreport-executions</a></li><li><a href="#metabase.models.emailreport-recipients">metabase.models.emailreport-recipients</a></li><li><a href="#metabase.models.field">metabase.models.field</a></li><li><a href="#metabase.models.field-values">metabase.models.field-values</a></li><li><a href="#metabase.models.foreign-key">metabase.models.foreign-key</a></li><li><a href="#metabase.models.hydrate">metabase.models.hydrate</a></li><li><a href="#metabase.models.org">metabase.models.org</a></li><li><a href="#metabase.models.org-perm">metabase.models.org-perm</a></li><li><a href="#metabase.models.query">metabase.models.query</a></li><li><a href="#metabase.models.query-execution">metabase.models.query-execution</a></li><li><a href="#metabase.models.session">metabase.models.session</a></li><li><a href="#metabase.models.table">metabase.models.table</a></li><li><a href="#metabase.models.table-segment">metabase.models.table-segment</a></li><li><a href="#metabase.models.user">metabase.models.user</a></li><li><a href="#metabase.routes">metabase.routes</a></li><li><a href="#metabase.util">metabase.util</a></li></ul></div></td><td class="codes">&nbsp;</td></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.annotation" name="metabase.api.annotation"><h1 class="project-name">metabase.api.annotation</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.api.annotation
   (:require [korma.core :refer [where subselect fields]]
             [compojure.core :refer [defroutes GET PUT POST DELETE]]
@@ -3023,8 +3023,8 @@ net.brehaut.ClojureTools = (function (SH) {
                                       [[code-or-code-message-pair (first rest-args)] (rest rest-args)])]
      (when-not test
        (throw (ApiException. (int code) message)))
-     (when-not (empty? rest-args)
-       (recur (first rest-args) (second rest-args) (drop 2 rest-args))))))</pre></td></tr><tr><td class="docs"><p>Checks that a list of params are non-nil or throws a 400.</p>
+     (if (empty? rest-args) test
+         (recur (first rest-args) (second rest-args) (drop 2 rest-args))))))</pre></td></tr><tr><td class="docs"><p>Checks that a list of params are non-nil or throws a 400.</p>
 </td><td class="codes"><pre class="brush: clojure">(defmacro require-params
   [&amp; params]
   `(do
@@ -3389,13 +3389,13 @@ or want to combine the <code>sel</code> and permissions check statements into a 
   (process-and-run body))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(define-routes)</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.meta.db" name="metabase.api.meta.db"><h1 class="project-name">metabase.api.meta.db</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>/api/meta/db endpoints.</p>
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.api.meta.db
-  (:require [compojure.core :refer [GET POST DELETE]]
+  (:require [compojure.core :refer [GET POST PUT DELETE]]
             [korma.core :refer :all]
             [medley.core :as medley]
             [metabase.api.common :refer :all]
             [metabase.db :refer :all]
             [metabase.driver :as driver]
-            [metabase.driver.postgres.sync :as pgsync]
+            [metabase.driver.sync :as sync]
             (metabase.models common
                              [hydrate :refer [hydrate]]
                              [database :refer [Database]]
@@ -3418,6 +3418,10 @@ or want to combine the <code>sel</code> and permissions check statements into a 
 </td><td class="codes"><pre class="brush: clojure">(defendpoint GET  [id]
   (-&gt;404 (sel :one Database :id id)
          (hydrate :organization)))</pre></td></tr><tr><td class="docs"><p>/:id</p>
+</td><td class="codes"><pre class="brush: clojure">(defendpoint PUT  [id :as {{:keys [name engine details]} :body}]
+  (println name engine details)
+  (write-check Database id)
+  (check-500 (upd Database id :name name :engine engine :details details)))</pre></td></tr><tr><td class="docs"><p>/:id</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint DELETE  [id]
   (write-check Database id)
   (del Database :id id))</pre></td></tr><tr><td class="docs"><p>/:id/autocomplete_suggestions</p>
@@ -3444,7 +3448,7 @@ or want to combine the <code>sel</code> and permissions check statements into a 
   (sel :many Table :db_id id (order :name)))</pre></td></tr><tr><td class="docs"><p>/:id/sync</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint POST  [id]
   (let-404 [db (sel :one Database :id id)]   ; TODO - run sync-tables asynchronously
-           (pgsync/sync-tables db))          ; TODO - this only works for Postgres right now (since that's the only driver we have)
+           (sync/sync-tables db))
   {:status :ok})</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(define-routes)</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.meta.field" name="metabase.api.meta.field"><h1 class="project-name">metabase.api.meta.field</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.api.meta.field
@@ -3965,7 +3969,88 @@ or want to combine the <code>sel</code> and permissions check statements into a 
     :details {:conn_str &quot;host=localhost port=15432 dbname=spotguides user=corvus password=corvus&quot;}))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defn bootstrap []
   (bootstrap-user)
-  (bootstrap-db))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.config" name="metabase.config"><h1 class="project-name">metabase.config</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+  (bootstrap-db))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.bootstrap-db" name="metabase.bootstrap-db"><h1 class="project-name">metabase.bootstrap-db</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.bootstrap-db
+  (:require [clojure.string :as s]
+            (korma [core :refer :all]
+                   [db :refer :all])))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(def test-db (create-db (h2 {:db &quot;file:test_db.db;AUTO_SERVER=TRUE&quot;
+                             :naming {:keys s/lower-case
+                                      :fields s/upper-case}})))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn- exec-sql [&amp; statements]
+  (mapv (fn [sql]
+          (println sql)
+          (exec-raw test-db sql))
+        statements))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn- exec-sql-with-results [&amp; statements]
+  (mapv (fn [sql]
+          (println sql)
+          (exec-raw test-db sql :results))
+        statements))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(def field-types-&gt;sql
+  {:double &quot;DOUBLE&quot;
+   :int &quot;INTEGER&quot;
+   :serial &quot;BIGINT AUTO_INCREMENT&quot;
+   :timestamp &quot;TIMESTAMP&quot;
+   :varchar &quot;VARCHAR(254)&quot;})</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn- format-fields [fields]
+  (-&gt;&gt; fields
+       (map (fn [[field-name field-type]]
+              (let [field-name (-&gt; field-name name s/upper-case)
+                    field-type (or (field-types-&gt;sql field-type)
+                                   (throw (Exception. (str &quot;Unknown field type: '&quot; field-type &quot;'!&quot;))))]
+                (format &quot;\&quot;%s\&quot; %s&quot; field-name field-type))))
+       (interpose &quot;, &quot;)
+       (apply str)))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn- create-table [table-name {:keys [fields pk rows]
+                                 :or {pk :id}}]
+  (let [table-name (-&gt; table-name name s/upper-case)
+        pk (-&gt; pk name s/upper-case)]
+    (exec-sql (format &quot;DROP TABLE IF EXISTS \&quot;%s\&quot;;&quot; table-name)
+              (format &quot;CREATE TABLE \&quot;%s\&quot; (%s, PRIMARY KEY (\&quot;%s\&quot;));&quot; table-name (format-fields fields) pk))
+    (-&gt; (create-entity table-name)
+        (database test-db)
+        (insert (values rows)))))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(def test-data
+  {:user {:fields {:id :serial
+                   :name :varchar}
+          :rows [{:name &quot;Cam Saul&quot;}
+                 {:name &quot;Rasta Toucan&quot;}
+                 {:name &quot;Lucky Pigeon&quot;}]}
+   :venue {:fields {:id :serial
+                    :name :varchar
+                    :latitude :double
+                    :longitude :double}
+           :rows [{:name &quot;Paris Cafe&quot;
+                   :latitude 48.8446
+                   :longitude 2.33202}
+                  {:name &quot;SF Donut Shop&quot;
+                   :latitude 37.771
+                   :longitude -122.415}
+                  {:name &quot;Sonoma Vineyard&quot;
+                   :latitude 38.2939
+                   :longitude -122.459}
+                  {:name &quot;SF Bar&quot;
+                   :latitude 37.7695
+                   :longitude -122.404}
+                  {:name &quot;SF Steak House&quot;
+                   :latitude 37.795
+                   :longitude -122.423}]}
+   :photo {:fields {:id :serial
+                    :user_id :int
+                    :venue_id :int
+                    :url :varchar}
+           :rows [{:user_id 1
+                   :venue_id 2
+                   :url &quot;http://metabase.com/photo/1&quot;}
+                  {:user_id 1
+                   :venue_id 4
+                   :url &quot;http://metabase.com/photo/2&quot;}
+                  {:user_id 2
+                   :venue_id 4
+                   :url &quot;http://metabase.com/photo/3&quot;}]}})</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn create-test-tables []
+  (dorun (map (partial apply create-table) test-data)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.config" name="metabase.config"><h1 class="project-name">metabase.config</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.config)</pre></td></tr><tr><td class="docs"><p>Global application defaults</p>
 </td><td class="codes"><pre class="brush: clojure">(def app-defaults
   {:database-file &quot;metabase.db&quot;})</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.core" name="metabase.core"><h1 class="project-name">metabase.core</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
@@ -4009,8 +4094,8 @@ or want to combine the <code>sel</code> and permissions check statements into a 
             [clojure.tools.logging :as log]
             [clojure.string :as str]
             [environ.core :refer [env]]
-            [korma.core :refer :all]
-            [korma.db :refer :all]
+            (korma [core :refer :all]
+                   [db :refer :all])
             [medley.core :refer [filter-vals]]
             [metabase.config :refer [app-defaults]]
             [metabase.db.internal :refer :all]))</pre></td></tr><tr><td class="docs">
@@ -4203,18 +4288,80 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
 </td><td class="codes"><pre class="brush: clojure">(defn process-and-run [{:keys [type] :as query}]
   (case (keyword type)
     :native (metabase.driver.native/process-and-run query)
-    :query (metabase.driver.postgres/process-and-run query)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.metadata" name="metabase.driver.metadata"><h1 class="project-name">metabase.driver.metadata</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Metadata multi-methods. Implemented by the various drivers, e.g. <code>metabase.driver.postgres.metadata</code>.</p>
-</td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.metadata)</pre></td></tr><tr><td class="docs"><p>Dispatch fn for the various field info multi-methods. When calling a method like <code>field-count</code>, FIELD's Database
-   is fetched and we dispatch on it's <code>engine</code> (as a keyword). e.g. <code>:postgres</code></p>
-</td><td class="codes"><pre class="brush: clojure">(defn- field-info-dispatch
+    :query (metabase.driver.postgres/process-and-run query)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.connection" name="metabase.driver.connection"><h1 class="project-name">metabase.driver.connection</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.connection
+  (:require [metabase.driver.util :as util]))</pre></td></tr><tr><td class="docs"><p>Return a map of connection details (in format usable by korma) for DATABASE.</p>
+</td><td class="codes"><pre class="brush: clojure">(defmulti connection-details
+  (util/db-dispatch-fn &quot;connection&quot;))</pre></td></tr><tr><td class="docs"><p>Return a korma connection to DATABASE.</p>
+</td><td class="codes"><pre class="brush: clojure">(defmulti connection
+  (util/db-dispatch-fn &quot;connection&quot;))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.generic-sql.sync" name="metabase.driver.generic-sql.sync"><h1 class="project-name">metabase.driver.generic-sql.sync</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Generic implementations of <code>metabase.driver.sync</code> functions that should work across different SQL databases.</p>
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.generic-sql.sync
+  (:require [metabase.db :refer :all]
+            (metabase.models [field :refer [Field]]
+                             [table :refer [Table]])))</pre></td></tr><tr><td class="docs"><p>Get the number of rows in TABLE.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn get-table-row-count
+  [database table]
+  (-&gt; ((:native-query database) (format &quot;SELECT COUNT(*) FROM \&quot;%s\&quot;&quot; (:name table)))
+      first
+      :count))</pre></td></tr><tr><td class="docs"><p>Update the <code>:rows</code> column for TABLE with the count from <code>get-table-row-count</code>.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn update-table-row-count
+  [database table]
+  (let [new-count (get-table-row-count database table)]
+    (upd Table (:id table) :rows new-count)))</pre></td></tr><tr><td class="docs"><p>COLUMN->BASE-TYPE should be a map of column types returned by the DB to Field base types.</p>
+</td><td class="codes"><pre class="brush: clojure">(def ^:dynamic *column-&gt;base-type*
+  {})</pre></td></tr><tr><td class="docs"><p>Sync <code>Fields</code> for TABLE. </p>
+</td><td class="codes"><pre class="brush: clojure">(defn sync-fields
+  [{:keys [id jdbc-columns] :as table}]
+  (dorun (map (fn [{:keys [type_name column_name]}]
+                (or (exists? Field :table_id id :name column_name)
+                    (ins Field
+                      :table_id id
+                      :name column_name
+                      :base_type (or (*column-&gt;base-type* (keyword type_name))
+                                     (throw (Exception. (str &quot;Column '&quot; column_name &quot;' has an unknown type: '&quot; type_name
+                                                             &quot;'. Please add the type mapping to corresponding driver (e.g. metabase.driver.postgres.sync).&quot;)))))))
+              @jdbc-columns)))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn sync-tables
+  [{:keys [id table-names] :as database}]
+  (binding [*log-db-calls* false]
+    (-&gt;&gt; (doall @table-names)
+         (pmap (fn [table-name]
+                 (let [table (or (sel :one Table :db_id id :name table-name)
+                                 (ins Table
+                                   :db_id id
+                                   :name table-name
+                                   :active true))]
+                   (update-table-row-count database table)
+                   (sync-fields table)
+                   (println table-name))))
+         dorun)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.h2.connection" name="metabase.driver.h2.connection"><h1 class="project-name">metabase.driver.h2.connection</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.h2.connection
+  (:require [korma.db]
+            [metabase.driver.connection :refer :all]))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defmethod connection-details :h2 [{:keys [details]}]
+  (clojure.set/rename-keys details {:conn_str :db}))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defmethod connection :h2 [{:keys [connection-details]}]
+  (korma.db/h2 @connection-details))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.h2.sync" name="metabase.driver.h2.sync"><h1 class="project-name">metabase.driver.h2.sync</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Implementation of <code>sync-tables</code> for H2.</p>
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.h2.sync
+  (:require [metabase.driver.generic-sql.sync :as generic]
+            [metabase.driver.sync :as driver]))</pre></td></tr><tr><td class="docs"><p>Map of H2 Column types -> Field base types. (Add more mappings here as needed)</p>
+</td><td class="codes"><pre class="brush: clojure">(def column-&gt;base-type
+  {:BIGINT :BigIntegerField
+   :DOUBLE :FloatField
+   :INTEGER :IntegerField
+   :VARCHAR :TextField})</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defmethod driver/sync-tables :h2 [database]
+  (binding [generic/*column-&gt;base-type* column-&gt;base-type]
+    (generic/sync-tables database)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.metadata" name="metabase.driver.metadata"><h1 class="project-name">metabase.driver.metadata</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Metadata multi-methods. Implemented by the various drivers, e.g. <code>metabase.driver.postgres.metadata</code>.</p>
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.metadata
+  (:require [metabase.driver.util :as util]))</pre></td></tr><tr><td class="docs"><p>Dispatch function that keys of of <code>(:engine @(:db field))</code>.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn- field-dispatch-fn
   [{:keys [db] :as field}]
-  (let [{:keys [engine]} @db]
-    (require (symbol (str &quot;metabase.driver.&quot; engine &quot;.metadata&quot;)))  ; dynamically load the correct driver implementation
-    (keyword engine)))                                              ; there's probably some better way to do this</pre></td></tr><tr><td class="docs"><p>Return number of rows for FIELD.</p>
+  ((util/db-dispatch-fn &quot;metadata&quot;) @db))</pre></td></tr><tr><td class="docs"><p>Return number of rows for FIELD.</p>
 </td><td class="codes"><pre class="brush: clojure">(defmulti field-count
-  field-info-dispatch)</pre></td></tr><tr><td class="docs"><p>Return number of distinct rows for FIELD.</p>
+  field-dispatch-fn)</pre></td></tr><tr><td class="docs"><p>Return number of distinct rows for FIELD.</p>
 </td><td class="codes"><pre class="brush: clojure">(defmulti field-distinct-count
-  field-info-dispatch)</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.native" name="metabase.driver.native"><h1 class="project-name">metabase.driver.native</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>The <code>native</code> query processor.</p>
+  field-dispatch-fn)</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.native" name="metabase.driver.native"><h1 class="project-name">metabase.driver.native</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>The <code>native</code> query processor.</p>
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.native
   (:import com.metabase.corvus.api.ApiException)
   (:require [metabase.api.common :refer :all]
@@ -4406,7 +4553,32 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
                        (mapv format-result))
             :columns (mapv :name columns)
             :cols (mapv column-name-&gt;column
-                        ordered-columns)}}))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.postgres.metadata" name="metabase.driver.postgres.metadata"><h1 class="project-name">metabase.driver.postgres.metadata</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+                        ordered-columns)}}))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.postgres.connection" name="metabase.driver.postgres.connection"><h1 class="project-name">metabase.driver.postgres.connection</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.postgres.connection
+  (:require [clojure.set :refer [rename-keys]]
+            [clojure.string :as s]
+            [korma.db]
+            [swiss.arrows :refer :all]
+            [metabase.driver.connection :refer :all]))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defmethod connection-details :postgres [database]
+  (let [details (-&lt;&gt;&gt; database :details :conn_str             ; get conn str like &quot;password=corvus user=corvus ...&quot;
+                      (s/split &lt;&gt; #&quot; &quot;)                       ; split into k=v pairs
+                      (map (fn [pair]                          ; convert to {:k v} pairs
+                             (let [[k v] (s/split pair #&quot;=&quot;)]
+                               {(keyword k) v})))
+                      (reduce conj {}))                       ; combine into single dict
+        {:keys [host dbname port host]} details]
+    (-&gt; details
+        (assoc :host host                                     ; e.g. &quot;localhost&quot;
+               :db-type :postgres                             ; HACK hardcoded to postgres for time being until API has a way to choose DB type !
+               :port (Integer/parseInt port))                 ; convert :port to an Integer
+        (rename-keys {:dbname :db}))))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defmethod connection :postgres [{:keys [connection-details]}]
+  (-&gt; @connection-details
+      (assoc :host &quot;localhost&quot; ; while we are still ghetto and connecting thru the docker DB fake our settings
+             :port 15432)
+      (dissoc :db-type)
+      korma.db/postgres))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.postgres.metadata" name="metabase.driver.postgres.metadata"><h1 class="project-name">metabase.driver.postgres.metadata</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.postgres.metadata
   (:require [metabase.driver.metadata :refer [field-count field-distinct-count]]))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod field-count :postgres
@@ -4426,12 +4598,10 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
                name
                (:name (table))))
       first
-      :count))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.postgres.sync" name="metabase.driver.postgres.sync"><h1 class="project-name">metabase.driver.postgres.sync</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+      :count))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.postgres.sync" name="metabase.driver.postgres.sync"><h1 class="project-name">metabase.driver.postgres.sync</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Implementation of <code>sync-tables</code> for Postgres.</p>
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.postgres.sync
-  (:require [metabase.db :refer :all]
-            (metabase.models [field :refer [Field]]
-                             [table :refer [Table]]
-                             [database :refer [Database]])))</pre></td></tr><tr><td class="docs"><p>Map of Postgres column types -> Field base types.
+  (:require [metabase.driver.generic-sql.sync :as generic]
+            [metabase.driver.sync :as driver]))</pre></td></tr><tr><td class="docs"><p>Map of Postgres column types -> Field base types.
    Add more mappings here as you come across them.</p>
 </td><td class="codes"><pre class="brush: clojure">(def column-&gt;base-type
   {:bool :BooleanField
@@ -4444,41 +4614,29 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
    :text :TextField
    :timestamptz :DateTimeField
    :varchar :TextField})</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(declare sync-fields)</pre></td></tr><tr><td class="docs"><p>Get the number of rows in TABLE.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn get-table-row-count
-  [database table]
-  (-&gt; ((:native-query database) (format &quot;SELECT COUNT(*) FROM \&quot;%s\&quot;&quot; (:name table)))
-      first
-      :count))</pre></td></tr><tr><td class="docs"><p>Update the <code>:rows</code> column for TABLE with the count from <code>get-table-row-count</code>.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn update-table-row-count
-  [database table]
-  (let [new-count (get-table-row-count database table)]
-    (upd Table (:id table) :rows new-count)))</pre></td></tr><tr><td class="docs"><p>Fetch the table names for DATABASE and create corresponding <code>Tables</code> if they don't already exist.
-   (This is executed in parallel.)</p>
-</td><td class="codes"><pre class="brush: clojure">(defn sync-tables
-  [{:keys [id table-names] :as database}]
-  (binding [*log-db-calls* false]
-    (dorun (pmap (fn [table-name]
-                   (let [table (or (sel :one Table :db_id id :name table-name)
-                                   (ins Table
-                                        :db_id id
-                                        :name table-name
-                                        :active true))]
-                     (update-table-row-count database table)
-                     (sync-fields table)
-                     (println table-name)))
-                 @table-names))))</pre></td></tr><tr><td class="docs"><p>Sync <code>Fields</code> for TABLE.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn sync-fields
-  [{:keys [id jdbc-columns] :as table}]
-  (dorun (map (fn [{:keys [type_name column_name]}]
-                (or (exists? Field :table_id id :name column_name)
-                    (ins Field
-                         :table_id id
-                         :name column_name
-                         :base_type (or (column-&gt;base-type (keyword type_name))
-                                        (throw (Exception. (str &quot;Column &quot; column_name &quot;has an unknown type: &quot; type_name
-                                                                &quot;. Please add the type mapping to metabase.driver.postgres.sync.&quot;)))))))
-              @jdbc-columns)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.http-client" name="metabase.http-client"><h1 class="project-name">metabase.http-client</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>HTTP client for making API calls against the Metabase API. For test/REPL purposes.</p>
+</td><td class="codes"><pre class="brush: clojure">(defmethod driver/sync-tables :postgres [database]
+  (binding [generic/*column-&gt;base-type* column-&gt;base-type]
+    (generic/sync-tables database)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.sync" name="metabase.driver.sync"><h1 class="project-name">metabase.driver.sync</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Functionality related to 'syncing' a <code>Database</code> (getting list of <code>Fields</code> and info about them).
+   This namespace defines multimethods that are implemented by various drivers.</p>
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.sync
+  (:require [metabase.driver.util :as util]))</pre></td></tr><tr><td class="docs"><p>Fetch the table names for DATABASE and create corresponding <code>Tables</code> if they don't already exist.
+  (This is executed in parallel.)</p>
+</td><td class="codes"><pre class="brush: clojure">(defmulti sync-tables
+  (util/db-dispatch-fn &quot;sync&quot;))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.util" name="metabase.driver.util"><h1 class="project-name">metabase.driver.util</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Utility functions used internally by <code>metabase.driver</code>.</p>
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.util)</pre></td></tr><tr><td class="docs"><p>Returns a dispatch fn for multi-methods that keys off of a <code>Database's</code> <code>:engine</code>.</p>
+
+<p>   The correct driver implementation is loaded dynamically to avoid having to require the files elsewhere in the codebase.
+   IMPL-NAMESPACE is the namespace we should load relative to the driver, e.g.</p>
+
+<pre><code>(defmulti my-multimethod (db-dispatch-fn "metadata"))
+</code></pre>
+
+<p>   Would load <code>metabase.driver.postgres.metadata</code> for a <code>Database</code> whose <code>:engine</code> was <code>:postgres</code>.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn db-dispatch-fn
+  [impl-namespace]
+  (fn [{:keys [engine]}]
+    (require (symbol (str &quot;metabase.driver.&quot; engine &quot;.&quot; impl-namespace)))
+    (keyword engine)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.http-client" name="metabase.http-client"><h1 class="project-name">metabase.http-client</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>HTTP client for making API calls against the Metabase API. For test/REPL purposes.</p>
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.http-client
   (:require [clojure.data.json :as json]
             [clj-http.client :as client]))</pre></td></tr><tr><td class="docs">
@@ -4796,40 +4954,17 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.models.database
   (:require [clojure.data.json :as json]
             [clojure.java.jdbc :as jdbc]
-            [clojure.set :refer [rename-keys]]
-            [clojure.string :as s]
             [korma.core :refer :all]
-            [swiss.arrows :refer :all]
             [metabase.api.common :refer :all]
             [metabase.db :refer :all]
+            [metabase.driver.connection :as conn]
             (metabase.models [hydrate :refer [realize-json]]
                              [org :refer [Org org-can-read org-can-write]])
             [metabase.util :refer :all]))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defentity Database
-  (table :metabase_database))</pre></td></tr><tr><td class="docs"><p>Return a map of connection details (in format usable by korma) for DATABASE.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn- connection-details
-  [database]
-  (let [details (-&lt;&gt;&gt; database :details :conn_str             ; get conn str like &quot;password=corvus user=corvus ...&quot;
-                      (s/split &lt;&gt; #&quot; &quot;)                       ; split into k=v pairs
-                      (map (fn [pair]                          ; convert to {:k v} pairs
-                             (let [[k v] (s/split pair #&quot;=&quot;)]
-                               {(keyword k) v})))
-                      (reduce conj {}))                       ; combine into single dict
-        {:keys [host dbname port host]} details]
-    (-&gt; details
-        (assoc :host host                                     ; e.g. &quot;localhost&quot;
-               :db-type :postgres                             ; HACK hardcoded to postgres for time being until API has a way to choose DB type !
-               :port (Integer/parseInt port))                 ; convert :port to an Integer
-        (rename-keys {:dbname :db}))))</pre></td></tr><tr><td class="docs"><p>Return a korma connection to DATABASE.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn- connection
-  [database]
-  (let [{:keys [db-type] :as details} (-&gt; @(:connection-details database)
-                                          (assoc :host &quot;localhost&quot;     ; while we are still ghetto and connecting thru the docker DB fake our settings
-                                                 :port 15432))
-        korma-driver (-&gt;&gt; db-type name (str &quot;korma.db/&quot;) symbol eval)] ; e.g. korma.db/postgres
-    (-&gt; details
-        (dissoc :db-type)
-        korma-driver)))</pre></td></tr><tr><td class="docs"><p>Call fn F with the JDBC Metadata for DATABASE.</p>
+  (table :metabase_database))</pre></td></tr><tr><td class="docs"><p>TODO - these implementations should be moved to <code>metabase.driver</code>. Since they can be reused by several drivers,
+should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
+</td><td class="codes"></td></tr><tr><td class="docs"><p>Call fn F with the JDBC Metadata for DATABASE.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn with-jdbc-metadata
   [database f]
   (jdbc/with-db-metadata [md @(:connection database)]
@@ -4840,7 +4975,7 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
     (fn [md] (-&gt;&gt; (-&gt; md
                      (.getTables nil nil nil (into-array String [&quot;TABLE&quot;])) ; ResultSet getTables(String catalog, String schemaPattern, String tableNamePattern, String[] types)
                      jdbc/result-set-seq)
-                 (map :table_name)))))</pre></td></tr><tr><td class="docs"><p>Perform a native (i.e. SQL) query against DATABASE.</p>
+                 (mapv :table_name)))))</pre></td></tr><tr><td class="docs"><p>Perform a native (i.e. SQL) query against DATABASE.</p>
 
 <pre><code>(let [db (sel :one Database :name "spotguides")]
   ((:native-query db) "SELECT COUNT(*) FROM main_guide;"))
@@ -4854,13 +4989,17 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
       (assoc* :organization (sel-fn :one Org :id organization_id)
               :can_read (delay (org-can-read organization_id))
               :can_write (delay (org-can-write organization_id))
-              :connection-details (delay (connection-details &lt;&gt;))
-              :connection (delay (connection &lt;&gt;))
+              :connection-details (delay (conn/connection-details &lt;&gt;))
+              :connection (delay (conn/connection &lt;&gt;))
               :native-query (partial native-query &lt;&gt;)
               :table-names (delay (table-names &lt;&gt;)))))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod pre-insert Database [_ {:keys [details] :as database}]
   (assoc database
          :created_at (new-sql-date)
+         :updated_at (new-sql-date)
+         :details (json/write-str details)))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defmethod pre-update Database [_ {:keys [details] :as database}]
+  (assoc database
          :updated_at (new-sql-date)
          :details (json/write-str details)))</pre></td></tr><tr><td class="docs"><p>Selects the ID and NAME for all databases available to the given org-id.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn databases-for-org
@@ -5263,14 +5402,14 @@ specifically excludes stored data columns</p>
                              [field :refer [Field]])
             [metabase.util :as util]))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defentity Table
-  (table :metabase_table))</pre></td></tr><tr><td class="docs">
+  (table :metabase_table))</pre></td></tr><tr><td class="docs"><p>Fetch information about the various columns for Table with TABLE-NAME by getting JDBC metadata for DATABASE.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn jdbc-columns
   [database table-name]
   (with-jdbc-metadata database
     (fn [md] (-&gt;&gt; (-&gt; md
                      (.getColumns nil nil table-name nil) ; ResultSet getColumns(String catalog, String schemaPattern, String tableNamePattern, String columnNamePattern)
                      jdbc/result-set-seq)
-                 (map #(select-keys % [:column_name :type_name]))))))</pre></td></tr><tr><td class="docs">
+                 (mapv #(select-keys % [:column_name :type_name]))))))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod post-select Table [_ {:keys [id db_id name] :as table}]
   (util/assoc* table
                :db (sel-fn :one Database :id db_id)
@@ -5432,7 +5571,7 @@ turns out <code>medley.core/mapply</code> does the same thingx</p>
   (time/unparse (time/formatters :date-time-no-ms) (coerce/from-long (System/currentTimeMillis))))</pre></td></tr><tr><td class="docs"><p>Convert a <code>JdbcClob</code> to a <code>String</code> so it can be serialized to JSON.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn jdbc-clob-to-str
   [^org.h2.jdbc.JdbcClob clob]
-  (.getSubString clob 1 (.length clob)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr></table><div class="footer">Generated by <a href="https://github.com/gdeer81/marginalia">Marginalia</a>.&nbsp;&nbsp;Syntax highlighting provided by Alex Gorbatchev's <a href="http://alexgorbatchev.com/SyntaxHighlighter/">SyntaxHighlighter</a><div id="floating-toc"><ul><li class="floating-toc-li" id="floating-toc_metabase.api.annotation">metabase.api.annotation</li><li class="floating-toc-li" id="floating-toc_metabase.api.card">metabase.api.card</li><li class="floating-toc-li" id="floating-toc_metabase.api.common">metabase.api.common</li><li class="floating-toc-li" id="floating-toc_metabase.api.common.internal">metabase.api.common.internal</li><li class="floating-toc-li" id="floating-toc_metabase.api.dash">metabase.api.dash</li><li class="floating-toc-li" id="floating-toc_metabase.api.emailreport">metabase.api.emailreport</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.dataset">metabase.api.meta.dataset</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.db">metabase.api.meta.db</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.field">metabase.api.meta.field</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.table">metabase.api.meta.table</li><li class="floating-toc-li" id="floating-toc_metabase.api.org">metabase.api.org</li><li class="floating-toc-li" id="floating-toc_metabase.api.qs">metabase.api.qs</li><li class="floating-toc-li" id="floating-toc_metabase.api.query">metabase.api.query</li><li class="floating-toc-li" id="floating-toc_metabase.api.result">metabase.api.result</li><li class="floating-toc-li" id="floating-toc_metabase.api.routes">metabase.api.routes</li><li class="floating-toc-li" id="floating-toc_metabase.api.search">metabase.api.search</li><li class="floating-toc-li" id="floating-toc_metabase.api.session">metabase.api.session</li><li class="floating-toc-li" id="floating-toc_metabase.api.user">metabase.api.user</li><li class="floating-toc-li" id="floating-toc_metabase.bootstrap">metabase.bootstrap</li><li class="floating-toc-li" id="floating-toc_metabase.config">metabase.config</li><li class="floating-toc-li" id="floating-toc_metabase.core">metabase.core</li><li class="floating-toc-li" id="floating-toc_metabase.db">metabase.db</li><li class="floating-toc-li" id="floating-toc_metabase.db.internal">metabase.db.internal</li><li class="floating-toc-li" id="floating-toc_metabase.driver">metabase.driver</li><li class="floating-toc-li" id="floating-toc_metabase.driver.metadata">metabase.driver.metadata</li><li class="floating-toc-li" id="floating-toc_metabase.driver.native">metabase.driver.native</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres">metabase.driver.postgres</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.metadata">metabase.driver.postgres.metadata</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.sync">metabase.driver.postgres.sync</li><li class="floating-toc-li" id="floating-toc_metabase.http-client">metabase.http-client</li><li class="floating-toc-li" id="floating-toc_metabase.middleware.current-user">metabase.middleware.current-user</li><li class="floating-toc-li" id="floating-toc_metabase.middleware.format">metabase.middleware.format</li><li class="floating-toc-li" id="floating-toc_metabase.middleware.log-api-call">metabase.middleware.log-api-call</li><li class="floating-toc-li" id="floating-toc_metabase.models.annotation">metabase.models.annotation</li><li class="floating-toc-li" id="floating-toc_metabase.models.card">metabase.models.card</li><li class="floating-toc-li" id="floating-toc_metabase.models.card-favorite">metabase.models.card-favorite</li><li class="floating-toc-li" id="floating-toc_metabase.models.common">metabase.models.common</li><li class="floating-toc-li" id="floating-toc_metabase.models.dashboard">metabase.models.dashboard</li><li class="floating-toc-li" id="floating-toc_metabase.models.dashboard-card">metabase.models.dashboard-card</li><li class="floating-toc-li" id="floating-toc_metabase.models.dashboard-subscription">metabase.models.dashboard-subscription</li><li class="floating-toc-li" id="floating-toc_metabase.models.database">metabase.models.database</li><li class="floating-toc-li" id="floating-toc_metabase.models.emailreport">metabase.models.emailreport</li><li class="floating-toc-li" id="floating-toc_metabase.models.emailreport-executions">metabase.models.emailreport-executions</li><li class="floating-toc-li" id="floating-toc_metabase.models.emailreport-recipients">metabase.models.emailreport-recipients</li><li class="floating-toc-li" id="floating-toc_metabase.models.field">metabase.models.field</li><li class="floating-toc-li" id="floating-toc_metabase.models.field-values">metabase.models.field-values</li><li class="floating-toc-li" id="floating-toc_metabase.models.foreign-key">metabase.models.foreign-key</li><li class="floating-toc-li" id="floating-toc_metabase.models.hydrate">metabase.models.hydrate</li><li class="floating-toc-li" id="floating-toc_metabase.models.org">metabase.models.org</li><li class="floating-toc-li" id="floating-toc_metabase.models.org-perm">metabase.models.org-perm</li><li class="floating-toc-li" id="floating-toc_metabase.models.query">metabase.models.query</li><li class="floating-toc-li" id="floating-toc_metabase.models.query-execution">metabase.models.query-execution</li><li class="floating-toc-li" id="floating-toc_metabase.models.session">metabase.models.session</li><li class="floating-toc-li" id="floating-toc_metabase.models.table">metabase.models.table</li><li class="floating-toc-li" id="floating-toc_metabase.models.table-segment">metabase.models.table-segment</li><li class="floating-toc-li" id="floating-toc_metabase.models.user">metabase.models.user</li><li class="floating-toc-li" id="floating-toc_metabase.routes">metabase.routes</li><li class="floating-toc-li" id="floating-toc_metabase.util">metabase.util</li></ul></div></div><script type="text/javascript">SyntaxHighlighter.defaults['gutter'] = false;
+  (.getSubString clob 1 (.length clob)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr></table><div class="footer">Generated by <a href="https://github.com/gdeer81/marginalia">Marginalia</a>.&nbsp;&nbsp;Syntax highlighting provided by Alex Gorbatchev's <a href="http://alexgorbatchev.com/SyntaxHighlighter/">SyntaxHighlighter</a><div id="floating-toc"><ul><li class="floating-toc-li" id="floating-toc_metabase.api.annotation">metabase.api.annotation</li><li class="floating-toc-li" id="floating-toc_metabase.api.card">metabase.api.card</li><li class="floating-toc-li" id="floating-toc_metabase.api.common">metabase.api.common</li><li class="floating-toc-li" id="floating-toc_metabase.api.common.internal">metabase.api.common.internal</li><li class="floating-toc-li" id="floating-toc_metabase.api.dash">metabase.api.dash</li><li class="floating-toc-li" id="floating-toc_metabase.api.emailreport">metabase.api.emailreport</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.dataset">metabase.api.meta.dataset</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.db">metabase.api.meta.db</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.field">metabase.api.meta.field</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.table">metabase.api.meta.table</li><li class="floating-toc-li" id="floating-toc_metabase.api.org">metabase.api.org</li><li class="floating-toc-li" id="floating-toc_metabase.api.qs">metabase.api.qs</li><li class="floating-toc-li" id="floating-toc_metabase.api.query">metabase.api.query</li><li class="floating-toc-li" id="floating-toc_metabase.api.result">metabase.api.result</li><li class="floating-toc-li" id="floating-toc_metabase.api.routes">metabase.api.routes</li><li class="floating-toc-li" id="floating-toc_metabase.api.search">metabase.api.search</li><li class="floating-toc-li" id="floating-toc_metabase.api.session">metabase.api.session</li><li class="floating-toc-li" id="floating-toc_metabase.api.user">metabase.api.user</li><li class="floating-toc-li" id="floating-toc_metabase.bootstrap">metabase.bootstrap</li><li class="floating-toc-li" id="floating-toc_metabase.bootstrap-db">metabase.bootstrap-db</li><li class="floating-toc-li" id="floating-toc_metabase.config">metabase.config</li><li class="floating-toc-li" id="floating-toc_metabase.core">metabase.core</li><li class="floating-toc-li" id="floating-toc_metabase.db">metabase.db</li><li class="floating-toc-li" id="floating-toc_metabase.db.internal">metabase.db.internal</li><li class="floating-toc-li" id="floating-toc_metabase.driver">metabase.driver</li><li class="floating-toc-li" id="floating-toc_metabase.driver.connection">metabase.driver.connection</li><li class="floating-toc-li" id="floating-toc_metabase.driver.generic-sql.sync">metabase.driver.generic-sql.sync</li><li class="floating-toc-li" id="floating-toc_metabase.driver.h2.connection">metabase.driver.h2.connection</li><li class="floating-toc-li" id="floating-toc_metabase.driver.h2.sync">metabase.driver.h2.sync</li><li class="floating-toc-li" id="floating-toc_metabase.driver.metadata">metabase.driver.metadata</li><li class="floating-toc-li" id="floating-toc_metabase.driver.native">metabase.driver.native</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres">metabase.driver.postgres</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.connection">metabase.driver.postgres.connection</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.metadata">metabase.driver.postgres.metadata</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.sync">metabase.driver.postgres.sync</li><li class="floating-toc-li" id="floating-toc_metabase.driver.sync">metabase.driver.sync</li><li class="floating-toc-li" id="floating-toc_metabase.driver.util">metabase.driver.util</li><li class="floating-toc-li" id="floating-toc_metabase.http-client">metabase.http-client</li><li class="floating-toc-li" id="floating-toc_metabase.middleware.current-user">metabase.middleware.current-user</li><li class="floating-toc-li" id="floating-toc_metabase.middleware.format">metabase.middleware.format</li><li class="floating-toc-li" id="floating-toc_metabase.middleware.log-api-call">metabase.middleware.log-api-call</li><li class="floating-toc-li" id="floating-toc_metabase.models.annotation">metabase.models.annotation</li><li class="floating-toc-li" id="floating-toc_metabase.models.card">metabase.models.card</li><li class="floating-toc-li" id="floating-toc_metabase.models.card-favorite">metabase.models.card-favorite</li><li class="floating-toc-li" id="floating-toc_metabase.models.common">metabase.models.common</li><li class="floating-toc-li" id="floating-toc_metabase.models.dashboard">metabase.models.dashboard</li><li class="floating-toc-li" id="floating-toc_metabase.models.dashboard-card">metabase.models.dashboard-card</li><li class="floating-toc-li" id="floating-toc_metabase.models.dashboard-subscription">metabase.models.dashboard-subscription</li><li class="floating-toc-li" id="floating-toc_metabase.models.database">metabase.models.database</li><li class="floating-toc-li" id="floating-toc_metabase.models.emailreport">metabase.models.emailreport</li><li class="floating-toc-li" id="floating-toc_metabase.models.emailreport-executions">metabase.models.emailreport-executions</li><li class="floating-toc-li" id="floating-toc_metabase.models.emailreport-recipients">metabase.models.emailreport-recipients</li><li class="floating-toc-li" id="floating-toc_metabase.models.field">metabase.models.field</li><li class="floating-toc-li" id="floating-toc_metabase.models.field-values">metabase.models.field-values</li><li class="floating-toc-li" id="floating-toc_metabase.models.foreign-key">metabase.models.foreign-key</li><li class="floating-toc-li" id="floating-toc_metabase.models.hydrate">metabase.models.hydrate</li><li class="floating-toc-li" id="floating-toc_metabase.models.org">metabase.models.org</li><li class="floating-toc-li" id="floating-toc_metabase.models.org-perm">metabase.models.org-perm</li><li class="floating-toc-li" id="floating-toc_metabase.models.query">metabase.models.query</li><li class="floating-toc-li" id="floating-toc_metabase.models.query-execution">metabase.models.query-execution</li><li class="floating-toc-li" id="floating-toc_metabase.models.session">metabase.models.session</li><li class="floating-toc-li" id="floating-toc_metabase.models.table">metabase.models.table</li><li class="floating-toc-li" id="floating-toc_metabase.models.table-segment">metabase.models.table-segment</li><li class="floating-toc-li" id="floating-toc_metabase.models.user">metabase.models.user</li><li class="floating-toc-li" id="floating-toc_metabase.routes">metabase.routes</li><li class="floating-toc-li" id="floating-toc_metabase.util">metabase.util</li></ul></div></div><script type="text/javascript">SyntaxHighlighter.defaults['gutter'] = false;
 SyntaxHighlighter.all();
 
 // hackity hack
