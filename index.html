@@ -4340,7 +4340,8 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
 
 <p>ex.</p>
 
-<p>   ["distinct" 1412]</p>
+<pre><code>["distinct" 1412]
+</code></pre>
 </td><td class="codes"><pre class="brush: clojure">(defmethod apply-form :aggregation [[_ value]]
   (match value
     [&quot;rows&quot;]  nil                                  ; don't need to do anything special for `rows` - `select` selects all rows by default
@@ -4352,10 +4353,12 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
                        :distinct `(aggregate (~'count (raw ~(format &quot;DISTINCT(\&quot;%s\&quot;)&quot; (name field)))) :count)
                        :stddev   `(fields [(sqlfn :stddev ~field) :stddev])
                        :sum      `(aggregate (~'sum ~field) :sum)))))</pre></td></tr><tr><td class="docs"><p>TODO - <code>:cum_sum</code> is not yet implemented (!)</p>
-</td><td class="codes"></td></tr><tr><td class="docs"><p><code>:breakout</code>
-ex.</p>
+</td><td class="codes"></td></tr><tr><td class="docs"><h3>`:breakout`</h3>
 
-<p>[1412 1413]</p>
+<p>ex.</p>
+
+<pre><code>[1412 1413]
+</code></pre>
 </td><td class="codes"><pre class="brush: clojure">(defmethod apply-form :breakout [[_ field-ids]] ; TODO - not yet implemented
   (when-not (= field-ids [nil])                      ; `:breakout [nil]` is considered a valid 'empty' form
     (let [field-names (map field-id-&gt;kw field-ids)]
@@ -4364,7 +4367,8 @@ ex.</p>
 
 <p>ex.</p>
 
-<p>   [1412 1413]</p>
+<pre><code>[1412 1413]
+</code></pre>
 </td><td class="codes"><pre class="brush: clojure">(defmethod apply-form :fields [[_ field-ids]]
   (let [field-names (-&gt;&gt; (sel :many [Field :name] :id [in (set field-ids)])
                          (map :name))]
@@ -4372,9 +4376,10 @@ ex.</p>
 
 <p>ex.</p>
 
-<p>   ["AND"
-     [">" 1413 1]
-     [">=" 1412 4]]</p>
+<pre><code>["AND"
+  ["&gt;" 1413 1]
+  ["&gt;=" 1412 4]]
+</code></pre>
 </td><td class="codes"><pre class="brush: clojure">(defmethod apply-form :filter [[_ filter-clause]]
   (match filter-clause
     [nil nil]       nil ; empty clause
@@ -4385,15 +4390,17 @@ ex.</p>
 
 <p>ex.</p>
 
-<p>   10</p>
+<pre><code>10
+</code></pre>
 </td><td class="codes"><pre class="brush: clojure">(defmethod apply-form :limit [[_ value]]
   (when value
     `(limit ~value)))</pre></td></tr><tr><td class="docs"><h3>`:order_by`</h3>
 
 <p>ex.</p>
 
-<p>   [[1416 "ascending"]
-    [1412 "descending"]]</p>
+<pre><code>[[1416 "ascending"]
+ [1412 "descending"]]
+</code></pre>
 </td><td class="codes"><pre class="brush: clojure">(defmethod apply-form :order_by [[_ field-ids]]
   (when-not (empty? field-ids)
     (let [fields (-&gt;&gt; field-ids
