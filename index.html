@@ -4704,7 +4704,9 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
       (dissoc :db-type)
       korma.db/postgres))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.postgres.metadata" name="metabase.driver.postgres.metadata"><h1 class="project-name">metabase.driver.postgres.metadata</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.postgres.metadata
-  (:require [metabase.driver.metadata :refer [field-count field-distinct-count]]))</pre></td></tr><tr><td class="docs">
+  (:require [metabase.driver.metadata :refer [field-count field-distinct-count]]))</pre></td></tr><tr><td class="docs"><p>TODO - These implementations are wack. We should just use korma to do this
+and these should be moved to the <code>generic-sql</code> driver</p>
+</td><td class="codes"></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod field-count :postgres
   [{:keys [db table name] :as field}]
   (-&gt; ((:native-query @db)
