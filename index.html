@@ -3137,14 +3137,14 @@ or want to combine the <code>sel</code> and permissions check statements into a 
 </ul>
 
 <p>Both forms will throw a 404 if the object doesn't exist (saving you one more check!) and return the selected object.</p>
-</td><td class="codes"></td></tr><tr><td class="docs"><p>Checks that @can_read is true for this object.</p>
+</td><td class="codes"></td></tr><tr><td class="docs"><p>Checks that <code>@can_read</code> is true for this object.</p>
 </td><td class="codes"><pre class="brush: clojure">(defmacro read-check
   ([obj]
    `(let-404 [{:keys [~'can_read] :as obj#} ~obj]
       (check-403 @~'can_read)
       obj#))
   ([entity id]
-   `(read-check (sel :one ~entity :id ~id))))</pre></td></tr><tr><td class="docs"><p>Checks that @can_write is true for this object.</p>
+   `(read-check (sel :one ~entity :id ~id))))</pre></td></tr><tr><td class="docs"><p>Checks that <code>@can_write</code> is true for this object.</p>
 </td><td class="codes"><pre class="brush: clojure">(defmacro write-check
   ([obj]
    `(let-404 [{:keys [~'can_write] :as obj#} ~obj]
@@ -3178,7 +3178,8 @@ or want to combine the <code>sel</code> and permissions check statements into a 
   [[#&quot;[\w-_]*id&quot; :int]
    [#&quot;org&quot; :int]])</pre></td></tr><tr><td class="docs"><p>Return a key into <code>*auto-parse-types*</code> if ARG has a matching pattern in <code>*auto-parse-arg-name-patterns*</code>.</p>
 
-<p>  (arg-type :id) -> :int</p>
+<pre><code>(arg-type :id) -&gt; :int
+</code></pre>
 </td><td class="codes"><pre class="brush: clojure">(defn arg-type
   [arg]
   (-&gt; *auto-parse-arg-name-patterns*
@@ -4042,14 +4043,16 @@ or want to combine the <code>sel</code> and permissions check statements into a 
 </td><td class="codes"></td></tr><tr><td class="docs"><p>Should we enable DB call logging? (You might want to disable this if we're doing many in parallel)</p>
 </td><td class="codes"><pre class="brush: clojure">(def ^:dynamic *log-db-calls*
   true)</pre></td></tr><tr><td class="docs"><h2>UPD</h2>
-</td><td class="codes"></td></tr><tr><td class="docs"><p>Like pre-insert but called by <code>upd</code> before DB operations happen.</p>
+</td><td class="codes"></td></tr><tr><td class="docs"><p>Multimethod that is called by <code>upd</code> before DB operations happen.
+   A good place to set updated values for fields like <code>updated_at</code>, or serialize maps into JSON.</p>
 </td><td class="codes"><pre class="brush: clojure">(defmulti pre-update
   (fn [entity _] entity))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod pre-update :default [_ obj]
   obj) ; default impl does no modifications to OBJ</pre></td></tr><tr><td class="docs"><p>Wrapper around <code>korma.core/update</code> that updates a single row by its id value and
    automatically passes &amp;rest KWARGS to <code>korma.core/set-fields</code>.</p>
 
-<p>   <code>(upd User 123 :is_active false)</code> -> updates user with id=123, setting is_active=false</p>
+<pre><code> (upd User 123 :is_active false) ; updates user with id=123, setting is_active=false
+</code></pre>
 
 <p>   Returns true if update modified rows, false otherwise.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn upd
@@ -4394,10 +4397,13 @@ or want to combine the <code>sel</code> and permissions check statements into a 
 </td><td class="codes"><pre class="brush: clojure">(declare get-column-names
          get-column-info
          get-special-column-info)</pre></td></tr><tr><td class="docs"><p>Take raw RESULTS from running QUERY and convert them to the format expected by the front-end.
-   Add the following columns (under <code>:data</code>):
-   *  <code>:rows</code> a sequence of result rows
-   *  <code>:columns</code> ordered sequence of column names
-   *  <code>:cols</code> ordered sequence of information about each column, such as <code>:base_type</code> and <code>:special_type</code></p>
+   Add the following columns (under <code>:data</code>):</p>
+
+<ul>
+<li><code>:rows</code> a sequence of result rows</li>
+<li><code>:columns</code> ordered sequence of column names</li>
+<li><code>:cols</code> ordered sequence of information about each column, such as <code>:base_type</code> and <code>:special_type</code></li>
+</ul>
 </td><td class="codes"><pre class="brush: clojure">(defn annotate
   [query results]
   (let [column-names (get-column-names query results)]
@@ -4677,20 +4683,23 @@ or want to combine the <code>sel</code> and permissions check statements into a 
    The first arg after URL will be passed as a JSON-encoded body if it is a map.
    Other &amp;rest kwargs will be passed as <code>GET</code> parameters.</p>
 
-<p>   Args:
-   *  CREDENTIALS-MAP       Optional map of <code>:email</code> and <code>:password</code> of a User whose credentials we should perform the request with.
-   *  METHOD                <code>:get</code>, <code>:post</code>, <code>:delete</code>, or <code>:put</code>
-   *  EXPECTED-STATUS-CODE  When passed, throw an exception if the response has a different status code.
-   *  URL                   Base URL of the request, which will be appended to <code>*url-prefix*</code>. e.g. <code>card/1/favorite</code>
-   *  HTTP-BODY-MAP         Optional map to send a the JSON-serialized HTTP body of the request
-   *  URL-KWARGS            key-value pairs that will be encoded and added to the URL as GET params</p>
-
-<p>  examples:</p>
+<p>  Examples:</p>
 
 <pre><code>(client :get 200 "card/1")                ; GET  http://localhost:3000/api/card/1, throw exception is status code != 200
 (client :get "card" :org 1)               ; GET  http://localhost:3000/api/card?org=1
 (client :post "card" {:name "My Card"}) ; POST http://localhost:3000/api/card with JSON-encoded body {:name "My Card"}
 </code></pre>
+
+<p>  Args:</p>
+
+<ul>
+<li>CREDENTIALS-MAP       Optional map of <code>:email</code> and <code>:password</code> of a User whose credentials we should perform the request with.</li>
+<li>METHOD                <code>:get</code>, <code>:post</code>, <code>:delete</code>, or <code>:put</code></li>
+<li>EXPECTED-STATUS-CODE  When passed, throw an exception if the response has a different status code.</li>
+<li>URL                   Base URL of the request, which will be appended to <code>*url-prefix*</code>. e.g. <code>card/1/favorite</code></li>
+<li>HTTP-BODY-MAP         Optional map to send a the JSON-serialized HTTP body of the request</li>
+<li>URL-KWARGS            key-value pairs that will be encoded and added to the URL as GET params</li>
+</ul>
 </td><td class="codes"><pre class="brush: clojure">(defn
   ^{:arglists ([credentials-map? method expected-status-code? url http-body-map? &amp; url-kwargs])}
   client
@@ -4839,7 +4848,7 @@ or want to combine the <code>sel</code> and permissions check statements into a 
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.middleware.log-api-call
   (:require [clojure.pprint :refer [pprint]]))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(declare api-call?
-         log-request)</pre></td></tr><tr><td class="docs"><p>Middleware to log :request and/or :response by passing corresponding OPTIONS.</p>
+         log-request)</pre></td></tr><tr><td class="docs"><p>Middleware to log <code>:request</code> and/or <code>:response</code> by passing corresponding OPTIONS.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn log-api-call
   [handler &amp; options]
   (let [{:keys [request response]} (set options)
@@ -4962,14 +4971,18 @@ or want to combine the <code>sel</code> and permissions check statements into a 
    PERMISSION should be either <code>:read</code> or <code>:write</code>.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn user-can?
   [permission obj]
-  (contains? @(:user-permissions-set obj) permission))</pre></td></tr><tr><td class="docs"><p>Associates the following delays with OBJ:
-   *  <code>:public-permissions-set</code>
-   *  <code>:user-permissions-set</code>
-   *  <code>:can_read</code>
-   *  <code>:can_write</code>
-   Note that these delays depend upon the presence of <code>creator_id</code>, <code>organization_id</code>, and <code>public_perms</code>
-  fields in OBJ. <code>organization_id</code> may be a delay in case a DB call is neccesary to determine it (e.g.
-  determining the <code>organization_id</code> of a <code>Query</code> requires fetching the corresponding <code>Database</code>.</p>
+  (contains? @(:user-permissions-set obj) permission))</pre></td></tr><tr><td class="docs"><p>Associates the following delays with OBJ:</p>
+
+<ul>
+<li><code>:public-permissions-set</code></li>
+<li><code>:user-permissions-set</code></li>
+<li><code>:can_read</code></li>
+<li><p><code>:can_write</code></p>
+
+<p>Note that these delays depend upon the presence of <code>creator_id</code>, <code>organization_id</code>, and <code>public_perms</code>
+fields in OBJ. <code>organization_id</code> may be a delay in case a DB call is neccesary to determine it (e.g.
+determining the <code>organization_id</code> of a <code>Query</code> requires fetching the corresponding <code>Database</code>.</p></li>
+</ul>
 </td><td class="codes"><pre class="brush: clojure">(defn assoc-permissions-sets
   [{:keys [creator_id organization_id public_perms] :as obj}]
   (assoc* obj
@@ -5716,13 +5729,14 @@ turns out <code>medley.core/mapply</code> does the same thingx</p>
 
 <p>   If DEFAULT is not specified, <code>nil</code> will be returned when PRED? is false.</p>
 
-<p>   (defn
-     ^{:arglists ([key? numbers])}
-     wrap-nums [&amp; args]
-     (let [[k nums] (optional keyword? args :nums)]
-       {k nums}))
-    (wrap-nums 1 2 3)          -> {:nums [1 2 3]}
-  (wrap-nums :numbers 1 2 3) -> {:numbers [1 2 3]}</p>
+<pre><code>(defn
+  ^{:arglists ([key? numbers])}
+  wrap-nums [&amp; args]
+  (let [[k nums] (optional keyword? args :nums)]
+    {k nums}))
+(wrap-nums 1 2 3)          -&gt; {:nums [1 2 3]}
+(wrap-nums :numbers 1 2 3) -&gt; {:numbers [1 2 3]}
+</code></pre>
 </td><td class="codes"><pre class="brush: clojure">(defn
   ^{:arglists ([pred? args]
                [pred? args default])}
