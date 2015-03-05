@@ -2898,8 +2898,8 @@ net.brehaut.ClojureTools = (function (SH) {
   (-&gt; (ins Annotation
         :organization_id organization
         :author_id *current-user-id*
-        :start (util/parse-iso8601-with-ms start)
-        :end (util/parse-iso8601-with-ms end)
+        :start (util/parse-iso8601 start)
+        :end (util/parse-iso8601 end)
         :title title
         :body body
         :annotation_type annotation_type
@@ -5106,8 +5106,13 @@ or want to combine the <code>sel</code> and permissions check statements into a 
   (:require [clojure.core.match :refer [match]]
             [medley.core :refer [filter-vals map-vals]]
             [metabase.util :as util]))</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(declare -format-response)</pre></td></tr><tr><td class="docs"><p>Middleware that recurses over Clojure object before it gets converted to JSON and makes adjustments neccessary so the formatter doesn't barf.
+</td><td class="codes"><pre class="brush: clojure">(declare -format-response)</pre></td></tr><tr><td class="docs"><h1>SHADY HACK</h1>
+
+<p>Tell the JSON middleware to use a date format that includes milliseconds</p>
+</td><td class="codes"><pre class="brush: clojure">(intern 'cheshire.factory 'default-date-format &quot;yyyy-MM-dd'T'HH:mm:ss.SSS'Z'&quot;)</pre></td></tr><tr><td class="docs"><p>Middleware that recurses over Clojure object before it gets converted to JSON and makes adjustments neccessary so the formatter doesn't barf.
    e.g. functions and delays are stripped and H2 Clobs are converted to strings.</p>
+
+<h1>FORMAT RESPONSE MIDDLEWARE</h1>
 </td><td class="codes"><pre class="brush: clojure">(defn format-response
   [handler]
   (fn [request]
@@ -6042,26 +6047,17 @@ turns out <code>medley.core/mapply</code> does the same thingx</p>
 </td><td class="codes"><pre class="brush: clojure">(defn new-sql-timestamp
   []
   (-&gt; (java.util.Date.)
-      .getTime ; time in milliseconds
-      (/ 1000) ; we don't care about the ms so strip them out
-      int
-      (* 1000)
+      .getTime
       (java.sql.Timestamp.)))</pre></td></tr><tr><td class="docs"><p>parse a string value expected in the iso8601 format into a <code>java.sql.Date</code>.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn parse-iso8601
   [datetime]
   (some-&gt;&gt; datetime
-           (time/parse (time/formatters :date-time-no-ms))
+           (time/parse (time/formatters :date-time))
            (coerce/to-long)
-           (java.sql.Date.)))</pre></td></tr><tr><td class="docs"><p>parse a string value expected in the iso8601 format WITH MILLISECONDS into a <code>java.sql.Date</code>.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn parse-iso8601-with-ms
-  [datetime]
-  (some-&gt;&gt; datetime
-    (time/parse (time/formatters :date-time))
-    (coerce/to-long)
-    (java.sql.Date.)))</pre></td></tr><tr><td class="docs"><p>format the current time as iso8601 date/time string.</p>
+           (java.sql.Date.)))</pre></td></tr><tr><td class="docs"><p>format the current time as iso8601 date/time string.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn now-iso8601
   []
-  (time/unparse (time/formatters :date-time-no-ms) (coerce/from-long (System/currentTimeMillis))))</pre></td></tr><tr><td class="docs"><p>Convert a <code>JdbcClob</code> to a <code>String</code>.</p>
+  (time/unparse (time/formatters :date-time) (coerce/from-long (System/currentTimeMillis))))</pre></td></tr><tr><td class="docs"><p>Convert a <code>JdbcClob</code> to a <code>String</code>.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn jdbc-clob-&gt;str
   ([clob]
    (when clob
