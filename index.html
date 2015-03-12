@@ -2866,7 +2866,7 @@ net.brehaut.ClojureTools = (function (SH) {
   };
 })(SyntaxHighlighter);
 </script><title>metabase -- Marginalia</title></head><body><table><tr><td class="docs"><div class="header"><h1 class="project-name"><a href="http://metabase.com/">metabase</a></h1><h2 class="project-version">metabase-0.1.0-SNAPSHOT</h2><br /><p>Metabase Community Edition</p>
-</div><div class="dependencies"><h3>dependencies</h3><table><tr><td class="dep-name">org.clojure/clojure</td><td class="dotted"><hr /></td><td class="dep-version">1.6.0</td></tr><tr><td class="dep-name">org.clojure/core.async</td><td class="dotted"><hr /></td><td class="dep-version">LATEST</td></tr><tr><td class="dep-name">org.clojure/core.match</td><td class="dotted"><hr /></td><td class="dep-version">0.3.0-alpha4</td></tr><tr><td class="dep-name">org.clojure/math.numeric-tower</td><td class="dotted"><hr /></td><td class="dep-version">0.0.4</td></tr><tr><td class="dep-name">org.clojure/core.memoize</td><td class="dotted"><hr /></td><td class="dep-version">0.5.7</td></tr><tr><td class="dep-name">org.clojure/data.csv</td><td class="dotted"><hr /></td><td class="dep-version">0.1.2</td></tr><tr><td class="dep-name">org.clojure/data.json</td><td class="dotted"><hr /></td><td class="dep-version">0.2.6</td></tr><tr><td class="dep-name">org.clojure/java.jdbc</td><td class="dotted"><hr /></td><td class="dep-version">0.3.6</td></tr><tr><td class="dep-name">org.clojure/tools.logging</td><td class="dotted"><hr /></td><td class="dep-version">0.3.1</td></tr><tr><td class="dep-name">org.clojure/tools.macro</td><td class="dotted"><hr /></td><td class="dep-version">0.1.5</td></tr><tr><td class="dep-name">org.clojure/tools.trace</td><td class="dotted"><hr /></td><td class="dep-version">0.7.8</td></tr><tr><td class="dep-name">cheshire</td><td class="dotted"><hr /></td><td class="dep-version">5.4.0</td></tr><tr><td class="dep-name">clj-http</td><td class="dotted"><hr /></td><td class="dep-version">1.0.1</td></tr><tr><td class="dep-name">clj-time</td><td class="dotted"><hr /></td><td class="dep-version">0.9.0</td></tr><tr><td class="dep-name">com.cemerick/friend</td><td class="dotted"><hr /></td><td class="dep-version">0.2.1</td></tr><tr><td class="dep-name">com.h2database/h2</td><td class="dotted"><hr /></td><td class="dep-version">1.4.186</td></tr><tr><td class="dep-name">com.mattbertolini/liquibase-slf4j</td><td class="dotted"><hr /></td><td class="dep-version">1.2.1</td></tr><tr><td class="dep-name">compojure</td><td class="dotted"><hr /></td><td class="dep-version">1.3.2</td></tr><tr><td class="dep-name">environ</td><td class="dotted"><hr /></td><td class="dep-version">1.0.0</td></tr><tr><td class="dep-name">korma</td><td class="dotted"><hr /></td><td class="dep-version">0.4.0</td></tr><tr><td class="dep-name">log4j/log4j</td><td class="dotted"><hr /></td><td class="dep-version">1.2.17</td></tr><tr><td class="dep-name">marginalia</td><td class="dotted"><hr /></td><td class="dep-version">0.8.0</td></tr><tr><td class="dep-name">medley</td><td class="dotted"><hr /></td><td class="dep-version">0.5.5</td></tr><tr><td class="dep-name">org.liquibase/liquibase-core</td><td class="dotted"><hr /></td><td class="dep-version">3.3.2</td></tr><tr><td class="dep-name">org.slf4j/slf4j-log4j12</td><td class="dotted"><hr /></td><td class="dep-version">1.7.10</td></tr><tr><td class="dep-name">org.yaml/snakeyaml</td><td class="dotted"><hr /></td><td class="dep-version">1.15</td></tr><tr><td class="dep-name">postgresql</td><td class="dotted"><hr /></td><td class="dep-version">9.3-1102.jdbc41</td></tr><tr><td class="dep-name">ring/ring-jetty-adapter</td><td class="dotted"><hr /></td><td class="dep-version">1.3.2</td></tr><tr><td class="dep-name">ring/ring-json</td><td class="dotted"><hr /></td><td class="dep-version">0.3.1</td></tr><tr><td class="dep-name">swiss-arrows</td><td class="dotted"><hr /></td><td class="dep-version">1.0.0</td></tr></table></div></td><td class="codes" style="text-align: center; vertical-align: middle;color: #666;padding-right:20px"><br /><br /><br />(this space intentionally left almost blank)</td></tr><tr><td class="docs"><div class="toc"><a name="toc"><h3>namespaces</h3></a><ul><li><a href="#metabase.api.annotation">metabase.api.annotation</a></li><li><a href="#metabase.api.card">metabase.api.card</a></li><li><a href="#metabase.api.common">metabase.api.common</a></li><li><a href="#metabase.api.common.internal">metabase.api.common.internal</a></li><li><a href="#metabase.api.dash">metabase.api.dash</a></li><li><a href="#metabase.api.emailreport">metabase.api.emailreport</a></li><li><a href="#metabase.api.meta.dataset">metabase.api.meta.dataset</a></li><li><a href="#metabase.api.meta.db">metabase.api.meta.db</a></li><li><a href="#metabase.api.meta.field">metabase.api.meta.field</a></li><li><a href="#metabase.api.meta.table">metabase.api.meta.table</a></li><li><a href="#metabase.api.org">metabase.api.org</a></li><li><a href="#metabase.api.qs">metabase.api.qs</a></li><li><a href="#metabase.api.query">metabase.api.query</a></li><li><a href="#metabase.api.result">metabase.api.result</a></li><li><a href="#metabase.api.routes">metabase.api.routes</a></li><li><a href="#metabase.api.search">metabase.api.search</a></li><li><a href="#metabase.api.session">metabase.api.session</a></li><li><a href="#metabase.api.user">metabase.api.user</a></li><li><a href="#metabase.bootstrap">metabase.bootstrap</a></li><li><a href="#metabase.config">metabase.config</a></li><li><a href="#metabase.core">metabase.core</a></li><li><a href="#metabase.db">metabase.db</a></li><li><a href="#metabase.db.internal">metabase.db.internal</a></li><li><a href="#metabase.driver">metabase.driver</a></li><li><a href="#metabase.driver.connection">metabase.driver.connection</a></li><li><a href="#metabase.driver.generic-sql.metadata">metabase.driver.generic-sql.metadata</a></li><li><a href="#metabase.driver.generic-sql.query-processor">metabase.driver.generic-sql.query-processor</a></li><li><a href="#metabase.driver.generic-sql.query-processor.annotate">metabase.driver.generic-sql.query-processor.annotate</a></li><li><a href="#metabase.driver.generic-sql.sync">metabase.driver.generic-sql.sync</a></li><li><a href="#metabase.driver.h2.connection">metabase.driver.h2.connection</a></li><li><a href="#metabase.driver.h2.metadata">metabase.driver.h2.metadata</a></li><li><a href="#metabase.driver.h2.query-processor">metabase.driver.h2.query-processor</a></li><li><a href="#metabase.driver.h2.sync">metabase.driver.h2.sync</a></li><li><a href="#metabase.driver.metadata">metabase.driver.metadata</a></li><li><a href="#metabase.driver.native">metabase.driver.native</a></li><li><a href="#metabase.driver.postgres.connection">metabase.driver.postgres.connection</a></li><li><a href="#metabase.driver.postgres.metadata">metabase.driver.postgres.metadata</a></li><li><a href="#metabase.driver.postgres.query-processor">metabase.driver.postgres.query-processor</a></li><li><a href="#metabase.driver.postgres.sync">metabase.driver.postgres.sync</a></li><li><a href="#metabase.driver.query-processor">metabase.driver.query-processor</a></li><li><a href="#metabase.driver.sync">metabase.driver.sync</a></li><li><a href="#metabase.driver.util">metabase.driver.util</a></li><li><a href="#metabase.http-client">metabase.http-client</a></li><li><a href="#metabase.middleware.auth">metabase.middleware.auth</a></li><li><a href="#metabase.middleware.format">metabase.middleware.format</a></li><li><a href="#metabase.middleware.log-api-call">metabase.middleware.log-api-call</a></li><li><a href="#metabase.models.annotation">metabase.models.annotation</a></li><li><a href="#metabase.models.card">metabase.models.card</a></li><li><a href="#metabase.models.card-favorite">metabase.models.card-favorite</a></li><li><a href="#metabase.models.common">metabase.models.common</a></li><li><a href="#metabase.models.dashboard">metabase.models.dashboard</a></li><li><a href="#metabase.models.dashboard-card">metabase.models.dashboard-card</a></li><li><a href="#metabase.models.dashboard-subscription">metabase.models.dashboard-subscription</a></li><li><a href="#metabase.models.database">metabase.models.database</a></li><li><a href="#metabase.models.emailreport">metabase.models.emailreport</a></li><li><a href="#metabase.models.emailreport-executions">metabase.models.emailreport-executions</a></li><li><a href="#metabase.models.emailreport-recipients">metabase.models.emailreport-recipients</a></li><li><a href="#metabase.models.field">metabase.models.field</a></li><li><a href="#metabase.models.field-values">metabase.models.field-values</a></li><li><a href="#metabase.models.foreign-key">metabase.models.foreign-key</a></li><li><a href="#metabase.models.hydrate">metabase.models.hydrate</a></li><li><a href="#metabase.models.org">metabase.models.org</a></li><li><a href="#metabase.models.org-perm">metabase.models.org-perm</a></li><li><a href="#metabase.models.query">metabase.models.query</a></li><li><a href="#metabase.models.query-execution">metabase.models.query-execution</a></li><li><a href="#metabase.models.session">metabase.models.session</a></li><li><a href="#metabase.models.table">metabase.models.table</a></li><li><a href="#metabase.models.table-segment">metabase.models.table-segment</a></li><li><a href="#metabase.models.user">metabase.models.user</a></li><li><a href="#metabase.routes">metabase.routes</a></li><li><a href="#metabase.util">metabase.util</a></li></ul></div></td><td class="codes">&nbsp;</td></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.annotation" name="metabase.api.annotation"><h1 class="project-name">metabase.api.annotation</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+</div><div class="dependencies"><h3>dependencies</h3><table><tr><td class="dep-name">org.clojure/clojure</td><td class="dotted"><hr /></td><td class="dep-version">1.6.0</td></tr><tr><td class="dep-name">org.clojure/core.async</td><td class="dotted"><hr /></td><td class="dep-version">LATEST</td></tr><tr><td class="dep-name">org.clojure/core.match</td><td class="dotted"><hr /></td><td class="dep-version">0.3.0-alpha4</td></tr><tr><td class="dep-name">org.clojure/math.numeric-tower</td><td class="dotted"><hr /></td><td class="dep-version">0.0.4</td></tr><tr><td class="dep-name">org.clojure/core.memoize</td><td class="dotted"><hr /></td><td class="dep-version">0.5.7</td></tr><tr><td class="dep-name">org.clojure/data.csv</td><td class="dotted"><hr /></td><td class="dep-version">0.1.2</td></tr><tr><td class="dep-name">org.clojure/data.json</td><td class="dotted"><hr /></td><td class="dep-version">0.2.6</td></tr><tr><td class="dep-name">org.clojure/java.jdbc</td><td class="dotted"><hr /></td><td class="dep-version">0.3.6</td></tr><tr><td class="dep-name">org.clojure/tools.logging</td><td class="dotted"><hr /></td><td class="dep-version">0.3.1</td></tr><tr><td class="dep-name">org.clojure/tools.macro</td><td class="dotted"><hr /></td><td class="dep-version">0.1.5</td></tr><tr><td class="dep-name">org.clojure/tools.trace</td><td class="dotted"><hr /></td><td class="dep-version">0.7.8</td></tr><tr><td class="dep-name">cheshire</td><td class="dotted"><hr /></td><td class="dep-version">5.4.0</td></tr><tr><td class="dep-name">clj-time</td><td class="dotted"><hr /></td><td class="dep-version">0.9.0</td></tr><tr><td class="dep-name">com.cemerick/friend</td><td class="dotted"><hr /></td><td class="dep-version">0.2.1</td></tr><tr><td class="dep-name">com.h2database/h2</td><td class="dotted"><hr /></td><td class="dep-version">1.4.186</td></tr><tr><td class="dep-name">com.mattbertolini/liquibase-slf4j</td><td class="dotted"><hr /></td><td class="dep-version">1.2.1</td></tr><tr><td class="dep-name">compojure</td><td class="dotted"><hr /></td><td class="dep-version">1.3.2</td></tr><tr><td class="dep-name">environ</td><td class="dotted"><hr /></td><td class="dep-version">1.0.0</td></tr><tr><td class="dep-name">korma</td><td class="dotted"><hr /></td><td class="dep-version">0.4.0</td></tr><tr><td class="dep-name">log4j/log4j</td><td class="dotted"><hr /></td><td class="dep-version">1.2.17</td></tr><tr><td class="dep-name">medley</td><td class="dotted"><hr /></td><td class="dep-version">0.5.5</td></tr><tr><td class="dep-name">org.apache.httpcomponents/httpclient</td><td class="dotted"><hr /></td><td class="dep-version">4.4</td></tr><tr><td class="dep-name">org.liquibase/liquibase-core</td><td class="dotted"><hr /></td><td class="dep-version">3.3.2</td></tr><tr><td class="dep-name">org.slf4j/slf4j-log4j12</td><td class="dotted"><hr /></td><td class="dep-version">1.7.10</td></tr><tr><td class="dep-name">org.yaml/snakeyaml</td><td class="dotted"><hr /></td><td class="dep-version">1.15</td></tr><tr><td class="dep-name">postgresql</td><td class="dotted"><hr /></td><td class="dep-version">9.3-1102.jdbc41</td></tr><tr><td class="dep-name">ring/ring-jetty-adapter</td><td class="dotted"><hr /></td><td class="dep-version">1.3.2</td></tr><tr><td class="dep-name">ring/ring-json</td><td class="dotted"><hr /></td><td class="dep-version">0.3.1</td></tr><tr><td class="dep-name">swiss-arrows</td><td class="dotted"><hr /></td><td class="dep-version">1.0.0</td></tr></table></div></td><td class="codes" style="text-align: center; vertical-align: middle;color: #666;padding-right:20px"><br /><br /><br />(this space intentionally left almost blank)</td></tr><tr><td class="docs"><div class="toc"><a name="toc"><h3>namespaces</h3></a><ul><li><a href="#metabase.api.annotation">metabase.api.annotation</a></li><li><a href="#metabase.api.card">metabase.api.card</a></li><li><a href="#metabase.api.common">metabase.api.common</a></li><li><a href="#metabase.api.common.internal">metabase.api.common.internal</a></li><li><a href="#metabase.api.dash">metabase.api.dash</a></li><li><a href="#metabase.api.emailreport">metabase.api.emailreport</a></li><li><a href="#metabase.api.meta.dataset">metabase.api.meta.dataset</a></li><li><a href="#metabase.api.meta.db">metabase.api.meta.db</a></li><li><a href="#metabase.api.meta.field">metabase.api.meta.field</a></li><li><a href="#metabase.api.meta.table">metabase.api.meta.table</a></li><li><a href="#metabase.api.org">metabase.api.org</a></li><li><a href="#metabase.api.qs">metabase.api.qs</a></li><li><a href="#metabase.api.query">metabase.api.query</a></li><li><a href="#metabase.api.result">metabase.api.result</a></li><li><a href="#metabase.api.routes">metabase.api.routes</a></li><li><a href="#metabase.api.search">metabase.api.search</a></li><li><a href="#metabase.api.session">metabase.api.session</a></li><li><a href="#metabase.api.setting">metabase.api.setting</a></li><li><a href="#metabase.api.user">metabase.api.user</a></li><li><a href="#metabase.config">metabase.config</a></li><li><a href="#metabase.core">metabase.core</a></li><li><a href="#metabase.db">metabase.db</a></li><li><a href="#metabase.db.internal">metabase.db.internal</a></li><li><a href="#metabase.driver">metabase.driver</a></li><li><a href="#metabase.driver.connection">metabase.driver.connection</a></li><li><a href="#metabase.driver.generic-sql.metadata">metabase.driver.generic-sql.metadata</a></li><li><a href="#metabase.driver.generic-sql.query-processor">metabase.driver.generic-sql.query-processor</a></li><li><a href="#metabase.driver.generic-sql.query-processor.annotate">metabase.driver.generic-sql.query-processor.annotate</a></li><li><a href="#metabase.driver.generic-sql.sync">metabase.driver.generic-sql.sync</a></li><li><a href="#metabase.driver.h2.connection">metabase.driver.h2.connection</a></li><li><a href="#metabase.driver.h2.metadata">metabase.driver.h2.metadata</a></li><li><a href="#metabase.driver.h2.query-processor">metabase.driver.h2.query-processor</a></li><li><a href="#metabase.driver.h2.sync">metabase.driver.h2.sync</a></li><li><a href="#metabase.driver.metadata">metabase.driver.metadata</a></li><li><a href="#metabase.driver.native">metabase.driver.native</a></li><li><a href="#metabase.driver.postgres.connection">metabase.driver.postgres.connection</a></li><li><a href="#metabase.driver.postgres.metadata">metabase.driver.postgres.metadata</a></li><li><a href="#metabase.driver.postgres.query-processor">metabase.driver.postgres.query-processor</a></li><li><a href="#metabase.driver.postgres.sync">metabase.driver.postgres.sync</a></li><li><a href="#metabase.driver.query-processor">metabase.driver.query-processor</a></li><li><a href="#metabase.driver.sync">metabase.driver.sync</a></li><li><a href="#metabase.driver.util">metabase.driver.util</a></li><li><a href="#metabase.email">metabase.email</a></li><li><a href="#metabase.middleware.auth">metabase.middleware.auth</a></li><li><a href="#metabase.middleware.format">metabase.middleware.format</a></li><li><a href="#metabase.middleware.log-api-call">metabase.middleware.log-api-call</a></li><li><a href="#metabase.models.annotation">metabase.models.annotation</a></li><li><a href="#metabase.models.card">metabase.models.card</a></li><li><a href="#metabase.models.card-favorite">metabase.models.card-favorite</a></li><li><a href="#metabase.models.common">metabase.models.common</a></li><li><a href="#metabase.models.dashboard">metabase.models.dashboard</a></li><li><a href="#metabase.models.dashboard-card">metabase.models.dashboard-card</a></li><li><a href="#metabase.models.dashboard-subscription">metabase.models.dashboard-subscription</a></li><li><a href="#metabase.models.database">metabase.models.database</a></li><li><a href="#metabase.models.emailreport">metabase.models.emailreport</a></li><li><a href="#metabase.models.emailreport-executions">metabase.models.emailreport-executions</a></li><li><a href="#metabase.models.emailreport-recipients">metabase.models.emailreport-recipients</a></li><li><a href="#metabase.models.field">metabase.models.field</a></li><li><a href="#metabase.models.field-values">metabase.models.field-values</a></li><li><a href="#metabase.models.foreign-key">metabase.models.foreign-key</a></li><li><a href="#metabase.models.hydrate">metabase.models.hydrate</a></li><li><a href="#metabase.models.org">metabase.models.org</a></li><li><a href="#metabase.models.org-perm">metabase.models.org-perm</a></li><li><a href="#metabase.models.query">metabase.models.query</a></li><li><a href="#metabase.models.query-execution">metabase.models.query-execution</a></li><li><a href="#metabase.models.session">metabase.models.session</a></li><li><a href="#metabase.models.setting">metabase.models.setting</a></li><li><a href="#metabase.models.table">metabase.models.table</a></li><li><a href="#metabase.models.table-segment">metabase.models.table-segment</a></li><li><a href="#metabase.models.user">metabase.models.user</a></li><li><a href="#metabase.routes">metabase.routes</a></li><li><a href="#metabase.util">metabase.util</a></li></ul></div></td><td class="codes">&nbsp;</td></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.annotation" name="metabase.api.annotation"><h1 class="project-name">metabase.api.annotation</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.api.annotation
   (:require [korma.core :as korma]
             [compojure.core :refer [defroutes GET PUT POST DELETE]]
@@ -2948,7 +2948,7 @@ net.brehaut.ClojureTools = (function (SH) {
                               (hydrate :card))
                           (map :card)
                           (sort-by :name)))
-      (hydrate :creator))) ; TODO maybe do a batched hydrate here instead?</pre></td></tr><tr><td class="docs"><p>/</p>
+      (simple-batched-hydrate User :creator_id :creator)))</pre></td></tr><tr><td class="docs"><p>/</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint POST  [:as {:keys [body]}]
   (-&gt;&gt; (-&gt; body
            (select-keys [:dataset_query :description :display :name :organization :public_perms :visualization_settings])
@@ -2996,14 +2996,14 @@ net.brehaut.ClojureTools = (function (SH) {
 </td><td class="codes"><pre class="brush: clojure">(defmacro with-current-user
   [user-id &amp; body]
   `(binding [*current-user-id* ~user-id
-             *current-user* (delay ((sel-fn :one &quot;metabase.models.user/User&quot; :id ~user-id))) ]
+             *current-user* (delay (sel :one 'metabase.models.user/User :id ~user-id))]
      ~@body))</pre></td></tr><tr><td class="docs"><p>TODO - A very similar implementation exists in <code>metabase.models</code>. Find some way to combine them.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn current-user-perms-for-org
   [org-id]
   (when *current-user-id*
-    (when-let [{superuser? :is_superuser} (sel :one [&quot;metabase.models.user/User&quot; :is_superuser] :id *current-user-id*)]
+    (when-let [{superuser? :is_superuser} (sel :one ['metabase.models.user/User :is_superuser] :id *current-user-id*)]
       (if superuser? :admin
-          (when-let [{admin? :admin} (sel :one [&quot;metabase.models.org-perm/OrgPerm&quot; :admin] :user_id *current-user-id* :organization_id org-id)]
+          (when-let [{admin? :admin} (sel :one ['metabase.models.org-perm/OrgPerm :admin] :user_id *current-user-id* :organization_id org-id)]
             (if admin? :admin :default))))))</pre></td></tr><tr><td class="docs"><p>Evaluates BODY inside a case statement based on <code>*current-user*</code>'s perms for Org with ORG-ID.
    Case will be <code>nil</code>, <code>:default</code>, or <code>:admin</code>.</p>
 </td><td class="codes"><pre class="brush: clojure">(defmacro org-perms-case
@@ -3158,14 +3158,18 @@ or want to combine the <code>sel</code> and permissions check statements into a 
       (check-403 @~'can_read)
       obj#))
   ([entity id]
-   `(read-check (sel :one ~entity :id ~id))))</pre></td></tr><tr><td class="docs"><p>Checks that <code>@can_write</code> is true for this object.</p>
+   (if (= (name entity) &quot;Org&quot;)
+     `(check-403 (current-user-perms-for-org ~id)) ; current-user-perms-for-org is faster, optimize this common usage
+     `(read-check (sel :one ~entity :id ~id)))))</pre></td></tr><tr><td class="docs"><p>Checks that <code>@can_write</code> is true for this object.</p>
 </td><td class="codes"><pre class="brush: clojure">(defmacro write-check
   ([obj]
    `(let-404 [{:keys [~'can_write] :as obj#} ~obj]
       (check-403 @~'can_write)
       obj#))
   ([entity id]
-   `(write-check (sel :one ~entity :id ~id))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.common.internal" name="metabase.api.common.internal"><h1 class="project-name">metabase.api.common.internal</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Internal functions used by <code>metabase.api.common</code>.</p>
+   (if (= (name entity) &quot;Org&quot;)
+     `(check-403 (= (current-user-perms-for-org ~id) :admin))
+     `(write-check (sel :one ~entity :id ~id)))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.common.internal" name="metabase.api.common.internal"><h1 class="project-name">metabase.api.common.internal</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Internal functions used by <code>metabase.api.common</code>.</p>
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.api.common.internal
   (:require [clojure.tools.logging :as log]
             [metabase.util :refer [fn-&gt; regex?]])
@@ -3335,7 +3339,7 @@ or want to combine the <code>sel</code> and permissions check statements into a 
                   (upd DashboardCard dashcard-id :sizeX sizeX :sizeY sizeY :row row :col col)))
               cards))
   {:status :ok})</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(define-routes)</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.emailreport" name="metabase.api.emailreport"><h1 class="project-name">metabase.api.emailreport</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(define-routes)</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.emailreport" name="metabase.api.emailreport"><h1 class="project-name">metabase.api.emailreport</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>/api/emailreport endpoints.</p>
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.api.emailreport
   (:require [korma.core :refer [where subselect fields order limit]]
             [compojure.core :refer [defroutes GET PUT POST DELETE]]
@@ -3343,11 +3347,11 @@ or want to combine the <code>sel</code> and permissions check statements into a 
             [metabase.api.common :refer :all]
             [metabase.db :refer :all]
             (metabase.models [common :as common]
-              [hydrate :refer :all]
-              [database :refer [databases-for-org]]
-              [emailreport :refer [EmailReport modes days-of-week times-of-day]]
-              [emailreport-executions :refer [EmailReportExecutions]]
-              [user :refer [users-for-org]])
+                             [hydrate :refer :all]
+                             [database :refer [databases-for-org]]
+                             [emailreport :refer [EmailReport modes-input days-of-week times-of-day]]
+                             [emailreport-executions :refer [EmailReportExecutions]]
+                             [user :refer [users-for-org]])
             [metabase.util :as util]))</pre></td></tr><tr><td class="docs"><p>/form_input</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint GET  [org]
   (require-params org)
@@ -3356,7 +3360,7 @@ or want to combine the <code>sel</code> and permissions check statements into a 
   (let [dbs (databases-for-org org)
         users (users-for-org org)]
     {:permissions common/permissions
-     :modes modes
+     :modes modes-input
      :days_of_week days-of-week
      :times_of_day times-of-day
      :timezones common/timezones
@@ -3463,7 +3467,7 @@ or want to combine the <code>sel</code> and permissions check statements into a 
         table-id-&gt;name (-&gt;&gt; (sel :many [Table :id :name] :db_id id)                                             ; fetch all name + ID of all Tables for this DB
                             (map (fn [{:keys [id name]}]                                                         ; make a map of Table ID -&gt; Table Name
                                    {id name}))
-                            (apply merge {}))
+                            (into {}))
         matching-tables (-&gt;&gt; (vals table-id-&gt;name)                                                              ; get all Table names that start with PREFIX
                              (filter (fn [^String table-name]
                                        (= prefix (.substring table-name 0 prefix-len))))
@@ -3485,17 +3489,21 @@ or want to combine the <code>sel</code> and permissions check statements into a 
 </td><td class="codes"><pre class="brush: clojure">(define-routes)</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.meta.field" name="metabase.api.meta.field"><h1 class="project-name">metabase.api.meta.field</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.api.meta.field
   (:require [compojure.core :refer [GET PUT]]
+            [medley.core :as medley]
             [metabase.api.common :refer :all]
             [metabase.db :refer :all]
             (metabase.models [hydrate :refer [hydrate]]
-                             [field :refer [Field]])))</pre></td></tr><tr><td class="docs"><p>/:id</p>
+                             [field :refer [Field]])
+            [metabase.util :as u]))</pre></td></tr><tr><td class="docs"><p>/:id</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint GET  [id]
   (-&gt;404 (sel :one Field :id id)
          read-check
          (hydrate [:table :db])))</pre></td></tr><tr><td class="docs"><p>/:id</p>
-</td><td class="codes"><pre class="brush: clojure">(defendpoint PUT  [id :as {{:keys [special_type preview_display description]} :body}]
+</td><td class="codes"><pre class="brush: clojure">(defendpoint PUT  [id :as {body :body}]
   (write-check Field id)
-  (upd Field id :special_type special_type :preview_display preview_display :description description))</pre></td></tr><tr><td class="docs"><p>/:id/summary</p>
+  (check-500 (-&gt;&gt; (u/select-non-nil-keys body :special_type :preview_display :description)
+                  (medley/mapply upd Field id)))
+  (sel :one Field :id id))</pre></td></tr><tr><td class="docs"><p>/:id/summary</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint GET  [id]
   (let-404 [{:keys [count distinct-count] :as field} (sel :one Field :id id)]
     (read-check field)
@@ -3568,9 +3576,10 @@ or want to combine the <code>sel</code> and permissions check statements into a 
   (read-check Org id)
   (-&gt; (sel :many OrgPerm :organization_id id)
       (hydrate :user)))</pre></td></tr><tr><td class="docs"><p>/:id/members</p>
-</td><td class="codes"><pre class="brush: clojure">(defendpoint POST  [id :as {{:keys [first_name last_name email admin]} :body}]
-  ; we require 4 attributes in the body
-  (check-400 (and first_name last_name email admin (util/is-email? email)))
+</td><td class="codes"><pre class="brush: clojure">(defendpoint POST  [id :as {{:keys [first_name last_name email admin]
+                                           :or {admin false}} :body}]
+  ; check our input
+  (check-400 (and first_name last_name email (util/is-email? email)))
   ; user must have admin perms on org to proceed
   (write-check Org id)
   (let [user-id (:id (or (sel :one [User :id] :email email)                ; find user with existing email - if exists then grant perm
@@ -3638,15 +3647,17 @@ or want to combine the <code>sel</code> and permissions check statements into a 
   [{{:keys [cols columns rows data]
      :or {cols []
           columns []}} :result_data :as query-execution}]
-  (-&gt;
-    (select-keys query-execution [:id :uuid :status])
-    (assoc :data {:rows (or rows data [])
-                  :cols cols
-                  :columns columns})
-    (cond-&gt;
-      (= &quot;failed&quot; (:status query-execution)) (assoc :error (:error query-execution)
-                                                    ;; TODO - sql error formatting FN
-                                                    :sql_error (:error query-execution)))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.query" name="metabase.api.query"><h1 class="project-name">metabase.api.query</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+  (let [rows (or rows data [])]
+    (-&gt;
+     (select-keys query-execution [:id :uuid :status])
+     (assoc :data {:rows rows
+                   :cols cols
+                   :columns columns}
+            :row_count (count rows))
+     (cond-&gt;
+         (= &quot;failed&quot; (:status query-execution)) (assoc :error (:error query-execution)
+                                                       ;; TODO - sql error formatting FN
+                                                       :sql_error (:error query-execution))))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.query" name="metabase.api.query"><h1 class="project-name">metabase.api.query</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.api.query
   (:require [clojure.data.csv :as csv]
             [korma.core :refer [where subselect fields order limit]]
@@ -3663,12 +3674,14 @@ or want to combine the <code>sel</code> and permissions check statements into a 
                              [query-execution :refer [QueryExecution all-fields]])
             [metabase.util :as util]))</pre></td></tr><tr><td class="docs"><p>/form_input</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint GET  [org]
+  (require-params org)
   (check-403 ((:perms-for-org @*current-user*) org))
   (let [dbs (databases-for-org org)]
     {:permissions common/permissions
      :timezones common/timezones
      :databases dbs}))</pre></td></tr><tr><td class="docs"><p>/</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint GET  [org f]
+  (require-params org)
   (check-403 ((:perms-for-org @*current-user*) org))
   (-&gt; (case (or (keyword f) :all) ; default value for `f` is `:all`
         :all (sel :many Query
@@ -3681,6 +3694,7 @@ or want to combine the <code>sel</code> and permissions check statements into a 
     (hydrate :creator :database)))</pre></td></tr><tr><td class="docs"><p>Create a new query by cloning an existing query.  Returns a 403 if user doesn't have acces to read query.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn query-clone
   [query-id]
+  {:pre [(integer? query-id)]}
   (let-400 [{:keys [name] :as query} (sel :one Query :id query-id)]
     (read-check query)
     (-&gt;&gt; (-&gt; query
@@ -3711,15 +3725,14 @@ or want to combine the <code>sel</code> and permissions check statements into a 
   (-&gt;404 (sel :one Query :id id)
          read-check
          (hydrate :creator :database :can_read :can_write)))</pre></td></tr><tr><td class="docs"><p>/:id</p>
-</td><td class="codes"><pre class="brush: clojure">(defendpoint PUT  [id :as {{:keys [timezone database details] :as body} :body}]
-  (require-params database details)
+</td><td class="codes"><pre class="brush: clojure">(defendpoint PUT  [id :as {{:keys [timezone database] :as body} :body}]
+  (require-params database)
   (read-check Database (:id database))
   (let-404 [query (sel :one Query :id id)]
     (write-check query)
-    (-&gt; (util/select-non-nil-keys body :name :public_perms)
-      (assoc :version (:version query)                      ; don't increment this here.  that happens on pre-update
-             :database_id (:id database)
-             :details details)
+    (-&gt; (util/select-non-nil-keys body :name :public_perms :details)
+      (assoc :version (:version query)    ; don't increment this here. That happens on pre-update
+             :database_id (:id database)) ; you can change the DB of a Query why??
       (#(mapply upd Query id %)))
     (-&gt; (sel :one Query :id id)
         (hydrate :creator :database))))</pre></td></tr><tr><td class="docs"><p>/:id</p>
@@ -3727,17 +3740,18 @@ or want to combine the <code>sel</code> and permissions check statements into a 
   (write-check Query id)
   (del Query :id id))</pre></td></tr><tr><td class="docs"><p>/:id</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint POST  [id]
-  (let-404 [query (sel :one Query :id id)]
-           (read-check query)
-           (let [dataset-query {:type &quot;native&quot;
-                                :database (:database_id query)
-                                :native {:query (get-in query [:details :sql])
-                                         :timezone (get-in query [:details :timezone])}}
-                 options {:executed_by *current-user-id*
-                          :saved_query query
-                          :synchronously false
-                          :cache_result true}]
-             (driver/dataset-query dataset-query options))))</pre></td></tr><tr><td class="docs"><p>/:id/results</p>
+  (let-404 [{database-id :database_id
+             {:keys [sql timezone]} :details :as query} (sel :one Query :id id)]
+    (read-check query)
+    (let [dataset-query {:type &quot;native&quot;
+                         :database database-id
+                         :native {:query sql
+                                  :timezone timezone}}
+          options {:executed_by *current-user-id*
+                   :saved_query query
+                   :synchronously false
+                   :cache_result true}]
+      (driver/dataset-query dataset-query options))))</pre></td></tr><tr><td class="docs"><p>/:id/results</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint GET  [id]
   (read-check Query id)
   (sel :many QueryExecution :query_id id (order :finished_at :DESC) (limit 10)))</pre></td></tr><tr><td class="docs"><p>/:id/csv</p>
@@ -3804,29 +3818,36 @@ or want to combine the <code>sel</code> and permissions check statements into a 
                           [result :as result]
                           [search :as search]
                           [session :as session]
+                          [setting :as setting]
                           [user :as user])
             (metabase.api.meta [dataset :as dataset]
                                [db :as db]
                                [field :as field]
                                [table :as table])
-            [metabase.middleware.auth :as auth]))</pre></td></tr><tr><td class="docs">
+            [metabase.middleware.auth :as auth]))</pre></td></tr><tr><td class="docs"><p>Wrap API-ROUTES so they may only be accessed with proper authentiaction credentials.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn- +auth
+  [api-routes]
+  (-&gt; api-routes
+      auth/bind-current-user
+      auth/enforce-authentication))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defroutes routes
-  (context &quot;/annotation&quot;   [] (-&gt; annotation/routes auth/bind-current-user auth/enforce-authentication))
-  (context &quot;/card&quot;         [] (-&gt; card/routes auth/bind-current-user auth/enforce-authentication))
-  (context &quot;/dash&quot;         [] (-&gt; dash/routes auth/bind-current-user auth/enforce-authentication))
-  (context &quot;/emailreport&quot;  [] (-&gt; emailreport/routes auth/bind-current-user auth/enforce-authentication))
+  (context &quot;/annotation&quot;   [] (+auth annotation/routes))
+  (context &quot;/card&quot;         [] (+auth card/routes))
+  (context &quot;/dash&quot;         [] (+auth dash/routes))
+  (context &quot;/emailreport&quot;  [] (+auth emailreport/routes))
   (GET     &quot;/health&quot;       [] {:status 200 :body {:status &quot;ok&quot;}})
-  (context &quot;/meta/dataset&quot; [] (-&gt; dataset/routes auth/bind-current-user auth/enforce-authentication))
-  (context &quot;/meta/db&quot;      [] (-&gt; db/routes auth/bind-current-user auth/enforce-authentication))
-  (context &quot;/meta/field&quot;   [] (-&gt; field/routes auth/bind-current-user auth/enforce-authentication))
-  (context &quot;/meta/table&quot;   [] (-&gt; table/routes auth/bind-current-user auth/enforce-authentication))
-  (context &quot;/org&quot;          [] (-&gt; org/routes auth/bind-current-user auth/enforce-authentication))
-  (context &quot;/qs&quot;           [] (-&gt; qs/routes auth/bind-current-user auth/enforce-authentication))
-  (context &quot;/query&quot;        [] (-&gt; query/routes auth/bind-current-user auth/enforce-authentication))
-  (context &quot;/result&quot;       [] (-&gt; result/routes auth/bind-current-user auth/enforce-authentication))
-  (context &quot;/search&quot;       [] (-&gt; search/routes auth/bind-current-user auth/enforce-authentication))
+  (context &quot;/meta/dataset&quot; [] (+auth dataset/routes))
+  (context &quot;/meta/db&quot;      [] (+auth db/routes))
+  (context &quot;/meta/field&quot;   [] (+auth field/routes))
+  (context &quot;/meta/table&quot;   [] (+auth table/routes))
+  (context &quot;/org&quot;          [] (+auth org/routes))
+  (context &quot;/qs&quot;           [] (+auth qs/routes))
+  (context &quot;/query&quot;        [] (+auth query/routes))
+  (context &quot;/result&quot;       [] (+auth result/routes))
+  (context &quot;/search&quot;       [] (+auth search/routes))
   (context &quot;/session&quot;      [] session/routes)
-  (context &quot;/user&quot;         [] (-&gt; user/routes auth/bind-current-user auth/enforce-authentication))
+  (context &quot;/setting&quot;     [] (+auth setting/routes))
+  (context &quot;/user&quot;         [] (+auth user/routes))
   (route/not-found (fn [{:keys [request-method uri]}]
                         {:status 404
                          :body (str (.toUpperCase (name request-method)) &quot; &quot; uri &quot; is not yet implemented.&quot;)})))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.search" name="metabase.api.search"><h1 class="project-name">metabase.api.search</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>/api/search endpoints.</p>
@@ -3960,6 +3981,34 @@ or want to combine the <code>sel</code> and permissions check statements into a 
     ;; TODO - check that password is of required strength
     (set-user-password (:id user) password)
     {:success true}))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(define-routes)</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.setting" name="metabase.api.setting"><h1 class="project-name">metabase.api.setting</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>/api/setting endpoints</p>
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.api.setting
+  (:require [compojure.core :refer [GET PUT DELETE]]
+            [metabase.api.common :refer :all]
+            (metabase.models [setting :as setting])))</pre></td></tr><tr><td class="docs"><p>/</p>
+
+<h2>Get all settings + values</h2>
+</td><td class="codes"><pre class="brush: clojure">(defendpoint GET  []
+  (check-403 (:is_superuser @*current-user*))
+  (setting/all-with-descriptions))</pre></td></tr><tr><td class="docs"><p>/:key</p>
+
+<h2>Get a single setting</h2>
+</td><td class="codes"><pre class="brush: clojure">(defendpoint GET  [key]
+  (require-params key)
+  (check-403 (:is_superuser @*current-user*))
+  (setting/get (keyword key)))</pre></td></tr><tr><td class="docs"><p>/:key</p>
+
+<h2>Create/update a setting</h2>
+</td><td class="codes"><pre class="brush: clojure">(defendpoint PUT  [key  :as {{:keys [value]} :body}]
+  (require-params key value)
+  (check-403 (:is_superuser @*current-user*))
+  (setting/set (keyword key) value))</pre></td></tr><tr><td class="docs"><p>/:key</p>
+
+<h2>Delete a setting</h2>
+</td><td class="codes"><pre class="brush: clojure">(defendpoint DELETE  [key]
+  (require-params key)
+  (check-403 (:is_superuser @*current-user*))
+  (setting/delete (keyword key)))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(define-routes)</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.api.user" name="metabase.api.user"><h1 class="project-name">metabase.api.user</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.api.user
   (:require [cemerick.friend.credentials :as creds]
@@ -3980,7 +4029,7 @@ or want to combine the <code>sel</code> and permissions check statements into a 
 </td><td class="codes"><pre class="brush: clojure">(defendpoint GET  [id]
   ;; user must be getting their own details OR they must be a superuser to proceed
   (check-403 (or (= id *current-user-id*) (:is_superuser @*current-user*)))
-  (sel :one User :id id))</pre></td></tr><tr><td class="docs"><p>/:id</p>
+  (check-404 (sel :one User :id id)))</pre></td></tr><tr><td class="docs"><p>/:id</p>
 </td><td class="codes"><pre class="brush: clojure">(defendpoint PUT  [id :as {{:keys [email] :as body} :body}]
   ;; user must be getting their own details OR they must be a superuser to proceed
   (check-403 (or (= id *current-user-id*) (:is_superuser @*current-user*)))
@@ -3999,79 +4048,55 @@ or want to combine the <code>sel</code> and permissions check statements into a 
     (check (creds/bcrypt-verify (str (:password_salt user) old_password) (:password user)) [400 &quot;password mismatch&quot;]))
   (set-user-password id password)
   (sel :one User :id id))</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(define-routes)</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.bootstrap" name="metabase.bootstrap"><h1 class="project-name">metabase.bootstrap</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Functions for creating new Orgs/Users from the command-line / REPL.</p>
-</td><td class="codes"><pre class="brush: clojure">(ns metabase.bootstrap
-  (:require (metabase [db :refer :all]
-                      [test-data :as data])
-            (metabase.models [database :refer [Database]]
-                             [org :refer [Org]]
-                             [org-perm :refer [OrgPerm]]
-                             [user :refer [User]])))</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(declare bootstrap-user
-         prompt-read-line
-         prompt-read-line-boolean)</pre></td></tr><tr><td class="docs"><h1>BOOTSTRAPPING</h1>
-</td><td class="codes"></td></tr><tr><td class="docs"><p>Create a <code>User</code> (and, optionally, <code>Org</code>) for development purposes.
-   You may optionally load the test data and use the test <code>Org</code>.
-   Permissions will be created for <code>User</code> &lt;-> <code>Org</code>.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn bootstrap
-  []
-  (binding [*log-db-calls* false]
-    (migrate :up)
-    (let [{:keys [email]} (bootstrap-user)]
-      (println (format &quot;Successfully created User \&quot;%s\&quot;.&quot; email)))))</pre></td></tr><tr><td class="docs"><h1>(INTERNAL)</h1>
-</td><td class="codes"></td></tr><tr><td class="docs"><p>Create a new Organization.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn- bootstrap-org
-  []
-  (let [org-name (prompt-read-line &quot;Org name&quot; &quot;Default&quot;)]
-    (or (sel :one Org :name org-name)
-        (ins Org
-          :name org-name
-          :slug (prompt-read-line &quot;Org slug&quot; &quot;default&quot;)
-          :inherits true))))</pre></td></tr><tr><td class="docs"><p>Create a new User (creating a new Org too if needed). Org perms between User &amp; Org will be created.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn- bootstrap-user
-  []
-  (let [email (prompt-read-line &quot;User email&quot; &quot;cam@metabase.com&quot;)
-        ;; create User if needed
-        user (or (sel :one User :email email)
-                 (ins User
-                      :email email
-                      :first_name (prompt-read-line &quot;User first name&quot; &quot;Cam&quot;)
-                      :last_name (prompt-read-line &quot;User last name&quot; &quot;Saul&quot;)
-                      :password (prompt-read-line &quot;User password&quot; &quot;password&quot;)))
-        use-test-org? (prompt-read-line-boolean &quot;Should we use the test data? (User will be added to \&quot;Test Organization\&quot;)&quot; &quot;true&quot;)
-        org (if use-test-org? (do @data/test-db   ; load the test data reaaallly quick
-                                  @data/test-org)
-                (bootstrap-org))]
-    ;; create OrgPerm if needed
-    (or (sel :one OrgPerm :organization_id (:id org) :user_id (:id user))
-        (let [admin? (prompt-read-line-boolean &quot;Make user an admin?&quot; &quot;true&quot;)]
-          (ins OrgPerm
-               :organization_id (:id org)
-               :user_id (:id user)
-               :admin admin?)))
-    user))</pre></td></tr><tr><td class="docs"><p>Prompt for input from stdin with PROMPT, returning DEFAULT if user hits return. Optionally, recurse until the returned value is in set VALID-VALUES.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn- prompt-read-line
-  ([prompt default]
-   (println prompt (str &quot;[\&quot;&quot; default &quot;\&quot;]:&quot;))
-   (let [line (read-line)]
-     (if (empty? line) default
-         line)))
-  ([prompt default valid-values]
-   {:pre [(set? valid-values)]}
-   (let [val (prompt-read-line prompt default)]
-     (if (contains? valid-values val) val
-         (do (println &quot;Must be one of:&quot; (map str valid-values))
-             (recur prompt default valid-values))))))</pre></td></tr><tr><td class="docs"><p>Prompt user for true/false and return a boolean.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn- prompt-read-line-boolean
-  [prompt default]
-  {:pre [(contains? #{&quot;true&quot; &quot;false&quot;} default)]}
-  (case (prompt-read-line prompt default #{&quot;true&quot; &quot;false&quot;})
-    &quot;true&quot; true
-    &quot;false&quot; false))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.config" name="metabase.config"><h1 class="project-name">metabase.config</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(ns metabase.config)</pre></td></tr><tr><td class="docs"><p>Global application defaults</p>
+</td><td class="codes"><pre class="brush: clojure">(define-routes)</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.config" name="metabase.config"><h1 class="project-name">metabase.config</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.config
+  (:require [environ.core :as environ]
+            [medley.core :as medley])
+  (:import (clojure.lang Keyword)))</pre></td></tr><tr><td class="docs"><p>Global application defaults</p>
 </td><td class="codes"><pre class="brush: clojure">(def app-defaults
-  {:database-file &quot;metabase.db&quot;                             ; name of the local h2 database file
-   :max-session-age (* 60 24 14)})                           ; session length in minutes</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.core" name="metabase.core"><h1 class="project-name">metabase.core</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+  {;; Database Configuration  (general options?  dburl?)
+   :mb-db-type &quot;h2&quot;
+   ;:mb-db-dbname &quot;postgres&quot;
+   ;:mb-db-host &quot;localhost&quot;
+   ;:mb-db-port &quot;5432&quot;
+   ;:mb-db-user &quot;metabase&quot;
+   ;:mb-db-pass &quot;metabase&quot;
+   :mb-db-file &quot;metabase.db&quot;
+   :mb-db-automigrate &quot;true&quot;
+   :mb-db-logging &quot;true&quot;
+   ;; Embedded Jetty Webserver
+   ;; check here for all available options:
+   ;; https://github.com/ring-clojure/ring/blob/master/ring-jetty-adapter/src/ring/adapter/jetty.clj
+   :mb-jetty-port &quot;3000&quot;
+   ;; Other Application Settings
+   :max-session-age &quot;20160&quot;})                    ; session length in minutes (14 days)</pre></td></tr><tr><td class="docs"><p>Retrieve value for a single configuration key.  Accepts either a keyword or a string.</p>
+
+<p>   We resolve properties from these places:
+   1.  environment variables (ex: MB<em>DB</em>TYPE -> :mb-db-type)
+   2.  jvm opitons (ex: -Dmb.db.type -> :mb-db-type)
+   3.  hard coded <code>app-defaults</code></p>
+</td><td class="codes"><pre class="brush: clojure">(defn config-str
+  [k]
+  (let [k (keyword k)]
+    (or (k environ/env) (k app-defaults))))</pre></td></tr><tr><td class="docs"><p>These are convenience functions for accessing config values that ensures a specific return type</p>
+</td><td class="codes"><pre class="brush: clojure">(defn ^Integer config-int [k] (when-let [val (config-str k)] (Integer/parseInt val)))
+(defn ^Boolean config-bool [k] (when-let [val (config-str k)] (Boolean/parseBoolean val)))
+(defn ^Keyword config-kw [k] (when-let [val (config-str k)] (keyword val)))</pre></td></tr><tr><td class="docs"><p>Global application configuration as a dictionary.
+   Combines hard coded defaults with optional user specified overrides from environment variables.</p>
+</td><td class="codes"><pre class="brush: clojure">(def config-all
+  (into {} (map (fn [k] [k (config-str k)]) (keys app-defaults))))</pre></td></tr><tr><td class="docs"><p>Retrieves all configuration values whose key begin with a specified prefix.
+   The returned map will strip the prefix from the key names.
+   All returned values will be Strings.</p>
+
+<p>   For example if you wanted all of Java's internal environment config values:
+   * (config-match "java-") -> {:version "25.25-b02" :info "mixed mode"}</p>
+</td><td class="codes"><pre class="brush: clojure">(defn config-match
+  [prefix]
+  (let [prefix-regex (re-pattern (str &quot;:&quot; prefix &quot;.*&quot;))]
+    (-&gt;&gt; (merge
+          (medley/filter-keys (fn [k] (re-matches prefix-regex (str k))) app-defaults)
+          (medley/filter-keys (fn [k] (re-matches prefix-regex (str k))) environ/env))
+      (medley/map-keys (fn [k] (let [kstr (str k)] (keyword (subs kstr (+ 1 (count prefix))))))))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.core" name="metabase.core"><h1 class="project-name">metabase.core</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.core
   (:gen-class)
   (:require [clojure.tools.logging :as log]
@@ -4081,6 +4106,7 @@ or want to combine the <code>sel</code> and permissions check statements into a 
             (metabase.middleware [auth :as auth]
                                  [log-api-call :refer :all]
                                  [format :refer :all])
+            [metabase.models.user :refer [User]]
             [metabase.routes :as routes]
             [metabase.util :as util]
             [ring.adapter.jetty :as ring-jetty]
@@ -4101,15 +4127,39 @@ or want to combine the <code>sel</code> and permissions check statements into a 
       wrap-params             ; parses GET and POST params as :query-params/:form-params and both as :params
       auth/wrap-sessionid     ; looks for a Metabase sessionid and assocs as :metabase-sessionid
       wrap-cookies            ; Parses cookies in the request map and assocs as :cookies
-      wrap-session            ; reads in current HTTP session and sets :session/key))</pre></td></tr><tr><td class="docs"><p>Launch Metabase in standalone mode.</p>
+      wrap-session            ; reads in current HTTP session and sets :session/key))</pre></td></tr><tr><td class="docs"><p>General application initialization function which should be run once at application startup.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn init
+  []
+  (log/info &quot;Metabase Initializing ... &quot;)
+  (log/debug &quot;Using Config:\n&quot; (with-out-str (clojure.pprint/pprint config/config-all)))
+  ;; startup database.  validates connection &amp; runs any necessary migrations
+  (db/setup-db :auto-migrate (config/config-bool :mb-db-automigrate))
+  ;; this is a temporary need until we finalize the code for bootstrapping the first user
+  (when-not (or (db/exists? User :id 1)
+                (db/exists? User :email &quot;admin@admin.com&quot;)) ; possible for User 1 to have been deleted
+    (db/ins User :email &quot;admin@admin.com&quot; :first_name &quot;admin&quot; :last_name &quot;admin&quot; :password &quot;admin&quot; :is_superuser true))
+  (log/info &quot;Metabase Initialization COMPLETE&quot;)
+  true)</pre></td></tr><tr><td class="docs"><p>Launch Metabase in standalone mode.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn -main
   [&amp; args]
-  (log/info &quot;Launching Metabase in STANDALONE mode&quot;)
-  ;; TODO - startup database.  validates connection &amp; runs any necessary migrations
-  ;; startup webserver
-  ;; TODO - allow for env configuration
-  (let [jetty-config {:port 3000}]
-    (ring-jetty/run-jetty app jetty-config)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.db" name="metabase.db"><h1 class="project-name">metabase.db</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Korma database definition and helper functions for interacting with the database.</p>
+  (log/info &quot;Starting Metabase in STANDALONE mode&quot;)
+  ;; run application init and if there are no issues then continue on to launching the webserver
+  (when (try
+          (init)
+          (catch Exception e
+            (log/error &quot;Metabase Initialization FAILED: &quot; (.getMessage e))))
+    ;; startup webserver
+    (let [jetty-config (-&gt;&gt; {:port (config/config-int :mb-jetty-port)
+                             :host (config/config-str :mb-jetty-host)
+                             :join? (config/config-bool :mb-jetty-join?)
+                             :daemon? (config/config-bool :mb-jetty-daemon?)
+                             :max-threads (config/config-int :mb-jetty-maxthreads)
+                             :min-threads (config/config-int :mb-jetty-minthreads)
+                             :max-queued (config/config-int :mb-jetty-maxqueued)
+                             :max-idle-time (config/config-int :mb-jetty-maxidletime)}
+                         (medley/filter-vals identity))]
+      (log/info &quot;Launching Embedded Jetty Webserver with config:\n&quot; (with-out-str (clojure.pprint/pprint jetty-config)))
+      (ring-jetty/run-jetty app jetty-config))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.db" name="metabase.db"><h1 class="project-name">metabase.db</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Korma database definition and helper functions for interacting with the database.</p>
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.db
   (:require [clojure.java.jdbc :as jdbc]
             [clojure.tools.logging :as log]
@@ -4117,35 +4167,87 @@ or want to combine the <code>sel</code> and permissions check statements into a 
             [environ.core :refer [env]]
             (korma [core :refer :all]
                    [db :refer :all])
-            [metabase.config :refer [app-defaults]]
+            [metabase.config :as config]
             [metabase.db.internal :refer :all]
             [metabase.util :as u]))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(declare post-select)</pre></td></tr><tr><td class="docs"><p>Path to our H2 DB file from env var or app config.</p>
-</td><td class="codes"><pre class="brush: clojure">(def db-file
-  (delay
-   (str &quot;file:&quot; (or (:database-file env)
-                    (str (System/getProperty &quot;user.dir&quot;) &quot;/&quot; (:database-file app-defaults)))
-        &quot;;AUTO_SERVER=TRUE&quot;)))</pre></td></tr><tr><td class="docs"><p>Tell the DB to open an "AUTO_SERVER" connection so multiple processes can connect to it (e.g. web server + REPL)
-Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://h2database.com/html/features.html#auto<em>mixed</em>mode)</p>
-</td><td class="codes"></td></tr><tr><td class="docs"><p>Setup Korma default DB.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn- setup-db
+</td><td class="codes"><pre class="brush: clojure">(defn db-file
   []
-  (log/info (str &quot;Using H2 database file: &quot; @db-file))
-  (let [db (create-db (h2 {:db @db-file
-                           :naming {:keys str/lower-case
-                                    :fields str/upper-case}}))]
-    (default-connection db)))</pre></td></tr><tr><td class="docs"><p>Migrate the database <code>:up</code> or <code>:down.</code></p>
+  (let [db-file-name (config/config-str :mb-db-file)
+        db-file (clojure.java.io/file db-file-name)
+        options &quot;;AUTO_SERVER=TRUE;MV_STORE=FALSE;DB_CLOSE_DELAY=-1&quot;] ; see http://h2database.com/html/features.html for explanation of options
+    (if (.isAbsolute db-file)
+      ;; when an absolute path is given for the db file then don't mess with it
+      (str &quot;file:&quot; db-file-name options)
+      ;; if we don't have an absolute path then make sure we start from &quot;user.dir&quot;
+      (str &quot;file:&quot; (str (System/getProperty &quot;user.dir&quot;) &quot;/&quot; db-file-name options)))))</pre></td></tr><tr><td class="docs"><p>Configure connection details for JDBC.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn setup-jdbc-db
+  []
+  (case (config/config-kw :mb-db-type)
+    :h2 {:subprotocol &quot;h2&quot;
+         :classname   &quot;org.h2.Driver&quot;
+         :subname     (db-file)}
+    :postgres {:subprotocol &quot;postgresql&quot;
+               :classname &quot;org.postgresql.Driver&quot;
+               :subname (str &quot;//&quot; (config/config-str :mb-db-host)
+                             &quot;:&quot; (config/config-str :mb-db-port)
+                             &quot;/&quot; (config/config-str :mb-db-dbname))
+               :user (config/config-str :mb-db-user)
+               :password (config/config-str :mb-db-pass)}))</pre></td></tr><tr><td class="docs"><p>Configure connection details for Korma.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn setup-korma-db
+  []
+  (case (config/config-kw :mb-db-type)
+    :h2 (h2 {:db (db-file)
+             :naming {:keys str/lower-case
+                      :fields str/upper-case}})
+    :postgres (postgres {:db (config/config-str :mb-db-dbname)
+                         :port (config/config-int :mb-db-port)
+                         :user (config/config-str :mb-db-user)
+                         :password (config/config-str :mb-db-pass)
+                         :host (config/config-str :mb-db-host)})))</pre></td></tr><tr><td class="docs"><p>Simple test of a JDBC connection.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn test-db-conn
+  [jdbc-db]
+  (let [result (first (jdbc/query jdbc-db [&quot;select 7 as num&quot;] :row-fn :num))]
+    (assert (= 7 result) &quot;JDBC Connection Test FAILED&quot;)))</pre></td></tr><tr><td class="docs"><p>Migrate the database <code>:up</code>, <code>:down</code>, or <code>:print</code>.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn migrate
-  [direction]
-  (setup-db)
-  (let [conn (jdbc/get-connection {:subprotocol &quot;h2&quot;
-                                   :subname @db-file})]
+  [jdbc-db direction]
+  (let [conn (jdbc/get-connection jdbc-db)]
     (case direction
-      :up   (com.metabase.corvus.migrations.LiquibaseMigrations/setupDatabase conn)
-      :down (com.metabase.corvus.migrations.LiquibaseMigrations/teardownDatabase conn))))</pre></td></tr><tr><td class="docs"><h1>UTILITY FUNCTIONS</h1>
-</td><td class="codes"></td></tr><tr><td class="docs"><p>Should we enable DB call logging? (You might want to disable this if we're doing many in parallel)</p>
-</td><td class="codes"><pre class="brush: clojure">(def ^:dynamic *log-db-calls*
-  true)</pre></td></tr><tr><td class="docs"><h2>UPD</h2>
+      :up (com.metabase.corvus.migrations.LiquibaseMigrations/setupDatabase conn)
+      :down (com.metabase.corvus.migrations.LiquibaseMigrations/teardownDatabase conn)
+      :print (com.metabase.corvus.migrations.LiquibaseMigrations/genSqlDatabase conn))))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(def ^:private setup-db-has-been-called?
+  (atom false))</pre></td></tr><tr><td class="docs"><p>Do general perparation of database by validating that we can connect.
+   Caller can specify if we should run any pending database migrations.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn setup-db
+  [&amp; {:keys [auto-migrate]
+      :or {auto-migrate true}}]
+  (reset! setup-db-has-been-called? true)
+  (let [jdbc-db (setup-jdbc-db)
+        korma-db (setup-korma-db)]
+    ;; Test DB connection and throw exception if we have any troubles connecting
+    (test-db-conn jdbc-db)
+    (log/info &quot;Verify Database Connection ... CHECK&quot;)
+    ;; Run through our DB migration process and make sure DB is fully prepared
+    (if auto-migrate
+      (migrate jdbc-db :up)
+      ;; if we are not doing auto migrations then print out migration sql for user to run manually
+      ;; then throw an exception to short circuit the setup process and make it clear we can't proceed
+      (let [sql (migrate jdbc-db :print)]
+        (log/info (str &quot;Database Upgrade Required\n\n&quot;
+                    &quot;NOTICE: Your database requires updates to work with this version of Metabase.  &quot;
+                    &quot;Please execute the following sql commands on your database before proceeding.\n\n&quot;
+                    sql
+                    &quot;\n\n&quot;
+                    &quot;Once you're database is updated try running the application again.\n&quot;))
+        (throw (java.lang.Exception. &quot;Database requires manual upgrade.&quot;))))
+    (log/info &quot;Database Migrations Current ... CHECK&quot;)
+    ;; Establish our 'default' Korma DB Connection
+    (default-connection (create-db korma-db))))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn setup-db-if-needed [&amp; args]
+  (when-not @setup-db-has-been-called?
+    (apply setup-db args)))</pre></td></tr><tr><td class="docs"><h1>UTILITY FUNCTIONS</h1>
+</td><td class="codes"></td></tr><tr><td class="docs"><h2>UPD</h2>
 </td><td class="codes"></td></tr><tr><td class="docs"><p>Multimethod that is called by <code>upd</code> before DB operations happen.
    A good place to set updated values for fields like <code>updated_at</code>, or serialize maps into JSON.</p>
 </td><td class="codes"><pre class="brush: clojure">(defmulti pre-update
@@ -4249,19 +4351,14 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
                                    (assoc :fields (or field-keys#
                                                       (default-fields entity#))) ; tell korma which fields to grab. If `field-keys` weren't passed in vector
                                    (merge *entity-overrides*))]                  ; then do a `default-fields` lookup at runtime
-       (when *log-db-calls*
+       (when (config/config-bool :mb-db-logging)
          (log/debug &quot;DB CALL: &quot; (:name entity#)
                   (or (:fields entity-select-form#) &quot;*&quot;)
                   ~@(mapv (fn [[form &amp; args]]
                             `[~(name form) ~(apply str (interpose &quot; &quot; args))])
                           forms)))
        (-&gt;&gt; (select entity-select-form# ~@forms)
-            (map (partial post-select entity#))))))                             ; map `post-select` over the results</pre></td></tr><tr><td class="docs"><p>Returns a memoized fn that calls <code>sel</code>.</p>
-</td><td class="codes"><pre class="brush: clojure">(defmacro sel-fn
-  [one-or-many entity &amp; forms]
-  `(memoize
-    (fn []
-      (sel ~one-or-many ~entity ~@forms))))</pre></td></tr><tr><td class="docs"><h2>INS</h2>
+            (map (partial post-select entity#))))))                             ; map `post-select` over the results</pre></td></tr><tr><td class="docs"><h2>INS</h2>
 </td><td class="codes"></td></tr><tr><td class="docs"><p>Gets called by <code>ins</code> immediately before inserting a new object immediately before the korma <code>insert</code> call.
    This provides an opportunity to do things like encode JSON or provide default values for certain fields.</p>
 
@@ -4327,12 +4424,13 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
 </td><td class="codes"><pre class="brush: clojure">(defn destructure-entity
   [entity]
   (if-not (vector? entity) [entity nil]
-          [(first entity) (vec (rest entity))]))</pre></td></tr><tr><td class="docs"><p>Convert an ENTITY argument to <code>sel</code>/<code>sel-fn</code> into the form we should pass to korma <code>select</code> and to various multi-methods such as
+          [(first entity) (vec (rest entity))]))</pre></td></tr><tr><td class="docs"><p>Convert an ENTITY argument to <code>sel</code> into the form we should pass to korma <code>select</code> and to various multi-methods such as
    <code>post-select</code>.</p>
 
 <pre><code>*  If entity is a vector like `[User :name]`, only keeps the first arg (`User`)
 *  Converts fully-qualified entity name strings like `"metabase.models.user/User"` to the corresponding entity
    and requires their namespace if needed.
+*  Symbols like `'metabase.models.user/User` are handled the same way as strings.
 </code></pre>
 </td><td class="codes"><pre class="brush: clojure">(def entity-&gt;korma
   (memoize
@@ -4472,24 +4570,25 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
   [{:keys [db table name]}]
   (-&gt; ((:native-query @db)
        (format &quot;SELECT COUNT(\&quot;%s\&quot;.\&quot;%s\&quot;) AS count FROM \&quot;%s\
-               (:name (table))
+               (:name @table)
                name
-               (:name (table))))
+               (:name @table)))
       first
       :count))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defn field-distinct-count
   [{:keys [db table name]}]
   (-&gt; ((:native-query @db)
        (format &quot;SELECT COUNT(DISTINCT \&quot;%s\&quot;.\&quot;%s\&quot;) AS count FROM \&quot;%s\
-               (:name (table))
+               (:name @table)
                name
-               (:name (table))))
+               (:name @table)))
       first
       :count))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.generic-sql.query-processor" name="metabase.driver.generic-sql.query-processor"><h1 class="project-name">metabase.driver.generic-sql.query-processor</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>The Query Processor is responsible for translating the Metabase Query Language into korma SQL forms.</p>
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.generic-sql.query-processor
   (:require [clojure.core.match :refer [match]]
             [clojure.tools.logging :as log]
             [korma.core :refer :all]
+            [metabase.config :as config]
             [metabase.db :refer :all]
             [metabase.driver.generic-sql.query-processor.annotate :as annotate]
             (metabase.models [field :refer [Field]]
@@ -4498,9 +4597,7 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
          log-query
          field-id-&gt;kw
          table-id-&gt;korma-entity)</pre></td></tr><tr><td class="docs"><h2>Public Functions</h2>
-</td><td class="codes"></td></tr><tr><td class="docs"><p>Log the query dictionary, korma form, and SQL output when running the Query Processor?</p>
-</td><td class="codes"><pre class="brush: clojure">(def ^:dynamic *enable-debug-logging*
-  true)</pre></td></tr><tr><td class="docs"><p>Convert QUERY into a korma <code>select</code> form.</p>
+</td><td class="codes"></td></tr><tr><td class="docs"><p>Convert QUERY into a korma <code>select</code> form.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn process
   [{{:keys [source_table] :as query} :query}]
   (when-not (zero? source_table)
@@ -4509,7 +4606,7 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
                      (mapcat (fn [form] (if (vector? form) form ; some `apply-form` implementations return a vector of multiple korma forms; if only one was
                                            [form])))           ; returned wrap it in a vec so `mapcat` can build a flattened sequence of forms
                      doall)]
-      (when *enable-debug-logging*
+      (when (config/config-bool :mb-db-logging)
         (log-query query forms))
       `(let [entity# (table-id-&gt;korma-entity ~source_table)]
          (select entity# ~@forms)))))</pre></td></tr><tr><td class="docs"><p>Convert QUERY into a korma <code>select</code> form, execute it, and annotate the results.</p>
@@ -4518,10 +4615,9 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
   {:pre [(integer? (:database query)) ; double check that the query being passed is valid
          (map? (:query query))
          (= (name (:type query)) &quot;query&quot;)]}
-  (binding [*log-db-calls* false]
-    (-&gt;&gt; (process query)
-         eval
-         (annotate/annotate query))))</pre></td></tr><tr><td class="docs"><h2>Query Clause Processors</h2>
+  (-&gt;&gt; (process query)
+    eval
+    (annotate/annotate query)))</pre></td></tr><tr><td class="docs"><h2>Query Clause Processors</h2>
 </td><td class="codes"></td></tr><tr><td class="docs"><p>Given a Query clause like</p>
 
 <pre><code>{:aggregation ["count"]}
@@ -4570,7 +4666,12 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
 </td><td class="codes"><pre class="brush: clojure">(defmethod apply-form :fields [[_ field-ids]]
   (let [field-names (-&gt;&gt; (sel :many [Field :name] :id [in (set field-ids)])
                          (map :name))]
-    `(fields ~@field-names)))</pre></td></tr><tr><td class="docs"><h3>`:filter`</h3>
+    `(fields ~@field-names)))</pre></td></tr><tr><td class="docs"><p>Given a filter SUBCLAUSE, return a Korma filter predicate form for use in korma <code>where</code>.</p>
+
+<pre><code>(filter-subclause-&gt;predicate ["&gt;" 1413 1]) -&gt; {:field_name [&gt; 1]}
+</code></pre>
+
+<h3>`:filter`</h3>
 
 <p>ex.</p>
 
@@ -4578,15 +4679,28 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
   ["&gt;" 1413 1]
   ["&gt;=" 1412 4]]
 </code></pre>
+</td><td class="codes"><pre class="brush: clojure">(defn- filter-subclause-&gt;predicate
+  [[_ field-id :as subclause]]
+  {(field-id-&gt;kw field-id)
+   (match subclause
+     [&quot;&gt;&quot;  _ value]        ['&gt;    value]
+     [&quot;&lt;&quot;  _ value]        ['&lt;    value]
+     [&quot;&gt;=&quot; _ value]        ['&gt;=   value]
+     [&quot;&lt;=&quot; _ value]        ['&lt;=   value]
+     [&quot;=&quot;  _ value]        ['=    value]
+     [&quot;!=&quot; _ value]        ['not= value]
+     [&quot;NOT_NULL&quot; _]        ['not= nil]
+     [&quot;IS_NULL&quot; _]         ['=    nil]
+     [&quot;BETWEEN&quot; _ min max] ['between [min max]])})</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod apply-form :filter [[_ filter-clause]]
   (match filter-clause
     nil                  nil ; empty clause
     [nil nil]            nil ; empty clause
-    [&quot;AND&quot; &amp; subclauses] (let [m (-&gt;&gt; subclauses                                                      ; so far only `AND` filtering is available in the UI
-                                      (map (fn [[filter-type field-id value]]                          ; just convert filter-types like `&quot;&lt;=&quot;` directly to symbols
-                                             {(field-id-&gt;kw field-id) [(symbol filter-type) value]}))
-                                      (apply merge {}))]
-                           `(where ~m))))</pre></td></tr><tr><td class="docs"><h3>`:limit`</h3>
+    [&quot;AND&quot; &amp; subclauses] `(where (~'and ~@(map filter-subclause-&gt;predicate
+                                               subclauses)))
+    [&quot;OR&quot; &amp; subclauses]  `(where (~'or  ~@(map filter-subclause-&gt;predicate
+                                               subclauses)))
+    [&amp; subclause]        `(where ~(filter-subclause-&gt;predicate subclause))))</pre></td></tr><tr><td class="docs"><h3>`:limit`</h3>
 
 <p>ex.</p>
 
@@ -4648,10 +4762,13 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
 </td><td class="codes"><pre class="brush: clojure">(defn- log-query
   [{:keys [source_table] :as query} forms]
   (log/debug
-    &quot;\nQUERY -&gt;&quot; (with-out-str (clojure.pprint/pprint query))
-    &quot;\nKORMA FORM -&gt;&quot; (with-out-str (clojure.pprint/pprint `(select (table-id-&gt;korma-entity ~source_table) ~@forms))))
-  (eval `(let [entity# (table-id-&gt;korma-entity ~source_table)]
-           (log/debug &quot;\nSQL -&gt;&quot; (sql-only (select entity# ~@forms)) &quot;\n&quot;))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.generic-sql.query-processor.annotate" name="metabase.driver.generic-sql.query-processor.annotate"><h1 class="project-name">metabase.driver.generic-sql.query-processor.annotate</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Functions related to annotating results returned by the Query Processor.</p>
+   &quot;\n********************&quot;
+   &quot;\nSOURCE TABLE: &quot; source_table
+   &quot;\nQUERY -&gt;&quot;      (with-out-str (clojure.pprint/pprint query))
+   &quot;\nKORMA FORM -&gt;&quot; (with-out-str (clojure.pprint/pprint `(select (table-id-&gt;korma-entity ~source_table) ~@forms)))
+   &quot;\nSQL -&gt;&quot;        (eval `(let [entity# (table-id-&gt;korma-entity ~source_table)]
+                              (sql-only (select entity# ~@forms))))
+   &quot;\n********************\n&quot;))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.generic-sql.query-processor.annotate" name="metabase.driver.generic-sql.query-processor.annotate"><h1 class="project-name">metabase.driver.generic-sql.query-processor.annotate</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Functions related to annotating results returned by the Query Processor.</p>
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.generic-sql.query-processor.annotate
   (:require [metabase.db :refer :all]
             [metabase.models.field :refer [Field]]))</pre></td></tr><tr><td class="docs">
@@ -4685,7 +4802,7 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
                                                               :id [in field-ids])     ; Fetch names of fields from `fields` clause
                                                          (map (fn [{:keys [id name]}]  ; build map of field-id -&gt; field-name
                                                                 {id (keyword name)}))
-                                                         (reduce merge {}))]
+                                                         (into {}))]
                                  (map field-id-&gt;name field-ids)))                     ; now get names in same order as the IDs
         other-fields (-&gt;&gt; (first results)
                           keys                                                        ; Get the names of any other fields that were returned (i.e., `sum`)
@@ -4700,7 +4817,7 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
                           :table_id table-id :name [in (set column-names)])
                      (map (fn [{:keys [name] :as column}]                                          ; build map of column-name -&gt; column
                             {name (select-keys column [:id :table_id :name :description :base_type :special_type])}))
-                     (apply merge {}))]
+                     (into {}))]
     (-&gt;&gt; column-names
          (map (fn [column-name]
                 (or (columns column-name)                             ; try to get matching column from the map we build earlier
@@ -4753,21 +4870,20 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
               @jdbc-columns)))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defn sync-tables
   [{:keys [id table-names] :as database}]
-  (binding [*log-db-calls* false]
-    (with-jdbc-metadata database ; with-jdbc-metadata reuses *jdbc-metadata* in any call to it inside the fn passed to it
-      (fn [_]                     ; by wrapping the entire sync operation in this we can reuse the same connection throughout
-        (-&gt;&gt; @table-names
-             (pmap (fn [table-name]
-                     (binding [*entity-overrides* {:transforms [#(assoc % :db (constantly database))]}] ; add a korma transform to Table that will assoc :db on results.
-                       (let [table (or (sel :one Table :db_id id :name table-name)                      ; Table's post-select only sets :db if it's not already set.
-                                       (ins Table                                                       ; This way, we can reuse a single `database` instead of creating
-                                            :db_id id                                                   ; a few dozen duplicate instances of it.
-                                            :name table-name                                            ; We can re-use one korma connection pool instead of
-                                            :active true))]                                             ; creating dozens of them, which was causing issues with too
-                         (update-table-row-count table)                                                 ; many open connections.
-                         (sync-fields table)
-                         (log/debug &quot;Synced&quot; table-name)))))
-             dorun)))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.h2.connection" name="metabase.driver.h2.connection"><h1 class="project-name">metabase.driver.h2.connection</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+  (with-jdbc-metadata database ; with-jdbc-metadata reuses *jdbc-metadata* in any call to it inside the fn passed to it
+    (fn [_]                     ; by wrapping the entire sync operation in this we can reuse the same connection throughout
+      (-&gt;&gt; @table-names
+        (pmap (fn [table-name]
+                (binding [*entity-overrides* {:transforms [#(assoc % :db (delay database))]}] ; add a korma transform to Table that will assoc :db on results.
+                  (let [table (or (sel :one Table :db_id id :name table-name)                 ; Table's post-select only sets :db if it's not already set.
+                                (ins Table                                                    ; This way, we can reuse a single `database` instead of creating
+                                  :db_id id                                                   ; a few dozen duplicate instances of it.
+                                  :name table-name                                            ; We can re-use one korma connection pool instead of
+                                  :active true))]                                             ; creating dozens of them, which was causing issues with too
+                    (update-table-row-count table)                                            ; many open connections.
+                    (sync-fields table)
+                    (log/debug &quot;Synced&quot; table-name)))))
+        dorun))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.driver.h2.connection" name="metabase.driver.h2.connection"><h1 class="project-name">metabase.driver.h2.connection</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.driver.h2.connection
   (:require [korma.db]
             [metabase.driver.connection :refer :all]))</pre></td></tr><tr><td class="docs">
@@ -4891,8 +5007,13 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
    :inet :TextField             ; This was `GenericIPAddressField` in some places in the Django code but not others ...
    :int2 :IntegerField
    :int4 :IntegerField
+   :int8 :BigIntegerField
+   :json :TextField
+   :numeric :DecimalField
    :serial :IntegerField
    :text :TextField
+   :time :TimeField
+   :timestamp :DateTimeField
    :timestamptz :DateTimeField
    :varchar :TextField})</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod driver/sync-tables :postgres [database]
@@ -4932,133 +5053,73 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
   (fn [{:keys [engine]}]
     {:pre [engine]}
     (require (symbol (str &quot;metabase.driver.&quot; engine &quot;.&quot; impl-namespace)))
-    (keyword engine)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.http-client" name="metabase.http-client"><h1 class="project-name">metabase.http-client</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>HTTP client for making API calls against the Metabase API. For test/REPL purposes.</p>
-</td><td class="codes"><pre class="brush: clojure">(ns metabase.http-client
+    (keyword engine)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.email" name="metabase.email"><h1 class="project-name">metabase.email</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.email
   (:require [clojure.data.json :as json]
+            [clojure.tools.logging :as log]
             [clj-http.client :as client]
+            [medley.core :as medley]
+            [metabase.models.setting :refer [defsetting]]
             [metabase.util :as u]))</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(declare authenticate
-         auto-deserialize-dates
-         build-url
-         -client)</pre></td></tr><tr><td class="docs"><h2>API CLIENT</h2>
-</td><td class="codes"></td></tr><tr><td class="docs"><p>Prefix to automatically prepend to the URL of calls made with <code>client</code>.</p>
-</td><td class="codes"><pre class="brush: clojure">(def ^:dynamic *url-prefix*
-  &quot;http://localhost:3000/api/&quot;)</pre></td></tr><tr><td class="docs"><p>Perform an API call and return the response (for test purposes).
-   The first arg after URL will be passed as a JSON-encoded body if it is a map.
-   Other &amp;rest kwargs will be passed as <code>GET</code> parameters.</p>
+</td><td class="codes"><pre class="brush: clojure">(declare api-post-messages-send
+         format-recipients)</pre></td></tr><tr><td class="docs"><h2>CONFIG</h2>
+</td><td class="codes"></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defsetting mandrill-api-key &quot;API key for Mandrill.&quot;)</pre></td></tr><tr><td class="docs"><p>The <code>from</code> field for messages sent by the Mandrill API.</p>
+</td><td class="codes"><pre class="brush: clojure">(def ^:private message-sender
+  {:email &quot;mailman@metabase.com&quot;
+   :name &quot;Metabase MetaMailMan&quot;})</pre></td></tr><tr><td class="docs"><h2>PUBLIC INTERFACE</h2>
+</td><td class="codes"></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn send-message [org-id subject recipients message-type message &amp; {:as kwargs}]
+  {:pre [(integer? org-id)
+         (string? subject)
+         (map? recipients)
+         (contains? #{:text :html} message-type)
+         (string? message)]}
+  (medley/mapply api-post-messages-send org-id (merge {:subject subject
+                                                       :to (format-recipients recipients)
+                                                       message-type message}
+                                                      kwargs)))</pre></td></tr><tr><td class="docs"><h2>IMPLEMENTATION</h2>
+</td><td class="codes"></td></tr><tr><td class="docs"><p>URL prefix for API calls to the Mandrill API.</p>
+</td><td class="codes"><pre class="brush: clojure">(def ^:private api-prefix
+  &quot;https://mandrillapp.com/api/1.0/&quot;)</pre></td></tr><tr><td class="docs"><p>Make a <code>POST</code> call to the Mandrill API.</p>
 
-<p>  Examples:</p>
-
-<pre><code>(client :get 200 "card/1")                ; GET  http://localhost:3000/api/card/1, throw exception is status code != 200
-(client :get "card" :org 1)               ; GET  http://localhost:3000/api/card?org=1
-(client :post "card" {:name "My Card"}) ; POST http://localhost:3000/api/card with JSON-encoded body {:name "My Card"}
+<pre><code>(api-post org-id "messages/send" :body { ... })
 </code></pre>
+</td><td class="codes"><pre class="brush: clojure">(defn- api-post
+  [org-id endpoint &amp; {:keys [body] :as request-map
+                      :or {body {}}}]
+  {:pre [(string? endpoint)]}
+  (if-not (mandrill-api-key)
+    (log/warn &quot;Cannot send email: no Mandrill API key!&quot;)
+    (let [defaults {:content-type :json
+                    :accept :json}
+          body (-&gt; body
+                   (assoc :key (mandrill-api-key))
+                   json/write-str)]
+      (client/post (str api-prefix endpoint &quot;.json&quot;)
+                   (merge defaults request-map {:body body})))))</pre></td></tr><tr><td class="docs"><p>Make a <code>POST messages/send</code> call to the Mandrill API.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn- api-post-messages-send
+  [org-id &amp; {:as kwargs}]
+  (let [defaults {:from_email (message-sender :email)
+                  :from_name (message-sender :name)}]
+    (= (:status (api-post org-id &quot;messages/send&quot;
+                          :body {:message (merge defaults kwargs)}))
+       200)))</pre></td></tr><tr><td class="docs"><p>Format a map of email -> name in the format expected by the Mandrill API.</p>
 
-<p>  Args:</p>
-
-<ul>
-<li>CREDENTIALS-MAP       Optional map of <code>:email</code> and <code>:password</code> of a User whose credentials we should perform the request with.</li>
-<li>METHOD                <code>:get</code>, <code>:post</code>, <code>:delete</code>, or <code>:put</code></li>
-<li>EXPECTED-STATUS-CODE  When passed, throw an exception if the response has a different status code.</li>
-<li>URL                   Base URL of the request, which will be appended to <code>*url-prefix*</code>. e.g. <code>card/1/favorite</code></li>
-<li>HTTP-BODY-MAP         Optional map to send a the JSON-serialized HTTP body of the request</li>
-<li>URL-KWARGS            key-value pairs that will be encoded and added to the URL as GET params</li>
-</ul>
-</td><td class="codes"><pre class="brush: clojure">(defn
-  ^{:arglists ([credentials-map? method expected-status-code? url http-body-map? &amp; url-kwargs])}
-  client
-  [&amp; args]
-  (let [[credentials [method &amp; args]] (u/optional map? args)
-        [expected-status [url &amp; args]] (u/optional integer? args)
-        [body [&amp; {:as url-param-kwargs}]] (u/optional map? args)]
-    (-client credentials method expected-status url body url-param-kwargs)))</pre></td></tr><tr><td class="docs"><h2>INTERNAL FUNCTIONS</h2>
-</td><td class="codes"></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(defn- -client [credentials method expected-status url http-body url-param-kwargs]
-  ;; Since the params for this function can get a little complicated make sure we validate them
-  {:pre [(or (nil? credentials)
-             (map? credentials))
-         (contains? #{:get :post :put :delete} method)
-         (or (nil? expected-status)
-             (integer? expected-status))
-         (string? url)
-         (or (nil? http-body)
-             (map? http-body))
-         (or (nil? url-param-kwargs)
-             (map? url-param-kwargs))]}
-  (let [request-map {:content-type :json
-                     :accept :json
-                     :headers {&quot;X-METABASE-SESSION&quot; (when credentials (authenticate credentials))}
-                     :body (json/write-str http-body)}
-        request-fn (case method
-                     :get  client/get
-                     :post client/post
-                     :put client/put
-                     :delete client/delete)
-        url (build-url url url-param-kwargs)
-        method-name (.toUpperCase ^String (name method))
-        ;; Now perform the HTTP request
-        {:keys [status body]} (try (request-fn url request-map)
-                                   (catch clojure.lang.ExceptionInfo e
-                                     (println method-name url)
-                                     (-&gt; (.getData ^clojure.lang.ExceptionInfo e)
-                                         :object)))]
-    ;; -check the status code if EXPECTED-STATUS was passed
-    (println method-name url status)
-    (when expected-status
-      (when-not (= status expected-status)
-        (println &quot;\n****************************************\n&quot;)
-        (let [message (format &quot;%s %s expected a status code of %d, got %d.&quot; method-name url expected-status status)
-              {stacktrace :stacktrace :as body} (try (-&gt; (json/read-str body)
-                                                         clojure.walk/keywordize-keys)
-                                                     (catch Exception _ body))]
-          (clojure.pprint/pprint body)
-          (throw (Exception. message)))))
-    ;; Deserialize the JSON response or return as-is if that fails
-    (try (-&gt; body
-             json/read-str
-             clojure.walk/keywordize-keys
-             auto-deserialize-dates)
-         (catch Exception _
-           body))))</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(defn- authenticate [{:keys [email password] :as credentials}]
-  {:pre [(string? email)
-         (string? password)]}
-  (try
-    (-&gt; (client :post 200 &quot;session&quot; credentials)
-        :id)
-    (catch Exception e
-      (println &quot;Failed to authenticate with email:&quot; email &quot;and password:&quot; password &quot;. Does user exist?&quot;))))</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(defn- build-url [url url-param-kwargs]
-  {:pre [(string? url)
-         (or (nil? url-param-kwargs)
-             (map? url-param-kwargs))]}
-  (str *url-prefix* url (when-not (empty? url-param-kwargs)
-                          (str &quot;?&quot; (-&gt;&gt; url-param-kwargs
-                                        (map (fn [[k v]]
-                                               [(if (keyword? k) (name k) k)
-                                                (if (keyword? v) (name v) v)]))
-                                        (map (partial interpose &quot;=&quot;))
-                                        (map (partial apply str))
-                                        (interpose &quot;&amp;&quot;)
-                                        (apply str))))))</pre></td></tr><tr><td class="docs"><h2>AUTO-DESERIALIZATION</h2>
-</td><td class="codes"></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(def auto-deserialize-dates-keys
-  #{:created_at :updated_at :last_login :date_joined :started_at :finished_at})</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(defn- deserialize-date [date]
-  (some-&gt;&gt; (u/parse-iso8601 date)
-           .getTime
-           java.sql.Timestamp.))</pre></td></tr><tr><td class="docs"><p>Automatically recurse over RESPONSE and look for keys that are known to correspond to dates.
-   Parse their values and convert to <code>java.sql.Timestamps</code>.</p>
-</td><td class="codes"><pre class="brush: clojure">(defn- auto-deserialize-dates
-  [response]
-  (cond (vector? response) (mapv auto-deserialize-dates response)
-        (map? response) (-&gt;&gt; response
-                             (map (fn [[k v]]
-                                    {k (if (contains? auto-deserialize-dates-keys k)
-                                         (deserialize-date v)
-                                         (auto-deserialize-dates v))}))
-                             (reduce merge {}))
-        :else response))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.middleware.auth" name="metabase.middleware.auth"><h1 class="project-name">metabase.middleware.auth</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Middleware for dealing with authentication and session management.</p>
+<pre><code>(format-recipients {"cam@metabase.com" "Cam Saul"})
+-&gt; {:email "cam@metabase.com"
+    :name "Cam Saul"
+    :type :to}
+</code></pre>
+</td><td class="codes"><pre class="brush: clojure">(defn- format-recipients
+  [email-&gt;name]
+  (map (fn [[email name]]
+         {:pre [(u/is-email? email)
+                (string? name)]}
+         {:email email
+          :name name
+          :type :to})
+       email-&gt;name))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.middleware.auth" name="metabase.middleware.auth"><h1 class="project-name">metabase.middleware.auth</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Middleware for dealing with authentication and session management.</p>
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.middleware.auth
   (:require [korma.core :as korma]
             [metabase.config :as config]
@@ -5096,7 +5157,7 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
                            (korma/where {:id metabase-sessionid})))
           session-age-ms (- (System/currentTimeMillis) (.getTime ^java.util.Date (get session :created_at (java.util.Date. 0))))]
       ;; If the session exists and is not expired (max-session-age &gt; session-age) then validation is good
-      (if (and session (&gt; (:max-session-age config/app-defaults) (quot session-age-ms 60000)))
+      (if (and session (&gt; (config/config-int :max-session-age) (quot session-age-ms 60000)))
         (handler (assoc request :metabase-userid (:user_id session)))
         ;; default response is 401
         response-unauthentic))))</pre></td></tr><tr><td class="docs">
@@ -5132,22 +5193,18 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
     (-format-response (handler request))))</pre></td></tr><tr><td class="docs"><p>Remove values that are fns or delays from map M.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn- remove-fns-and-delays
   [m]
-  (filter-vals #(and (not (fn? %))
-                     (not (delay? %)))
+  (filter-vals #(not (or (delay? %)
+                         (fn? %)))
                m))</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(defn- type-key
-  [obj]
-  (cond (map? obj) :map
-        (coll? obj) :coll
-        (= (type obj) org.h2.jdbc.JdbcClob) :jdbc-clob
-        :else :obj))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn- clob? [obj]
+  (= (type obj) org.h2.jdbc.JdbcClob))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defn- -format-response [obj]
-  (case (type-key obj)
-    :obj obj
-    :map (-&gt;&gt; (remove-fns-and-delays obj)
-              (map-vals -format-response))       ; recurse over all vals in the map
-    :coll (map -format-response obj)             ; recurse over all items in the collection
-    :jdbc-clob (util/jdbc-clob-&gt;str obj)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.middleware.log-api-call" name="metabase.middleware.log-api-call"><h1 class="project-name">metabase.middleware.log-api-call</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Middleware to log API calls. Primarily for debugging purposes.</p>
+  (cond
+    (map? obj)  (-&gt;&gt; (remove-fns-and-delays obj)   ; recurse over all vals in the map
+                     (map-vals -format-response))
+    (coll? obj) (map -format-response obj)        ; recurse over all items in the collection
+    (clob? obj) (util/jdbc-clob-&gt;str obj)
+    :else       obj))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.middleware.log-api-call" name="metabase.middleware.log-api-call"><h1 class="project-name">metabase.middleware.log-api-call</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><p>Middleware to log API calls. Primarily for debugging purposes.</p>
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.middleware.log-api-call
   (:require [clojure.pprint :refer [pprint]]
             [clojure.tools.logging :as log]))</pre></td></tr><tr><td class="docs">
@@ -5163,7 +5220,13 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
               (do
                 (when log-request?
                   (log-request request))
-                (let [response (time (handler request))]
+                (let [start-time (System/nanoTime)
+                      response (handler request)]
+                  (when log-request?
+                    (let [elapsed-time (-&gt; (- (System/nanoTime) start-time)
+                                           double
+                                           (/ 1000000.0))]
+                      (log/debug (str &quot;Elapsed time: &quot; elapsed-time &quot; msecs&quot;))))
                   (when log-response?
                     (log/debug (with-out-str (pprint response))))
                   response))))))</pre></td></tr><tr><td class="docs"><p>Is this ring request an API call (does path start with <code>/api</code>)?</p>
@@ -5178,9 +5241,9 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
   (:require [korma.core :refer :all]
             [metabase.db :refer :all]
             (metabase.models [common :refer :all]
-              [hydrate :refer [realize-json]]
-              [org :refer [Org]]
-              [user :refer [User]])
+                             [hydrate :refer [realize-json]]
+                             [org :refer [Org]]
+                             [user :refer [User]])
             [metabase.util :as util]))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(def annotation-general 0)
 (def annotation-description 1)</pre></td></tr><tr><td class="docs">
@@ -5194,9 +5257,9 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
   (assoc annotation :updated_at (util/new-sql-timestamp)))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod post-select Annotation [_ {:keys [organization_id author_id] :as annotation}]
   (-&gt; annotation
-    ;; TODO - would probably be nice to associate a function which pulls the object the annotation points to
-    (assoc :author (sel-fn :one User :id author_id)
-           :organization (sel-fn :one Org :id organization_id))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.card" name="metabase.models.card"><h1 class="project-name">metabase.models.card</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+      ;; TODO - would probably be nice to associate a function which pulls the object the annotation points to
+      (assoc :author (delay (sel :one User :id author_id))
+             :organization (delay (sel :one Org :id organization_id)))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.card" name="metabase.models.card"><h1 class="project-name">metabase.models.card</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.models.card
   (:require [clojure.data.json :as json]
             [korma.core :refer :all]
@@ -5223,8 +5286,8 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
 </td><td class="codes"><pre class="brush: clojure">(defmethod post-select Card [_ {:keys [organization_id creator_id] :as card}]
   (-&gt; card
       (realize-json :dataset_query :visualization_settings)
-      (assoc :creator (sel-fn :one User :id creator_id)
-             :organization (sel-fn :one Org :id organization_id))
+      (assoc :creator (delay (sel :one User :id creator_id))
+             :organization (delay (sel :one Org :id organization_id)))
       assoc-permissions-sets))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.card-favorite" name="metabase.models.card-favorite"><h1 class="project-name">metabase.models.card-favorite</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.models.card-favorite
   (:require [korma.core :refer :all]
@@ -5236,8 +5299,8 @@ Do this by appending <code>;AUTO_SERVER=TRUE</code> to the JDBC URL (see http://
   (table :report_cardfavorite))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod post-select CardFavorite [_ {:keys [card_id owner_id] :as card-favorite}]
   (assoc card-favorite
-         :owner (sel-fn :one User :id owner_id)
-         :card (sel-fn :one Card :id card_id)))</pre></td></tr><tr><td class="docs">
+         :owner (delay (sel :one User :id owner_id))
+         :card  (delay (sel :one Card :id card_id))))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod pre-insert CardFavorite [_ card-favorite]
   (let [defaults {:created_at (new-sql-timestamp)
                   :updated_at (new-sql-timestamp)}]
@@ -5295,17 +5358,16 @@ determining the <code>organization_id</code> of a <code>Query</code> requires fe
           :can_read (delay (user-can? :read &lt;&gt;))
           :can_write (delay (user-can? :write &lt;&gt;))))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(def timezones
-  ['GMT',
-   'UTC',
-   'US/Alaska',
-   'US/Arizona',
-   'US/Central',
-   'US/Eastern',
-   'US/Hawaii',
-   'US/Mountain',
-   'US/Pacific',
-   'America/Costa_Rica'
-   ])</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.dashboard" name="metabase.models.dashboard"><h1 class="project-name">metabase.models.dashboard</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+  [&quot;GMT&quot;
+   &quot;UTC&quot;
+   &quot;US/Alaska&quot;
+   &quot;US/Arizona&quot;
+   &quot;US/Central&quot;
+   &quot;US/Eastern&quot;
+   &quot;US/Hawaii&quot;
+   &quot;US/Mountain&quot;
+   &quot;US/Pacific&quot;
+   &quot;America/Costa_Rica&quot;])</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.dashboard" name="metabase.models.dashboard"><h1 class="project-name">metabase.models.dashboard</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.models.dashboard
   (:require [korma.core :refer :all]
             [metabase.db :refer :all]
@@ -5325,10 +5387,10 @@ determining the <code>organization_id</code> of a <code>Query</code> requires fe
          :updated_at (util/new-sql-timestamp)))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod post-select Dashboard [_ {:keys [id creator_id organization_id description] :as dash}]
   (-&gt; dash
-      (assoc :creator (sel-fn :one User :id creator_id)
-             :description (util/jdbc-clob-&gt;str description)
-             :organization (sel-fn :one Org :id organization_id)
-             :ordered_cards (sel-fn :many DashboardCard :dashboard_id id))
+      (assoc :creator       (delay (sel :one User :id creator_id))
+             :description   (util/jdbc-clob-&gt;str description)
+             :organization  (delay (sel :one Org :id organization_id))
+             :ordered_cards (delay (sel :many DashboardCard :dashboard_id id)))
       assoc-permissions-sets))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.dashboard-card" name="metabase.models.dashboard-card"><h1 class="project-name">metabase.models.dashboard-card</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.models.dashboard-card
   (:require [korma.core :refer :all]
@@ -5354,8 +5416,8 @@ determining the <code>organization_id</code> of a <code>Query</code> requires fe
   (-&gt; dashcard
       (clojure.set/rename-keys {:sizex :sizeX   ; mildly retarded: H2 columns are all uppercase, we're converting them
                                 :sizey :sizeY}) ; to all downcase, and the Angular app expected mixed-case names here
-      (assoc :card (sel-fn :one Card :id card_id)
-             :dashboard (sel-fn :one &quot;metabase.models.dashboard/Dashboard&quot; :id dashboard_id))))</pre></td></tr><tr><td class="docs">
+      (assoc :card      (delay (sel :one Card :id card_id))
+             :dashboard (delay (sel :one 'metabase.models.dashboard/Dashboard :id dashboard_id)))))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod pre-insert DashboardCard [_ dashcard]
   (let [defaults {:created_at (util/new-sql-timestamp)
                   :updated_at (util/new-sql-timestamp)
@@ -5391,14 +5453,23 @@ should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
    Otherwise it will open a new metadata connection and bind <code>*jdbc-metadata*</code> so it's available in subsequent calls to <code>with-jdbc-metadata</code> within F.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn with-jdbc-metadata
   [{:keys [connection]} f]
+  {:pre [(delay? connection)]}
   (if *jdbc-metadata* (f *jdbc-metadata*)
       (jdbc/with-db-metadata [md @connection]
         (binding [*jdbc-metadata* md]
-          (f *jdbc-metadata*)))))</pre></td></tr><tr><td class="docs"><p>Return a Korma database definition for DATABASE.</p>
+          (f *jdbc-metadata*)))))</pre></td></tr><tr><td class="docs"><p>Cache the Korma DB connections for given Database
+instead of creating new ones every single time</p>
+</td><td class="codes"><pre class="brush: clojure">(def ^:private connection-&gt;korma-db
+  (memoize
+   (fn [connection]
+     {:pre [(map? connection)]}
+     (log/debug &quot;CREATING A NEW DB CONNECTION...&quot;)
+     (kdb/create-db connection))))</pre></td></tr><tr><td class="docs"><p>Return a Korma database definition for DATABASE.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn korma-db
   [{:keys [connection]}]
+  {:pre [(delay? connection)]}
   (log/debug &quot;CREATING A NEW DB CONNECTION...&quot;)
-  (kdb/create-db @connection))</pre></td></tr><tr><td class="docs"><p>Fetch a list of table names for DATABASE.</p>
+  (connection-&gt;korma-db @connection))</pre></td></tr><tr><td class="docs"><p>Fetch a list of table names for DATABASE.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn table-names
   [database]
   (with-jdbc-metadata database
@@ -5417,7 +5488,7 @@ should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
 </td><td class="codes"><pre class="brush: clojure">(defmethod post-select Database [_ {:keys [organization_id] :as db}]
   (-&gt; db
       (realize-json :details) ; TODO wouldn't we want to actually strip this info instead of returning it?
-      (assoc* :organization       (sel-fn :one Org :id organization_id)
+      (assoc* :organization       (delay (sel :one Org :id organization_id))
               :can_read           (delay (org-can-read organization_id))
               :can_write          (delay (org-can-write organization_id))
               :connection-details (delay (conn/connection-details &lt;&gt;))
@@ -5433,7 +5504,10 @@ should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
          :engine (name engine)))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod pre-update Database [_ {:keys [details] :as database}]
   (cond-&gt; (assoc database :updated_at (new-sql-timestamp))
-    details (assoc :details (json/write-str details))))</pre></td></tr><tr><td class="docs"><p>Selects the ID and NAME for all databases available to the given org-id.</p>
+    details (assoc :details (json/write-str details))))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defmethod pre-cascade-delete Database [_ {:keys [id] :as database}]
+  (cascade-delete 'metabase.models.table/Table :db_id id)
+  (cascade-delete 'metabase.models.query/Query :database_id id))</pre></td></tr><tr><td class="docs"><p>Selects the ID and NAME for all databases available to the given org-id.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn databases-for-org
   [org-id]
   (when-let [org (sel :one Org :id org-id)]
@@ -5452,13 +5526,24 @@ should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
                              [emailreport-recipients :refer [EmailReportRecipients]]
                              [org :refer [Org org-can-read org-can-write]]
                              [user :refer [User]])
-            [metabase.util :as util]))</pre></td></tr><tr><td class="docs"><p>Static Definitions</p>
+            [metabase.util :as util]))</pre></td></tr><tr><td class="docs"><h2>Static Definitions</h2>
 </td><td class="codes"></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(def mode-active 0)
-(def mode-disabled 1)</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(def modes
-  [{:id mode-active :name &quot;Active&quot;},
-   {:id mode-disabled :name &quot;Disabled&quot;}])</pre></td></tr><tr><td class="docs">
+  {:active   {:id 0
+              :name &quot;Active&quot;}
+   :disabled {:id 1
+              :name &quot;Disabled&quot;}})</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(def mode-kws
+  (set (keys modes)))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn mode-&gt;id [mode]
+  {:pre [(contains? mode-kws mode)]}
+  (:id (modes mode)))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn mode-&gt;name [mode]
+  {:pre [(contains? mode-kws mode)]}
+  (:name (modes mode)))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(def modes-input
+  [{:id (mode-&gt;id :active),   :name (mode-&gt;name :active)}
+   {:id (mode-&gt;id :disabled), :name (mode-&gt;name :disabled)}])</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(def days-of-week
   [{:id &quot;sun&quot; :name &quot;Sun&quot;},
    {:id &quot;mon&quot; :name &quot;Mon&quot;},
@@ -5472,12 +5557,13 @@ should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
    {:id &quot;midday&quot; :name &quot;Midday&quot; :realhour 12},
    {:id &quot;afternoon&quot; :name &quot;Afternoon&quot; :realhour 16},
    {:id &quot;evening&quot; :name &quot;Evening&quot; :realhour 20},
-   {:id &quot;midnight&quot; :name &quot;Midnight&quot; :realhour 0}])</pre></td></tr><tr><td class="docs">
+   {:id &quot;midnight&quot; :name &quot;Midnight&quot; :realhour 0}])</pre></td></tr><tr><td class="docs"><h2>Entity</h2>
+</td><td class="codes"></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defentity EmailReport
   (table :report_emailreport))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod pre-insert EmailReport [_ {:keys [dataset_query schedule] :as report}]
   (let [defaults {:public_perms perms-none
-                  :mode mode-active
+                  :mode (mode-&gt;id :active)
                   :version 1
                   :created_at (util/new-sql-timestamp)
                   :updated_at (util/new-sql-timestamp)}]
@@ -5486,23 +5572,20 @@ should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
                :schedule (json/write-str schedule)))))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod pre-update EmailReport [_ {:keys [version dataset_query schedule] :as report}]
   (assoc report
-    :updated_at (util/new-sql-timestamp)
+    :updated_at    (util/new-sql-timestamp)
     :dataset_query (json/write-str dataset_query)
-    :schedule (json/write-str schedule)
-    :version (+ 1 version)))</pre></td></tr><tr><td class="docs">
+    :schedule      (json/write-str schedule)
+    :version       (inc version)))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod post-select EmailReport [_ {:keys [id creator_id organization_id] :as report}]
   (-&gt; report
     (realize-json :dataset_query :schedule)
     (util/assoc*
-      :creator (delay
-                 (check creator_id 500 &quot;Can't get creator: Query doesn't have a :creator_id.&quot;)
-                 (sel :one User :id creator_id))
-      :organization (delay
-                      (check organization_id 500 &quot;Can't get database: Query doesn't have a :database_id.&quot;)
-                      (sel :one Org :id organization_id))
-      :recipients (delay
-                    (sel :many User
-                      (where {:id [in (subselect EmailReportRecipients (fields :user_id) (where {:emailreport_id id}))]}))))
+      :creator      (delay (check creator_id 500 &quot;Can't get creator: Query doesn't have a :creator_id.&quot;)
+                           (sel :one User :id creator_id))
+      :organization (delay (check organization_id 500 &quot;Can't get database: Query doesn't have a :database_id.&quot;)
+                           (sel :one Org :id organization_id))
+      :recipients   (delay (sel :many User
+                                (where {:id [in (subselect EmailReportRecipients (fields :user_id) (where {:emailreport_id id}))]}))))
     assoc-permissions-sets))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.emailreport-executions" name="metabase.models.emailreport-executions"><h1 class="project-name">metabase.models.emailreport-executions</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.models.emailreport-executions
   (:require [clojure.data.json :as json]
@@ -5587,11 +5670,11 @@ should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
   (table :metabase_field))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod post-select Field [_ {:keys [table_id] :as field}]
   (util/assoc* field
-               :table (sel-fn :one &quot;metabase.models.table/Table&quot; :id table_id)
-               :db (delay ((:db ((:table &lt;&gt;)))))
-               :can_read (delay @(:can_read ((:table &lt;&gt;))))
-               :can_write (delay @(:can_write ((:table &lt;&gt;))))
-               :count (delay (field-count &lt;&gt;))
+               :table          (delay (sel :one 'metabase.models.table/Table :id table_id))
+               :db             (delay @(:db @(:table &lt;&gt;)))
+               :can_read       (delay @(:can_read @(:table &lt;&gt;)))
+               :can_write      (delay @(:can_write @(:table &lt;&gt;)))
+               :count          (delay (field-count &lt;&gt;))
                :distinct-count (delay (field-distinct-count &lt;&gt;))))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod pre-insert Field [_ field]
   (let [defaults {:created_at (util/new-sql-timestamp)
@@ -5602,9 +5685,9 @@ should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
                   :position 0}]
     (let [{:keys [field_type base_type special_type] :as field} (merge defaults field)]
       (assoc field
-             :base_type (name base_type)
+             :base_type    (name base_type)
              :special_type (when special_type (name special_type))
-             :field_type (name field_type)))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.field-values" name="metabase.models.field-values"><h1 class="project-name">metabase.models.field-values</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+             :field_type   (name field_type)))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.field-values" name="metabase.models.field-values"><h1 class="project-name">metabase.models.field-values</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.models.field-values
   (:require [korma.core :refer :all]))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defentity FieldValues
@@ -5680,10 +5763,10 @@ should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
   [results entity source-key dest-key]
   (let [ids (-&gt;&gt; (map source-key results)
                  set)
-        objs (-&gt;&gt; (eval `(sel :many ~entity :id ~(vector 'in ids)))
+        objs (-&gt;&gt; (sel :many entity :id [in ids])
                   (map (fn [obj]
                          {(:id obj) obj}))
-                  (reduce merge {}))]
+                  (into {}))]
     (-&gt;&gt; results
          (map (fn [result]
                 (let [source-id (result source-key)
@@ -5724,8 +5807,8 @@ should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
   (table :core_userorgperm))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod post-select OrgPerm [_ {:keys [organization_id user_id] :as org-perm}]
   (assoc org-perm
-         :organization (sel-fn :one Org :id organization_id)
-         :user (sel-fn :one &quot;metabase.models.user/User&quot; :id user_id)))</pre></td></tr><tr><td class="docs"><p>Grants permission for given User on Org.  Creates record if needed, otherwise updates existing record.</p>
+         :organization (delay (sel :one Org :id organization_id))
+         :user         (delay (sel :one 'metabase.models.user/User :id user_id))))</pre></td></tr><tr><td class="docs"><p>Grants permission for given User on Org.  Creates record if needed, otherwise updates existing record.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn grant-org-perm
   [org-id user-id is-admin]
   (let [perm (sel :one OrgPerm :user_id user-id :organization_id org-id)
@@ -5748,7 +5831,7 @@ should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
                              [database :refer [Database]])
             [metabase.util :refer :all]))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defentity Query
-  (table :query_query))</pre></td></tr><tr><td class="docs"><p>default fields to return for `sel Query</p>
+  (table :query_query))</pre></td></tr><tr><td class="docs"><p>default fields to return for <code>sel</code> Query</p>
 </td><td class="codes"><pre class="brush: clojure">(defmethod default-fields Query [_]
   [:id
    :created_at
@@ -5781,8 +5864,10 @@ should we make a generic <code>metabase.driver.jdbc</code> driver?</p>
               :database (delay
                          (check database_id 500 &quot;Can't get database: Query doesn't have a :database_id.&quot;)
                          (sel :one Database :id database_id))
-              :organization_id (delay (:organization_id ((:database &lt;&gt;)))))
-      assoc-permissions-sets))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.query-execution" name="metabase.models.query-execution"><h1 class="project-name">metabase.models.query-execution</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+              :organization_id (delay (:organization_id @(:database &lt;&gt;))))
+      assoc-permissions-sets))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defmethod pre-cascade-delete Query [_ {:keys [id] :as query}]
+  (cascade-delete 'metabase.models.query-execution/QueryExecution :query_id id))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.query-execution" name="metabase.models.query-execution"><h1 class="project-name">metabase.models.query-execution</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.models.query-execution
   (:require [clojure.data.json :as json]
             [korma.core :refer :all]
@@ -5846,7 +5931,136 @@ specifically excludes stored data columns</p>
   (belongs-to User {:fk :user_id}))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod pre-insert Session [_ session]
   (let [defaults {:created_at (util/new-sql-timestamp)}]
-    (merge defaults session)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.table" name="metabase.models.table"><h1 class="project-name">metabase.models.table</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+    (merge defaults session)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.setting" name="metabase.models.setting"><h1 class="project-name">metabase.models.setting</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(ns metabase.models.setting
+  (:refer-clojure :exclude [get set])
+  (:require [clojure.core.match :refer [match]]
+            [korma.core :refer :all :exclude [delete]]
+            [metabase.db :refer [sel del]]))</pre></td></tr><tr><td class="docs"><p>Settings are a fast + simple way to create a setting that can be set
+from the admin page. They are saved to the Database, but intelligently
+cached internally for super-fast lookups.</p>
+
+<p>Define a new Setting with <code>defsetting</code>:</p>
+
+<p>   (defsetting mandrill-api-key "API key for Mandrill")</p>
+
+<p>The setting and docstr will then be auto-magically accessible from the admin page.</p>
+
+<p>The var created with <code>defsetting</code> can be used as a getter/setter, or you can
+use <code>get</code>/<code>set</code>/<code>delete</code>:</p>
+
+<pre><code>(require '[metabase.models.setting :as setting])
+
+(setting/get :mandrill-api-key)
+(mandrill-api-key)
+
+(setting/set :mandrill-api-key "NEW_KEY")
+(mandrill-api-key "NEW_KEY")
+
+(setting/delete :mandrill-api-key)
+(mandrill-api-key nil)
+</code></pre>
+
+<p>Get a map of all Settings:</p>
+
+<p>   (setting/all)</p>
+</td><td class="codes"></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(declare Setting
+         cached-setting-values
+         restore-cache-if-needed
+         settings-list)</pre></td></tr><tr><td class="docs"><h1>PUBLIC</h1>
+</td><td class="codes"></td></tr><tr><td class="docs"><h2>ACCESSORS</h2>
+</td><td class="codes"></td></tr><tr><td class="docs"><p>Fetch value of <code>Setting</code>.
+   Cached lookup time is ~60µs, compared to ~1800µs for DB lookup.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn get
+  [k]
+  {:pre [(keyword? k)]}
+  (restore-cache-if-needed)
+  (or (@cached-setting-values k)
+      (when-let [v (sel :one :field [Setting :value] :key (name k))]
+        (swap! cached-setting-values assoc k v)
+        v)))</pre></td></tr><tr><td class="docs"><p>Set the value of <code>Setting</code> for <code>Org</code>.</p>
+
+<pre><code>(set :mandrill-api-key "xyz123")
+</code></pre>
+</td><td class="codes"><pre class="brush: clojure">(defn set
+  [k v]
+  {:pre [(keyword? k)
+         (string? v)]}
+  (if (get k) (update Setting
+                      (set-fields {:value v})
+                      (where {:key (name k)}))
+      (insert Setting
+              (values {:key (name k)
+                       :value v})))
+  (restore-cache-if-needed)
+  (swap! cached-setting-values assoc k v)
+  v)</pre></td></tr><tr><td class="docs"><p>Delete a <code>Setting</code> value for <code>Org</code>.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn delete
+  [k]
+  {:pre [(keyword? k)]}
+  (restore-cache-if-needed)
+  (swap! cached-setting-values dissoc k)
+  (del Setting :key (name k)))</pre></td></tr><tr><td class="docs"><h2>DEFSETTING</h2>
+</td><td class="codes"></td></tr><tr><td class="docs"><p>Defines a new <code>Setting</code> that will be added to the DB at some point in the future.
+   Conveniently can be used as a getter/setter as well:</p>
+
+<pre><code> (defsetting mandrill-api-key "API key for Mandrill.")
+ (mandrill-api-key )          ; get the value
+ (mandrill-api-key new-value) ; update the value
+ (mandrill-api-key nil)       ; delete the value
+</code></pre>
+</td><td class="codes"><pre class="brush: clojure">(defmacro defsetting
+  [nm description]
+  {:pre [(symbol? nm)
+         (string? description)]}
+  (let [setting-key (keyword nm)]
+    `(do
+       (defn ~nm ~description
+         ([]
+          (get ~setting-key))
+         ([value#]
+          (if-not value#
+            (delete ~setting-key)
+            (set ~setting-key value#))))
+       (alter-meta! #'~nm assoc :is-setting? true))))</pre></td></tr><tr><td class="docs"><h2>ALL SETTINGS (ETC)</h2>
+</td><td class="codes"></td></tr><tr><td class="docs"><p>Return a map of all <em>defined</em> <code>Settings</code>.</p>
+
+<pre><code>(all) -&gt; {:mandrill-api-key ...}
+</code></pre>
+</td><td class="codes"><pre class="brush: clojure">(defn all
+  []
+  (restore-cache-if-needed)
+  @cached-setting-values)</pre></td></tr><tr><td class="docs"><p>Return a sequence of Settings maps, including value and description.</p>
+</td><td class="codes"><pre class="brush: clojure">(defn all-with-descriptions
+  []
+  (let [settings (all)]
+    (-&gt;&gt; (settings-list)
+         (map (fn [{k :key :as setting}]
+                (assoc setting
+                       :value (k settings))))
+         (sort-by :key))))</pre></td></tr><tr><td class="docs"><h1>IMPLEMENTATION</h1>
+</td><td class="codes"></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defn- restore-cache-if-needed []
+  (when-not @cached-setting-values
+    (reset! cached-setting-values (-&gt;&gt; (sel :many Setting)
+                                       (map (fn [{k :key v :value}]
+                                              {(keyword k) v}))
+                                       (into {})))))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(def ^:private cached-setting-values
+  (atom nil))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defentity Setting
+  (table :setting))</pre></td></tr><tr><td class="docs"><p>Return a list of all Settings (as created with <code>defsetting</code>).</p>
+</td><td class="codes"><pre class="brush: clojure">(defn- settings-list
+  []
+  (-&gt;&gt; (all-ns)
+       (mapcat ns-interns)
+       vals
+       (map meta)
+       (filter :is-setting?)
+       (map (fn [{k :name desc :doc}]
+              {:key (keyword k)
+               :description desc}))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.table" name="metabase.models.table"><h1 class="project-name">metabase.models.table</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.models.table
   (:require [clojure.java.jdbc :as jdbc]
             [korma.core :refer :all]
@@ -5865,7 +6079,7 @@ specifically excludes stored data columns</p>
   [{:keys [name db]}]
   {:table name
    :pk :id
-   :db @(:korma-db (db))})</pre></td></tr><tr><td class="docs">
+   :db @(:korma-db @db)})</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defn korma-count [{:keys [korma-entity]}]
   (-&gt; @korma-entity
       (select (aggregate (count :*) :count))
@@ -5880,16 +6094,18 @@ specifically excludes stored data columns</p>
                  (mapv #(select-keys % [:column_name :type_name]))))))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod post-select Table [_ {:keys [id db db_id name] :as table}]
   (util/assoc* table
-               :db (or db (sel-fn :one db/Database :id db_id))       ; Check to see if `:db` is already set. In some cases we add a korma transform fn to `Table`
-               :fields (sel-fn :many Field :table_id id)             ; and assoc :db if the DB has already been fetched, so we can re-use its DB connections.
-               :jdbc-columns (delay (jdbc-columns ((:db &lt;&gt;)) name))
-               :can_read (delay @(:can_read ((:db &lt;&gt;))))
-               :can_write (delay @(:can_write ((:db &lt;&gt;))))
+               :db           (or db (delay (sel :one db/Database :id db_id))) ; Check to see if `:db` is already set. In some cases we add a korma transform fn to `Table`
+               :fields       (delay (sel :many Field :table_id id))           ; and assoc :db if the DB has already been fetched, so we can re-use its DB connections.
+               :jdbc-columns (delay (jdbc-columns @(:db &lt;&gt;) name))
+               :can_read     (delay @(:can_read @(:db &lt;&gt;)))
+               :can_write    (delay @(:can_write @(:db &lt;&gt;)))
                :korma-entity (delay (korma-entity &lt;&gt;))))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod pre-insert Table [_ table]
   (assoc table
          :created_at (util/new-sql-timestamp)
-         :updated_at (util/new-sql-timestamp)))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.table-segment" name="metabase.models.table-segment"><h1 class="project-name">metabase.models.table-segment</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+         :updated_at (util/new-sql-timestamp)))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(defmethod pre-cascade-delete Table [_ {:keys [id] :as table}]
+  (cascade-delete Field :table_id id))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#metabase.models.table-segment" name="metabase.models.table-segment"><h1 class="project-name">metabase.models.table-segment</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns metabase.models.table-segment
   (:require [korma.core :refer :all]))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defentity TableSegment
@@ -5915,10 +6131,12 @@ specifically excludes stored data columns</p>
 </td><td class="codes"><pre class="brush: clojure">(def current-user-fields
   (concat (default-fields User)
           [:is_active
-           :is_staff])) ; but not `password` !</pre></td></tr><tr><td class="docs"><p>Return the permissions level User with USER-ID has for Org with ORG-ID.
-   nil      -> no permissions
-   :default -> default permissions
-   :admin   -> admin permissions</p>
+           :is_staff])) ; but not `password` !</pre></td></tr><tr><td class="docs"><p>Return the permissions level User with USER-ID has for Org with ORG-ID.</p>
+
+<pre><code> nil      -&gt; no permissions
+ :default -&gt; default permissions
+ :admin   -&gt; admin permissions
+</code></pre>
 </td><td class="codes"><pre class="brush: clojure">(defn user-perms-for-org
   [user-id org-id]
   (when-let [{superuser? :is_superuser} (sel :one [User :is_superuser] :id user-id)]
@@ -5927,9 +6145,9 @@ specifically excludes stored data columns</p>
           (if admin? :admin :default)))))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod post-select User [_ {:keys [id] :as user}]
   (-&gt; user
-      (assoc :org_perms (sel-fn :many OrgPerm :user_id id)
+      (assoc :org_perms     (delay (sel :many OrgPerm :user_id id))
              :perms-for-org (memoize (partial user-perms-for-org id))
-             :common_name (str (:first_name user) &quot; &quot; (:last_name user)))))</pre></td></tr><tr><td class="docs">
+             :common_name   (str (:first_name user) &quot; &quot; (:last_name user)))))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defmethod pre-insert User [_ {:keys [email password] :as user}]
   (assert (util/is-email? email))
   (assert (and (string? password)
@@ -6103,7 +6321,8 @@ turns out <code>medley.core/mapply</code> does the same thingx</p>
   [v]
   (if (nil? v)
     false
-    (boolean (re-matches #&quot;[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?&quot; (clojure.string/lower-case v)))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr></table><div class="footer">Generated by <a href="https://github.com/gdeer81/marginalia">Marginalia</a>.&nbsp;&nbsp;Syntax highlighting provided by Alex Gorbatchev's <a href="http://alexgorbatchev.com/SyntaxHighlighter/">SyntaxHighlighter</a><div id="floating-toc"><ul><li class="floating-toc-li" id="floating-toc_metabase.api.annotation">metabase.api.annotation</li><li class="floating-toc-li" id="floating-toc_metabase.api.card">metabase.api.card</li><li class="floating-toc-li" id="floating-toc_metabase.api.common">metabase.api.common</li><li class="floating-toc-li" id="floating-toc_metabase.api.common.internal">metabase.api.common.internal</li><li class="floating-toc-li" id="floating-toc_metabase.api.dash">metabase.api.dash</li><li class="floating-toc-li" id="floating-toc_metabase.api.emailreport">metabase.api.emailreport</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.dataset">metabase.api.meta.dataset</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.db">metabase.api.meta.db</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.field">metabase.api.meta.field</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.table">metabase.api.meta.table</li><li class="floating-toc-li" id="floating-toc_metabase.api.org">metabase.api.org</li><li class="floating-toc-li" id="floating-toc_metabase.api.qs">metabase.api.qs</li><li class="floating-toc-li" id="floating-toc_metabase.api.query">metabase.api.query</li><li class="floating-toc-li" id="floating-toc_metabase.api.result">metabase.api.result</li><li class="floating-toc-li" id="floating-toc_metabase.api.routes">metabase.api.routes</li><li class="floating-toc-li" id="floating-toc_metabase.api.search">metabase.api.search</li><li class="floating-toc-li" id="floating-toc_metabase.api.session">metabase.api.session</li><li class="floating-toc-li" id="floating-toc_metabase.api.user">metabase.api.user</li><li class="floating-toc-li" id="floating-toc_metabase.bootstrap">metabase.bootstrap</li><li class="floating-toc-li" id="floating-toc_metabase.config">metabase.config</li><li class="floating-toc-li" id="floating-toc_metabase.core">metabase.core</li><li class="floating-toc-li" id="floating-toc_metabase.db">metabase.db</li><li class="floating-toc-li" id="floating-toc_metabase.db.internal">metabase.db.internal</li><li class="floating-toc-li" id="floating-toc_metabase.driver">metabase.driver</li><li class="floating-toc-li" id="floating-toc_metabase.driver.connection">metabase.driver.connection</li><li class="floating-toc-li" id="floating-toc_metabase.driver.generic-sql.metadata">metabase.driver.generic-sql.metadata</li><li class="floating-toc-li" id="floating-toc_metabase.driver.generic-sql.query-processor">metabase.driver.generic-sql.query-processor</li><li class="floating-toc-li" id="floating-toc_metabase.driver.generic-sql.query-processor.annotate">metabase.driver.generic-sql.query-processor.annotate</li><li class="floating-toc-li" id="floating-toc_metabase.driver.generic-sql.sync">metabase.driver.generic-sql.sync</li><li class="floating-toc-li" id="floating-toc_metabase.driver.h2.connection">metabase.driver.h2.connection</li><li class="floating-toc-li" id="floating-toc_metabase.driver.h2.metadata">metabase.driver.h2.metadata</li><li class="floating-toc-li" id="floating-toc_metabase.driver.h2.query-processor">metabase.driver.h2.query-processor</li><li class="floating-toc-li" id="floating-toc_metabase.driver.h2.sync">metabase.driver.h2.sync</li><li class="floating-toc-li" id="floating-toc_metabase.driver.metadata">metabase.driver.metadata</li><li class="floating-toc-li" id="floating-toc_metabase.driver.native">metabase.driver.native</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.connection">metabase.driver.postgres.connection</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.metadata">metabase.driver.postgres.metadata</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.query-processor">metabase.driver.postgres.query-processor</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.sync">metabase.driver.postgres.sync</li><li class="floating-toc-li" id="floating-toc_metabase.driver.query-processor">metabase.driver.query-processor</li><li class="floating-toc-li" id="floating-toc_metabase.driver.sync">metabase.driver.sync</li><li class="floating-toc-li" id="floating-toc_metabase.driver.util">metabase.driver.util</li><li class="floating-toc-li" id="floating-toc_metabase.http-client">metabase.http-client</li><li class="floating-toc-li" id="floating-toc_metabase.middleware.auth">metabase.middleware.auth</li><li class="floating-toc-li" id="floating-toc_metabase.middleware.format">metabase.middleware.format</li><li class="floating-toc-li" id="floating-toc_metabase.middleware.log-api-call">metabase.middleware.log-api-call</li><li class="floating-toc-li" id="floating-toc_metabase.models.annotation">metabase.models.annotation</li><li class="floating-toc-li" id="floating-toc_metabase.models.card">metabase.models.card</li><li class="floating-toc-li" id="floating-toc_metabase.models.card-favorite">metabase.models.card-favorite</li><li class="floating-toc-li" id="floating-toc_metabase.models.common">metabase.models.common</li><li class="floating-toc-li" id="floating-toc_metabase.models.dashboard">metabase.models.dashboard</li><li class="floating-toc-li" id="floating-toc_metabase.models.dashboard-card">metabase.models.dashboard-card</li><li class="floating-toc-li" id="floating-toc_metabase.models.dashboard-subscription">metabase.models.dashboard-subscription</li><li class="floating-toc-li" id="floating-toc_metabase.models.database">metabase.models.database</li><li class="floating-toc-li" id="floating-toc_metabase.models.emailreport">metabase.models.emailreport</li><li class="floating-toc-li" id="floating-toc_metabase.models.emailreport-executions">metabase.models.emailreport-executions</li><li class="floating-toc-li" id="floating-toc_metabase.models.emailreport-recipients">metabase.models.emailreport-recipients</li><li class="floating-toc-li" id="floating-toc_metabase.models.field">metabase.models.field</li><li class="floating-toc-li" id="floating-toc_metabase.models.field-values">metabase.models.field-values</li><li class="floating-toc-li" id="floating-toc_metabase.models.foreign-key">metabase.models.foreign-key</li><li class="floating-toc-li" id="floating-toc_metabase.models.hydrate">metabase.models.hydrate</li><li class="floating-toc-li" id="floating-toc_metabase.models.org">metabase.models.org</li><li class="floating-toc-li" id="floating-toc_metabase.models.org-perm">metabase.models.org-perm</li><li class="floating-toc-li" id="floating-toc_metabase.models.query">metabase.models.query</li><li class="floating-toc-li" id="floating-toc_metabase.models.query-execution">metabase.models.query-execution</li><li class="floating-toc-li" id="floating-toc_metabase.models.session">metabase.models.session</li><li class="floating-toc-li" id="floating-toc_metabase.models.table">metabase.models.table</li><li class="floating-toc-li" id="floating-toc_metabase.models.table-segment">metabase.models.table-segment</li><li class="floating-toc-li" id="floating-toc_metabase.models.user">metabase.models.user</li><li class="floating-toc-li" id="floating-toc_metabase.routes">metabase.routes</li><li class="floating-toc-li" id="floating-toc_metabase.util">metabase.util</li></ul></div></div><script type="text/javascript">SyntaxHighlighter.defaults['gutter'] = false;
+    (boolean (re-matches #&quot;[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?&quot;
+                         (clojure.string/lower-case v)))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr></table><div class="footer">Generated by <a href="https://github.com/gdeer81/marginalia">Marginalia</a>.&nbsp;&nbsp;Syntax highlighting provided by Alex Gorbatchev's <a href="http://alexgorbatchev.com/SyntaxHighlighter/">SyntaxHighlighter</a><div id="floating-toc"><ul><li class="floating-toc-li" id="floating-toc_metabase.api.annotation">metabase.api.annotation</li><li class="floating-toc-li" id="floating-toc_metabase.api.card">metabase.api.card</li><li class="floating-toc-li" id="floating-toc_metabase.api.common">metabase.api.common</li><li class="floating-toc-li" id="floating-toc_metabase.api.common.internal">metabase.api.common.internal</li><li class="floating-toc-li" id="floating-toc_metabase.api.dash">metabase.api.dash</li><li class="floating-toc-li" id="floating-toc_metabase.api.emailreport">metabase.api.emailreport</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.dataset">metabase.api.meta.dataset</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.db">metabase.api.meta.db</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.field">metabase.api.meta.field</li><li class="floating-toc-li" id="floating-toc_metabase.api.meta.table">metabase.api.meta.table</li><li class="floating-toc-li" id="floating-toc_metabase.api.org">metabase.api.org</li><li class="floating-toc-li" id="floating-toc_metabase.api.qs">metabase.api.qs</li><li class="floating-toc-li" id="floating-toc_metabase.api.query">metabase.api.query</li><li class="floating-toc-li" id="floating-toc_metabase.api.result">metabase.api.result</li><li class="floating-toc-li" id="floating-toc_metabase.api.routes">metabase.api.routes</li><li class="floating-toc-li" id="floating-toc_metabase.api.search">metabase.api.search</li><li class="floating-toc-li" id="floating-toc_metabase.api.session">metabase.api.session</li><li class="floating-toc-li" id="floating-toc_metabase.api.setting">metabase.api.setting</li><li class="floating-toc-li" id="floating-toc_metabase.api.user">metabase.api.user</li><li class="floating-toc-li" id="floating-toc_metabase.config">metabase.config</li><li class="floating-toc-li" id="floating-toc_metabase.core">metabase.core</li><li class="floating-toc-li" id="floating-toc_metabase.db">metabase.db</li><li class="floating-toc-li" id="floating-toc_metabase.db.internal">metabase.db.internal</li><li class="floating-toc-li" id="floating-toc_metabase.driver">metabase.driver</li><li class="floating-toc-li" id="floating-toc_metabase.driver.connection">metabase.driver.connection</li><li class="floating-toc-li" id="floating-toc_metabase.driver.generic-sql.metadata">metabase.driver.generic-sql.metadata</li><li class="floating-toc-li" id="floating-toc_metabase.driver.generic-sql.query-processor">metabase.driver.generic-sql.query-processor</li><li class="floating-toc-li" id="floating-toc_metabase.driver.generic-sql.query-processor.annotate">metabase.driver.generic-sql.query-processor.annotate</li><li class="floating-toc-li" id="floating-toc_metabase.driver.generic-sql.sync">metabase.driver.generic-sql.sync</li><li class="floating-toc-li" id="floating-toc_metabase.driver.h2.connection">metabase.driver.h2.connection</li><li class="floating-toc-li" id="floating-toc_metabase.driver.h2.metadata">metabase.driver.h2.metadata</li><li class="floating-toc-li" id="floating-toc_metabase.driver.h2.query-processor">metabase.driver.h2.query-processor</li><li class="floating-toc-li" id="floating-toc_metabase.driver.h2.sync">metabase.driver.h2.sync</li><li class="floating-toc-li" id="floating-toc_metabase.driver.metadata">metabase.driver.metadata</li><li class="floating-toc-li" id="floating-toc_metabase.driver.native">metabase.driver.native</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.connection">metabase.driver.postgres.connection</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.metadata">metabase.driver.postgres.metadata</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.query-processor">metabase.driver.postgres.query-processor</li><li class="floating-toc-li" id="floating-toc_metabase.driver.postgres.sync">metabase.driver.postgres.sync</li><li class="floating-toc-li" id="floating-toc_metabase.driver.query-processor">metabase.driver.query-processor</li><li class="floating-toc-li" id="floating-toc_metabase.driver.sync">metabase.driver.sync</li><li class="floating-toc-li" id="floating-toc_metabase.driver.util">metabase.driver.util</li><li class="floating-toc-li" id="floating-toc_metabase.email">metabase.email</li><li class="floating-toc-li" id="floating-toc_metabase.middleware.auth">metabase.middleware.auth</li><li class="floating-toc-li" id="floating-toc_metabase.middleware.format">metabase.middleware.format</li><li class="floating-toc-li" id="floating-toc_metabase.middleware.log-api-call">metabase.middleware.log-api-call</li><li class="floating-toc-li" id="floating-toc_metabase.models.annotation">metabase.models.annotation</li><li class="floating-toc-li" id="floating-toc_metabase.models.card">metabase.models.card</li><li class="floating-toc-li" id="floating-toc_metabase.models.card-favorite">metabase.models.card-favorite</li><li class="floating-toc-li" id="floating-toc_metabase.models.common">metabase.models.common</li><li class="floating-toc-li" id="floating-toc_metabase.models.dashboard">metabase.models.dashboard</li><li class="floating-toc-li" id="floating-toc_metabase.models.dashboard-card">metabase.models.dashboard-card</li><li class="floating-toc-li" id="floating-toc_metabase.models.dashboard-subscription">metabase.models.dashboard-subscription</li><li class="floating-toc-li" id="floating-toc_metabase.models.database">metabase.models.database</li><li class="floating-toc-li" id="floating-toc_metabase.models.emailreport">metabase.models.emailreport</li><li class="floating-toc-li" id="floating-toc_metabase.models.emailreport-executions">metabase.models.emailreport-executions</li><li class="floating-toc-li" id="floating-toc_metabase.models.emailreport-recipients">metabase.models.emailreport-recipients</li><li class="floating-toc-li" id="floating-toc_metabase.models.field">metabase.models.field</li><li class="floating-toc-li" id="floating-toc_metabase.models.field-values">metabase.models.field-values</li><li class="floating-toc-li" id="floating-toc_metabase.models.foreign-key">metabase.models.foreign-key</li><li class="floating-toc-li" id="floating-toc_metabase.models.hydrate">metabase.models.hydrate</li><li class="floating-toc-li" id="floating-toc_metabase.models.org">metabase.models.org</li><li class="floating-toc-li" id="floating-toc_metabase.models.org-perm">metabase.models.org-perm</li><li class="floating-toc-li" id="floating-toc_metabase.models.query">metabase.models.query</li><li class="floating-toc-li" id="floating-toc_metabase.models.query-execution">metabase.models.query-execution</li><li class="floating-toc-li" id="floating-toc_metabase.models.session">metabase.models.session</li><li class="floating-toc-li" id="floating-toc_metabase.models.setting">metabase.models.setting</li><li class="floating-toc-li" id="floating-toc_metabase.models.table">metabase.models.table</li><li class="floating-toc-li" id="floating-toc_metabase.models.table-segment">metabase.models.table-segment</li><li class="floating-toc-li" id="floating-toc_metabase.models.user">metabase.models.user</li><li class="floating-toc-li" id="floating-toc_metabase.routes">metabase.routes</li><li class="floating-toc-li" id="floating-toc_metabase.util">metabase.util</li></ul></div></div><script type="text/javascript">SyntaxHighlighter.defaults['gutter'] = false;
 SyntaxHighlighter.all();
 
 // hackity hack
