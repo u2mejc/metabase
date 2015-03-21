@@ -6644,6 +6644,13 @@ But I feel like it's a bit overengineered and there's probably a clearer way of 
 <p>At a high level, these functions let you aggressively flatten a sequence of maps by a key
 so you can apply some function across it, and then unflatten that sequence.</p>
 
+<pre><code>     +-------------------------------------------------------------------------+
+     |                                                                         +--&gt; (map merge) --&gt; new seq
+seq -+--&gt; counts-of ------------------------------------+                      |
+     |                                                  +--&gt; counts-unflatten -+
+     +--&gt; counts-flatten -&gt; (modify the flattened seq) -+
+</code></pre>
+
 <ol>
 <li>Get a value that can be used to unflatten a sequence later with <code>counts-of</code>.</li>
 <li>Flatten the sequence with <code>counts-flatten</code></li>
