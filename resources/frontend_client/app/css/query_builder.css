@@ -1,6 +1,6 @@
 :root {
     --selection-color: #ccdff6;
-    --qb-offset-normal: 0.8rem;
+    --qb-offset-normal: 1.1rem;
     --qb-offset-large: 2.05rem;
 }
 /* @layout */
@@ -359,9 +359,11 @@
 .GuiBuilder {
     position: relative;
     border-bottom: 1px solid #F0F0F0;
-    max-height: 100%;
     padding-left: var(--qb-offset-normal);
     padding-right: var(--qb-offset-normal);
+    overflow: hidden;
+    max-height: 2rem;
+    transition: .3s;
 }
 
 @media screen and (--breakpoint-min-xl) {
@@ -371,14 +373,19 @@
     }
 }
 
-.GuiBuilder.GuiBuilder--collapsed {
-    overflow: hidden;
-    max-height: 2rem;
-    min-height: 2rem;
+.GuiBuilder.GuiBuilder--open {
+    max-height: 1000rem;
+    overflow: visible;
+    transition: .3s;
 }
 
-.GuiBuilder.GuiBuilder--collapsed .Query-section {
-    display: none;
+.GuiBuilder .Query-section {
+    opacity: 0;
+}
+
+.GuiBuilder.GuiBuilder--open .Query-section {
+    opacity: 1 ;
+    transition: opacity .3s linear .3s;
 }
 
 .QueryToggle {
@@ -389,6 +396,7 @@
     right: var(--qb-offset-normal);
     text-decoration: none;
     font-weight: bold;
+    z-index: 1;
 }
 
 .QueryToggle:hover {
