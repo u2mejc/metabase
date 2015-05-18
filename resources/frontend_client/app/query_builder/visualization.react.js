@@ -10,7 +10,8 @@ var QueryVisualization = React.createClass({
         card: React.PropTypes.object.isRequired,
         result: React.PropTypes.object,
         setDisplayFn: React.PropTypes.func.isRequired,
-        setChartColorFn: React.PropTypes.func.isRequired
+        setChartColorFn: React.PropTypes.func.isRequired,
+        currentColor: React.PropTypes.string
     },
 
     getDefaultProps: function() {
@@ -129,21 +130,25 @@ var QueryVisualization = React.createClass({
                 ));
             }
 
-            var colorPickerButton = "chart color";
+            var colorPickerButton = (
+                <span className="ColorPicker" style={{'backgroundColor': 'red' }}>
+                    Color
+                </span>
+            )
 
             var tetherOptions = {
-                attachment: 'bottom left',
-                targetAttachment: 'top right',
-                targetOffset: '14px 0'
+                attachment: 'bottom middle',
+                targetAttachment: 'top middle',
+                targetOffset: '-14px 0'
             };
 
             return (
                 <PopoverWithTrigger className="PopoverBody"
                                     tetherOptions={tetherOptions}
                                     triggerElement={colorPickerButton}>
-                    <ol className="p1">
+                    <ul className="p1">
                         {colorItems}
-                    </ol>
+                    </ul>
                 </PopoverWithTrigger>
             );
 

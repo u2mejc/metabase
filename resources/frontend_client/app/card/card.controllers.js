@@ -246,12 +246,14 @@ CardControllers.controller('CardDetail', [
             card: null,
             result: null,
             isRunning: false,
+            currentColor: '',
             setDisplayFn: function(type) {
                 card.display = type;
 
                 renderAll();
             },
             setChartColorFn: function(color) {
+                console.log(color);
                 var vizSettings = card.visualization_settings;
 
                 // if someone picks the default color then clear any color settings
