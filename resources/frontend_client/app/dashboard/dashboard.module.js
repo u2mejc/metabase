@@ -2,7 +2,7 @@
 
 // Dashboard
 var Dashboard = angular.module('corvus.dashboard', [
-    'ngRoute',
+    'ui.router',
     'ngCookies',
     'corvus.filters',
     'corvus.directives',
@@ -13,10 +13,33 @@ var Dashboard = angular.module('corvus.dashboard', [
     'corvus.card.services'
 ]);
 
-Dashboard.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/dash/', {templateUrl: '/app/dashboard/partials/dash_list.html', controller: 'DashList'});
-    $routeProvider.when('/dash/create', {templateUrl: '/app/dashboard/partials/dash_create.html', controller: 'DashDetail'});
-    $routeProvider.when('/dash/:dashId', {templateUrl: '/app/dashboard/partials/dash_view.html', controller: 'DashDetail'});
-    $routeProvider.when('/dash/:dashId/modify', {templateUrl: '/app/dashboard/partials/dash_modify.html', controller: 'DashDetail'});
-    $routeProvider.when('/dash/for_card/:cardId', {templateUrl: '/app/dashboard/partials/dash_list_for_card.html', controller: 'DashListForCard'});
+Dashboard.config(['$stateProvider', function ($stateProvider) {
+    $stateProvider.state('app.dash', {
+        url: 'dash',
+        views: { 'content@': {
+            templateUrl: '/app/dashboard/partials/dash_list.html',
+            controller: 'DashList'
+        }}
+    });
+    $stateProvider.state('app.dash.create', {
+        url: '/create',
+        views: { 'content@': {
+            templateUrl: '/app/dashboard/partials/dash_create.html',
+            controller: 'DashDetail'
+        }}
+    });
+    $stateProvider.state('app.dash.dashboard', {
+        url: '/:dashId',
+        views: { 'content@': {
+            templateUrl: '/app/dashboard/partials/dash_view.html',
+            controller: 'DashDetail'
+        }}
+    });
+    $stateProvider.state('app.dash.for_card', {
+        url: '/for_card/:cardId',
+        views: { 'content@': {
+            templateUrl: '/app/dashboard/partials/dash_list_for_card.html',
+            controller: 'DashListForCard'
+        }}
+    });
 }]);

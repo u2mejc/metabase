@@ -43,16 +43,16 @@ ExploreControllers.controller('ExploreDatabaseList', ['$scope', 'Metabase', func
 }]);
 
 
-ExploreControllers.controller('ExploreTableDetail', ['$scope', '$routeParams', '$location', 'Metabase', function($scope, $routeParams, $location, Metabase) {
+ExploreControllers.controller('ExploreTableDetail', ['$scope', '$stateParams', '$location', 'Metabase', function($scope, $stateParams, $location, Metabase) {
 
     // $scope.table
     $scope.canvas = 'data';
     $scope.expanded_field = undefined;
     $scope.query = {};
 
-    if ($routeParams.tableId) {
+    if ($stateParams.tableId) {
         Metabase.table_get({
-            'tableId': $routeParams.tableId
+            'tableId': $stateParams.tableId
         }, function(result) {
             $scope.table = result;
 
@@ -82,7 +82,7 @@ ExploreControllers.controller('ExploreTableDetail', ['$scope', '$routeParams', '
 }]);
 
 
-ExploreControllers.controller('ExploreEntityDetail', ['$scope', '$routeParams', '$location', 'Metabase', function($scope, $routeParams, $location, Metabase) {
+ExploreControllers.controller('ExploreEntityDetail', ['$scope', '$stateParams', '$location', 'Metabase', function($scope, $stateParams, $location, Metabase) {
 
     $scope.NUMERIC_FIELD_TYPES = [
         "IntegerField",
@@ -98,18 +98,18 @@ ExploreControllers.controller('ExploreEntityDetail', ['$scope', '$routeParams', 
     // $scope.fk_origin
     $scope.query = {};
 
-    if ($routeParams.tableId && $routeParams.entityKey) {
+    if ($stateParams.tableId && $stateParams.entityKey) {
         Metabase.table_get({
-            'tableId': $routeParams.tableId
+            'tableId': $stateParams.tableId
         }, function(table) {
             $scope.table = table;
-            $scope.entityKey = $routeParams.entityKey;
+            $scope.entityKey = $stateParams.entityKey;
 
             // we need to know the type of the PK Field so we can cast it if needed. Fetch the Field
             Metabase.field_get({
                 'fieldId': $scope.table.pk_field
             }, function(field) {
-                // if the PK field is a numeric type we need to convert the string value we got from $routeParams
+                // if the PK field is a numeric type we need to convert the string value we got from $stateParams
                 if (_.contains($scope.NUMERIC_FIELD_TYPES, field.base_type)) {
                     $scope.entityKey = Number($scope.entityKey);
                 }

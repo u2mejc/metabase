@@ -55,18 +55,19 @@ CorvusControllers.controller('Corvus', ['$scope', '$location', 'CorvusCore', 'Co
 }]);
 
 
-CorvusControllers.controller('Homepage', ['$scope', '$location', 'ipCookie', 'AppState',
-    function($scope, $location, ipCookie, AppState) {
+CorvusControllers.controller('Homepage', ['$scope', '$state', 'ipCookie', 'AppState',
+    function($scope, $state, ipCookie, AppState) {
 
+        console.log("x", AppState.model.currentUser)
         // At this point in time we don't actually have any kind of content to show for a homepage, so we just use this
         // as a simple routing controller which sends users somewhere relevant
         if (AppState.model.currentUser) {
             var currentUser = AppState.model.currentUser;
 
-            $location.path('/dash/');
+            $state.go('app.dash');
         } else {
             // User is not logged-in, so always send them to login page
-            $location.path('/auth/login');
+            $state.go('app.auth.login');
         }
 
     }
@@ -78,7 +79,7 @@ CorvusControllers.controller('Unauthorized', ['$scope', '$location', function($s
 }]);
 
 
-CorvusControllers.controller('Nav', ['$scope', '$routeParams', '$location', 'AppState', function($scope, $routeParams, $location, AppState) {
+CorvusControllers.controller('Nav', ['$scope', '$stateParams', '$location', 'AppState', function($scope, $stateParams, $location, AppState) {
 
     $scope.activeClass = 'is--selected';
 

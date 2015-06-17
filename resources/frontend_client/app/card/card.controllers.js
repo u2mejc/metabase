@@ -65,8 +65,8 @@ CardControllers.controller('CardList', ['$scope', '$location', 'Card', function(
 }]);
 
 CardControllers.controller('CardDetail', [
-    '$scope', '$routeParams', '$location', '$q', '$window', 'Card', 'Dashboard', 'CorvusFormGenerator', 'Metabase', 'VisualizationSettings', 'QueryUtils',
-    function($scope, $routeParams, $location, $q, $window, Card, Dashboard, CorvusFormGenerator, Metabase, VisualizationSettings, QueryUtils) {
+    '$scope', '$stateParams', '$location', '$q', '$window', 'Card', 'Dashboard', 'CorvusFormGenerator', 'Metabase', 'VisualizationSettings', 'QueryUtils',
+    function($scope, $stateParams, $location, $q, $window, Card, Dashboard, CorvusFormGenerator, Metabase, VisualizationSettings, QueryUtils) {
 
         // =====  Controller local objects
 
@@ -391,11 +391,11 @@ CardControllers.controller('CardDetail', [
 
         // meant to be called once on controller startup
         var initAndRender = function() {
-            if ($routeParams.cardId) {
-                loadCardAndRender($routeParams.cardId, false);
+            if ($stateParams.cardId) {
+                loadCardAndRender($stateParams.cardId, false);
 
-            } else if ($routeParams.clone) {
-                loadCardAndRender($routeParams.cardId, true);
+            } else if ($stateParams.clone) {
+                loadCardAndRender($stateParams.cardId, true);
 
             } else {
                 // starting a new card
@@ -417,7 +417,7 @@ CardControllers.controller('CardDetail', [
         $scope.$on('$locationChangeStart', function (event) {
             // only ask for a confirmation on unsaved changes if the question is
             // saved already, indicated by a cardId
-            if($routeParams.cardId) {
+            if($stateParams.cardId) {
                 if (cardJson !== JSON.stringify(card) && queryResult !== null) {
                     if (!confirm('You have unsaved changes!  Click OK to discard changes and leave the page.')) {
                         event.preventDefault();

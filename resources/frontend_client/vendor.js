@@ -10,6 +10,9 @@ import 'angular-resource';
 import 'angular-route';
 import 'angular-sanitize';
 
+import 'angular-ui-router';
+import 'ui-router-extras';
+
 // angular 3rd-party:
 import 'angular-bootstrap';
 import 'angular-cookie';

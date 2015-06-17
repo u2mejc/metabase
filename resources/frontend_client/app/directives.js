@@ -136,11 +136,15 @@ CorvusDirectives.directive('mbActionButton', ['$timeout', '$compile', function (
 
 var NavbarDirectives = angular.module('corvus.navbar.directives', []);
 
-NavbarDirectives.directive('mbProfileLink', [function () {
+NavbarDirectives.directive('mbProfileLink', ['$state', function ($state) {
 
     function link($scope, element, attr) {
 
         $scope.userIsSuperuser = false;
+
+        $scope.isInAdmin = function() {
+            return $state.includes('app.admin');
+        }
 
         $scope.$watch('user', function (user) {
             if (!user) return;
@@ -174,10 +178,10 @@ NavbarDirectives.directive('mbProfileLink', [function () {
                                 '<mb-icon name="chevrondown" class="Dropdown-chevron ml1" width="8px" height="8px"></mb-icon>' +
                             '</a>' +
                             '<ul class="Dropdown-content right">' +
-                                '<li><a class="link" href="/user/edit_current">Account Settings</a></li>' +
-                                '<li><a class="link" ng-if="userIsSuperuser && context != \'admin\'" href="/admin/">Administration</a></li>' +
-                                '<li><a class="link" ng-if="userIsSuperuser && context == \'admin\'" href="/">Exit Administration</a></li>' +
-                                '<li><a class="link" href="/auth/logout">Logout</a></li>' +
+                                '<li><a class="link" ui-sref="app.user.edit">Account Settings</a></li>' +
+                                '<li><a class="link" ui-sref="app.admin" ng-if="userIsSuperuser && !isInAdmin()">Administration</a></li>' +
+                                '<li><a class="link" ui-sref="app" ng-if="userIsSuperuser && isInAdmin()">Exit Administration</a></li>' +
+                                '<li><a class="link" ui-sref="app.auth.logout">Logout</a></li>' +
                             '</ul>' +
                         '</li>' +
                     '</ul>',

@@ -63,7 +63,7 @@ module.exports = {
             'metabase':             __dirname + '/resources/frontend_client/app',
 
             // angular
-            'angular':              __dirname + '/node_modules/angular/angular.min.js',
+            'angular':              __dirname + '/node_modules/angular/angular.js',
             'angular-animate':      __dirname + '/node_modules/angular-animate/angular-animate.min.js',
             'angular-cookies':      __dirname + '/node_modules/angular-cookies/angular-cookies.min.js',
             'angular-resource':     __dirname + '/node_modules/angular-resource/angular-resource.min.js',
@@ -79,6 +79,8 @@ module.exports = {
             'ng-sortable':          __dirname + '/node_modules/ng-sortable/dist/ng-sortable.min.js',
             'angularytics':         __dirname + '/node_modules/angularytics/dist/angularytics.min.js',
             'angular-ui-ace':       __dirname + '/node_modules/angular-ui-ace/src/ui-ace.js',
+            'angular-ui-router':    __dirname + '/node_modules/angular-ui-router/build/angular-ui-router.min.js',
+            'ui-router-extras':     __dirname + '/node_modules/ui-router-extras/release/ct-ui-router-extras.min.js',
             // ace
             'ace/ace':              __dirname + '/node_modules/ace-builds/src-min-noconflict/ace.js',
             'ace/ext-language_tools':__dirname+ '/node_modules/ace-builds/src-min-noconflict/ext-language_tools.js',

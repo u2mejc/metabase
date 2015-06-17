@@ -2,20 +2,20 @@
 
 var SetupControllers = angular.module('corvus.setup.controllers', ['corvus.metabase.services', 'corvusadmin.settings.services', 'corvus.setup.services']);
 
-SetupControllers.controller('SetupInit', ['$scope', '$location', '$routeParams', 'AppState',
-    function($scope, $location, $routeParams, AppState) {
+SetupControllers.controller('SetupInit', ['$scope', '$location', '$stateParams', 'AppState',
+    function($scope, $location, $stateParams, AppState) {
 
         // The only thing this controller does is grab the setup token from the url and store it in our AppState
         // then we begin the actual setup workflow by sending the user to /setup/
 
-        AppState.model.setupToken = $routeParams.setupToken;
+        AppState.model.setupToken = $stateParams.setupToken;
 
         $location.path('/setup/welcome');
     }
 ]);
 
-SetupControllers.controller('SetupInfo', ['$scope', '$routeParams', '$location', '$timeout', 'ipCookie', 'User', 'AppState', 'Setup', 'SettingsAdminServices',
-    function($scope, $routeParams, $location, $timeout, ipCookie, User, AppState, Setup, SettingsAdminServices) {
+SetupControllers.controller('SetupInfo', ['$scope', '$stateParams', '$location', '$timeout', 'ipCookie', 'User', 'AppState', 'Setup', 'SettingsAdminServices',
+    function($scope, $stateParams, $location, $timeout, ipCookie, User, AppState, Setup, SettingsAdminServices) {
         $scope.activeStep = "user";
         $scope.completedSteps = {
             user: false,

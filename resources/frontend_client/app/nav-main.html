@@ -1,0 +1,43 @@
+<nav class="CoreNav clearfix">
+    <div class="col col-sm-12">
+        <div class="NavItem float-left">
+            <span class="NavItem-text">{{siteName}}</span>
+        </div>
+
+        <ul class="float-left ml4">
+            <li class="inline-block">
+                <a class="NavItem NavItem-withIcon" ui-sref="app.dash" ui-sref-active="is--selected">
+                    <mb-icon class="IconWrapper" name="dashboards"/></mb-icon>
+                    <span class="NavItem-text">Dashboards</span>
+                </a>
+            </li>
+            <li class="inline-block">
+                <a class="NavItem NavItem-withIcon" ui-sref="app.card" ui-sref-active="is--selected">
+                    <mb-icon class="IconWrapper" name="cards"></mb-icon>
+                    <span class="NavItem-text">Cards</span>
+                </a>
+            </li>
+            <li class="inline-block">
+                <a class="NavItem NavItem-withIcon" ui-sref="app.explore" ui-sref-active="is--selected">
+                    <mb-icon class="IconWrapper" name="explore"></mb-icon>
+                    <span class="NavItem-text">Explore</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="float-right">
+            <li class="Dropdown inline-block" dropdown on-toggle="toggled(open)">
+                <a class="NavItem" selectable-nav-item="settings" dropdown-toggle>
+                    <span class="NavItem-text" ng-if="!user.first_name">Me</span>
+                    <span class="NavItem-text" ng-if="user.first_name">{{user.first_name}}</span>
+                    <mb-icon name="chevrondown" width="8px" height="8px"></mb-icon>
+                </a>
+                <ul class="Dropdown-content right">
+                    <li class="" ><a class="link" ui-sref="app.user.edit">Account Settings</a></li>
+                    <li class="" ><a class="link" ui-sref="app.admin" ng-if="userIsSuperuser">Administration</a></li>
+                    <li class="" ><a class="link" ui-sref="app.auth.logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

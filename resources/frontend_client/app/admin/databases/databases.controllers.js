@@ -29,8 +29,8 @@ DatabasesControllers.controller('DatabaseList', ['$scope', 'Metabase', function(
     });
 }]);
 
-DatabasesControllers.controller('DatabaseEdit', ['$scope', '$routeParams', '$location', 'Metabase', 'CorvusCore',
-    function($scope, $routeParams, $location, Metabase, CorvusCore) {
+DatabasesControllers.controller('DatabaseEdit', ['$scope', '$stateParams', '$location', 'Metabase', 'CorvusCore',
+    function($scope, $stateParams, $location, Metabase, CorvusCore) {
 
         $scope.ENGINES = CorvusCore.ENGINES;
 
@@ -77,7 +77,7 @@ DatabasesControllers.controller('DatabaseEdit', ['$scope', '$routeParams', '$loc
             details.engine = database.engine;
 
             // for an existing DB check that connection is valid before save
-            if ($routeParams.databaseId) {
+            if ($stateParams.databaseId) {
                 return Metabase.validate_connection(details).$promise.catch(function(error) {
                     $scope.$broadcast("form:api-error", error);
                     throw error;
@@ -128,10 +128,10 @@ DatabasesControllers.controller('DatabaseEdit', ['$scope', '$routeParams', '$loc
             console.log('error getting database form_input', error);
         });
 
-        if ($routeParams.databaseId) {
+        if ($stateParams.databaseId) {
             // load existing database for editing
             Metabase.db_get({
-                'dbId': $routeParams.databaseId
+                'dbId': $stateParams.databaseId
             }, function(database) {
                 $scope.hiddenFields = null;
                 $scope.database = database;
@@ -155,96 +155,38 @@ DatabasesControllers.controller('DatabaseEdit', ['$scope', '$routeParams', '$loc
     }
 ]);
 
-DatabasesControllers.controller('DatabaseMasterDetail', ['$scope', '$route', '$routeParams',
-    function($scope, $route, $routeParams) {
-        $scope.pane = 'settings';
-
-        // mildly hacky way to prevent reloading controllers as the URL changes
-        var lastRoute = $route.current;
-        $scope.$on('$locationChangeSuccess', function (event) {
-            if ($route.current.$$route.controller === 'DatabaseMasterDetail') {
-                var params = $route.current.params;
-                $route.current = lastRoute;
-                angular.forEach(params, function(value, key) {
-                    $route.current.params[key] = value;
-                    $routeParams[key] = value;
-                });
-            }
+DatabasesControllers.controller('DatabaseController', ['$scope', '$stateParams', 'Metabase',
+    function($scope, $stateParams, Metabase) {
+        Metabase.db_get({ 'dbId': $stateParams.databaseId }).$promise
+        .then(function(database) {
+            $scope.database = database;
         });
-
-        $scope.routeParams = $routeParams;
-        $scope.$watch('routeParams', function() {
-            $scope.pane = $routeParams.mode;
-        }, true);
     }
 ]);
 
-DatabasesControllers.controller('DatabaseTables', ['$scope', '$routeParams', '$location', '$q', 'Metabase',
-    function($scope, $routeParams, $location, $q, Metabase) {
-        $scope.tableFields = {};
-
-        $scope.routeParams = $routeParams;
-        $scope.$watch('routeParams', function() {
-            loadData();
-        }, true);
-
-        function loadData() {
-            return loadDatabase()
-            .then(function() {
-                return updateTable();
-            })
-            .catch(function(error) {
-                console.log('error loading data', error);
-                if (error.status == 404) {
-                    $location.path('/admin/databases');
-                }
-            });
-        }
-
-        function loadDatabase() {
-            if ($scope.$parent.database && $scope.$parent.database.id == $routeParams.databaseId) {
-                return $q.all([]); // just return an empty promise if we already loaded this db
-            } else {
-                return $q.all([
-                    Metabase.db_get({ 'dbId': $routeParams.databaseId }).$promise
-                    .then(function(database) {
-                        $scope.$parent.database = database;
-                    }),
-                    Metabase.db_tables({ 'dbId': $routeParams.databaseId }).$promise
-                    .then(function(tables) {
-                        $scope.tables = tables;
-                    })
-                ]);
-            }
-        }
-
-        function updateTable() {
-            if ($routeParams.tableId !== undefined) {
-                $scope.$parent.table = $scope.tables.filter(function(t) { return $routeParams.tableId == t.id; })[0];
-                if (!$scope.$parent.table) {
-                    $location.path('/admin/databases/'+$routeParams.databaseId+'/tables');
-                }
-            }
-        }
+DatabasesControllers.controller('DatabaseTables', ['$scope', '$stateParams', 'Metabase',
+    function($scope, $stateParams, Metabase) {
+        Metabase.db_tables({ 'dbId': $stateParams.databaseId }).$promise
+        .then(function(tables) {
+            $scope.tables = tables;
+        });
     }
 ]);
 
+DatabasesControllers.controller('DatabaseTable', ['$scope', '$stateParams', '$location', 'Metabase', 'ForeignKey',
+    function($scope, $stateParams, $location, Metabase, ForeignKey) {
+        $scope.table = {};
 
-DatabasesControllers.controller('DatabaseTable', ['$scope', '$routeParams', '$location', 'Metabase', 'ForeignKey',
-    function($scope, $routeParams, $location, Metabase, ForeignKey) {
-        $scope.routeParams = $routeParams;
-        $scope.$watch('routeParams', function() {
-            loadData();
-        }, true);
+        loadData();
 
         function loadData() {
             Metabase.table_query_metadata({
-                'tableId': $routeParams.tableId,
+                'tableId': $stateParams.tableId,
                 'include_sensitive_fields': true
             }, function(result) {
                 $scope.table = result;
-                $scope.getIdFields();
-                $scope.decorateWithTargets();
+                getIdFields();
+                decorateWithTargets();
             }, function(error) {
                 console.log(error);
                 if (error.status == 404) {
@@ -253,7 +195,7 @@ DatabasesControllers.controller('DatabaseTable', ['$scope', '$routeParams', '$lo
             });
         }
 
-        $scope.getIdFields = function() {
+        function getIdFields() {
             // fetch the ID fields
             Metabase.db_idfields({
                 'dbId': $scope.table.db.id
@@ -267,26 +209,15 @@ DatabasesControllers.controller('DatabaseTable', ['$scope', '$routeParams', '$lo
                     console.log(result);
                 }
             });
+        }
 
-        };
-
-        $scope.decorateWithTargets = function() {
+        function decorateWithTargets() {
             $scope.table.fields.forEach(function(field) {
                 if (field.target) {
                     field.target_id = field.target.id;
                 }
             });
-        };
-
-        $scope.syncMetadata = function() {
-            Metabase.table_sync_metadata({
-                'tableId': $routeParams.tableId
-            }, function(result) {
-                // nothing to do here really
-            }, function(error) {
-                console.log('error doing metabase sync', error);
-            });
-        };
+        }
 
         $scope.inlineSave = function() {
             if ($scope.table) {
@@ -393,7 +324,7 @@ DatabasesControllers.controller('DatabaseTable', ['$scope', '$routeParams', '$lo
                     return field.id;
                 });
                 Metabase.table_reorder_fields({
-                    'tableId': $routeParams.tableId,
+                    'tableId': $stateParams.tableId,
                     'new_order': new_order
                 });
             }
@@ -403,8 +334,8 @@ DatabasesControllers.controller('DatabaseTable', ['$scope', '$routeParams', '$lo
 
 
 
-DatabasesControllers.controller('DatabaseTableField', ['$scope', '$routeParams', '$location', 'Metabase', 'ForeignKey',
-    function($scope, $routeParams, $location, Metabase, ForeignKey) {
+DatabasesControllers.controller('DatabaseTableField', ['$scope', '$stateParams', '$location', 'Metabase', 'ForeignKey',
+    function($scope, $stateParams, $location, Metabase, ForeignKey) {
 
         $scope.inlineSave = function() {
             console.log($scope.field);
@@ -421,7 +352,7 @@ DatabasesControllers.controller('DatabaseTableField', ['$scope', '$routeParams',
 
         $scope.updateMappedValues = function() {
             Metabase.field_value_map_update({
-                'fieldId': $routeParams.fieldId,
+                'fieldId': $stateParams.fieldId,
                 'values_map': $scope.field_values.human_readable_values
             }, function(result) {
                 // nothing to do
@@ -462,13 +393,13 @@ DatabasesControllers.controller('DatabaseTableField', ['$scope', '$routeParams',
         $scope.modalShown = false;
 
         Metabase.field_get({
-            'fieldId': $routeParams.fieldId
+            'fieldId': $stateParams.fieldId
         }, function(result) {
             $scope.field = result;
 
             // grab where this field is foreign keyed to
             Metabase.field_foreignkeys({
-                'fieldId': $routeParams.fieldId
+                'fieldId': $stateParams.fieldId
             }, function(result) {
                 $scope.fks = result;
             }, function(error) {
@@ -477,7 +408,7 @@ DatabasesControllers.controller('DatabaseTableField', ['$scope', '$routeParams',
 
             // grab summary data about our field
             Metabase.field_summary({
-                'fieldId': $routeParams.fieldId
+                'fieldId': $stateParams.fieldId
             }, function(result) {
                 $scope.field_summary = result;
             }, function(error) {
@@ -486,7 +417,7 @@ DatabasesControllers.controller('DatabaseTableField', ['$scope', '$routeParams',
 
             // grab our field values
             Metabase.field_values({
-                'fieldId': $routeParams.fieldId
+                'fieldId': $stateParams.fieldId
             }, function(result) {
                 $scope.field_values = result;
             }, function(error) {

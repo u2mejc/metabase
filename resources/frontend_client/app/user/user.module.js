@@ -1,7 +1,7 @@
 "use strict";
 
 var UserAdmin = angular.module('corvus.user', [
-    'ngRoute',
+    'ui.router',
     'ngCookies',
     'corvus.filters',
     'corvus.directives',
@@ -11,7 +11,16 @@ var UserAdmin = angular.module('corvus.user', [
     'corvus.user.directives'
 ]);
 
-UserAdmin.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/user/edit_current', {templateUrl: '/app/user/partials/edit_current_user.html', controller: 'EditCurrentUser'});
-    $routeProvider.otherwise({redirectTo: '/'});
+UserAdmin.config(['$stateProvider', function ($stateProvider) {
+    $stateProvider.state('app.user', {
+        url: 'user',
+        abstract: true
+    })
+    $stateProvider.state('app.user.edit', {
+        url: '/edit_current',
+        views: { 'content@': {
+            templateUrl: '/app/user/partials/edit_current_user.html',
+            controller: 'EditCurrentUser'
+        }}
+    });
 }]);

@@ -8,8 +8,8 @@
             <cv-loading-icon class="text-brand"></cv-loading-icon>
             <h3>Loading ...</h3>
         </li>
-        <li class="DatabaseListItem AdminHoverItem rounded py1 px2 text-grey-4" ng-class="{ 'DatabaseListItem--active': t.id == table.id }" ng-repeat="t in tables | filter:tableSearchText">
-            <a class="link link--nohover text-current" href="/admin/databases/{{database.id}}/tables/{{t.id}}">
+        <li class="DatabaseListItem AdminHoverItem rounded py1 px2 text-grey-4" ui-sref-active="DatabaseListItem--active" ng-repeat="t in tables | filter:tableSearchText">
+            <a class="link link--nohover text-current" ui-sref="app.admin.database.tables.detail({ tableId: t.id })">
                 <h4>{{t.name}}</h4>
             </a>
         </li>

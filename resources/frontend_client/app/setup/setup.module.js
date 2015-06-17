@@ -1,23 +1,33 @@
 'use strict';
 
 var Setup = angular.module('corvus.setup', [
+    'ui.router',
     'corvus.setup.controllers',
     'corvus.setup.directives'
 ]);
 
-Setup.config(['$routeProvider', function($routeProvider) {
-
-    $routeProvider.when('/setup/init/:setupToken', {
-        template: '',
-        controller: 'SetupInit'
+Setup.config(['$stateProvider', function($stateProvider) {
+    $stateProvider.state('app.setup', {
+        url: 'setup'
     });
-
-    $routeProvider.when('/setup/welcome', {
-        templateUrl: '/app/setup/partials/setup_welcome.html'
+    $stateProvider.state('app.setup.init', {
+        url: '/init/:setupToken',
+        views: { 'content@': {
+                template: '',
+                controller: 'SetupInit'
+        }}
     });
-
-    $routeProvider.when('/setup/info', {
-        templateUrl: '/app/setup/partials/setup_info.html',
-        controller: 'SetupInfo'
+    $stateProvider.state('app.setup.welcome', {
+        url: '/welcome',
+        views: { 'content@': {
+                templateUrl: '/app/setup/partials/setup_welcome.html'
+        }}
+    });
+    $stateProvider.state('app.setup.info', {
+        url: '/info',
+        views: { 'content@': {
+            templateUrl: '/app/setup/partials/setup_info.html',
+            controller: 'SetupInfo'
+        }}
     });
 }]);

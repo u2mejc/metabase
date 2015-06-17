@@ -1,17 +1,23 @@
 'use strict';
 
 var AdminPeople = angular.module('corvusadmin.people', [
+    'ui.router',
     'corvusadmin.people.controllers'
 ]);
 
-AdminPeople.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/admin/people/', {
-        templateUrl: '/app/admin/people/partials/people.html',
-        controller: 'PeopleList'
+AdminPeople.config(['$stateProvider', function ($stateProvider) {
+    $stateProvider.state('app.admin.people', {
+        url: '/people',
+        views: { 'content@': {
+            templateUrl: '/app/admin/people/partials/people.html',
+            controller: 'PeopleList'
+        }}
     });
-
-    $routeProvider.when('/admin/people/add', {
-        templateUrl: '/app/admin/people/partials/people_add.html',
-        controller: 'PeopleAdd'
+    $stateProvider.state('app.admin.people_add', {
+        url: '/people/add',
+        views: { 'content@': {
+            templateUrl: '/app/admin/people/partials/people_add.html',
+            controller: 'PeopleAdd'
+        }}
     });
 }]);

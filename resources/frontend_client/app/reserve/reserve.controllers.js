@@ -31,8 +31,8 @@ ReserveControllers.controller('VenueList', ['$scope', 'Metabase', 'Reserve',
     }
 ]);
 
-ReserveControllers.controller('VenueDetail', ['$scope', '$routeParams', 'Metabase', 'Reserve',
-    function($scope, $routeParams, Metabase, Reserve) {
+ReserveControllers.controller('VenueDetail', ['$scope', '$stateParams', 'Metabase', 'Reserve',
+    function($scope, $stateParams, Metabase, Reserve) {
         $scope.orderByField = "user";
         $scope.reverseSort = false;
 
@@ -44,7 +44,7 @@ ReserveControllers.controller('VenueDetail', ['$scope', '$routeParams', 'Metabas
                     'source_table': queryInfo.venue_table,
                     'aggregation': ['rows'],
                     'breakout': [null],
-                    'filter': ['=', queryInfo.venue_id_field, $routeParams.venueId]
+                    'filter': ['=', queryInfo.venue_id_field, $stateParams.venueId]
                 }
             }, function(venueResponse){
                 $scope.venue = Reserve.convertToObjects(venueResponse.data)[0];
@@ -76,7 +76,7 @@ ReserveControllers.controller('VenueDetail', ['$scope', '$routeParams', 'Metabas
                         }],
                         'aggregation': ['rows'],
                         'breakout': [null],
-                        'filter': ['=', queryInfo.booking_venue_fk, $routeParams.venueId]
+                        'filter': ['=', queryInfo.booking_venue_fk, $stateParams.venueId]
                     }
                 };
 
@@ -126,8 +126,8 @@ ReserveControllers.controller('UserList', ['$scope', 'Metabase', 'Reserve',
 ]);
 
 
-ReserveControllers.controller('UserDetail', ['$scope', '$routeParams', 'Metabase', 'Reserve',
-    function($scope, $routeParams, Metabase, Reserve) {
+ReserveControllers.controller('UserDetail', ['$scope', '$stateParams', 'Metabase', 'Reserve',
+    function($scope, $stateParams, Metabase, Reserve) {
         $scope.orderByField = "user";
         $scope.reverseSort = false;
 
@@ -139,7 +139,7 @@ ReserveControllers.controller('UserDetail', ['$scope', '$routeParams', 'Metabase
                     'source_table': queryInfo.user_table,
                     'aggregation': ['rows'],
                     'breakout': [null],
-                    'filter': ['=', queryInfo.user_id_field, $routeParams.userId]
+                    'filter': ['=', queryInfo.user_id_field, $stateParams.userId]
                 }
             }, function(userResponse){
                 $scope.user = Reserve.convertToObjects(userResponse.data)[0];
@@ -171,7 +171,7 @@ ReserveControllers.controller('UserDetail', ['$scope', '$routeParams', 'Metabase
                         }],
                         'aggregation': ['rows'],
                         'breakout': [null],
-                        'filter': ['=', queryInfo.booking_user_fk, $routeParams.userId]
+                        'filter': ['=', queryInfo.booking_user_fk, $stateParams.userId]
                     }
                 }, function(bookingsResponse){
                     $scope.bookings = Reserve.convertToObjects(bookingsResponse.data);

@@ -2,7 +2,7 @@
 
 // Card
 var Card = angular.module('corvus.card', [
-    'ngRoute',
+    'ui.router',
     'ngCookies',
     'corvus.filters',
     'corvus.directives',
@@ -13,17 +13,26 @@ var Card = angular.module('corvus.card', [
     'corvus.card.directives'
 ]);
 
-Card.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/card/', {
-        templateUrl: '/app/card/partials/card_list.html',
-        controller: 'CardList'
+Card.config(['$stateProvider', function($stateProvider) {
+    $stateProvider.state('app.card', {
+        url: 'card',
+        views: { 'content@': {
+            templateUrl: '/app/card/partials/card_list.html',
+            controller: 'CardList'
+        }}
     });
-    $routeProvider.when('/card/create/', {
-        templateUrl: '/app/card/partials/card_detail.html',
-        controller: 'CardDetail'
+    $stateProvider.state('app.card.create', {
+        url: '/create',
+        views: { 'content@': {
+            templateUrl: '/app/card/partials/card_detail.html',
+            controller: 'CardDetail'
+        }}
     });
-    $routeProvider.when('/card/:cardId', {
-        templateUrl: '/app/card/partials/card_detail.html',
-        controller: 'CardDetail'
+    $stateProvider.state('app.card.show', {
+        url: '/:cardId',
+        views: { 'content@': {
+            templateUrl: '/app/card/partials/card_detail.html',
+            controller: 'CardDetail'
+        }}
     });
 }]);

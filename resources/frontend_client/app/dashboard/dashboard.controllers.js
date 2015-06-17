@@ -4,7 +4,7 @@
 //  Dashboard Controllers
 var DashboardControllers = angular.module('corvus.dashboard.controllers', []);
 
-DashboardControllers.controller('DashList', ['$scope', '$location', 'Dashboard', function($scope, $location, Dashboard) {
+DashboardControllers.controller('DashList', ['$scope', 'Dashboard', function($scope, Dashboard) {
     var sort;
 
     // $scope.dashboards: the list of dashboards being displayed
@@ -80,7 +80,7 @@ DashboardControllers.controller('DashList', ['$scope', '$location', 'Dashboard',
     $scope.filter('all');
 }]);
 
-DashboardControllers.controller('DashListForCard', ['$scope', '$routeParams', '$location', 'Dashboard', 'Card', function($scope, $routeParams, $location, Dashboard, Card) {
+DashboardControllers.controller('DashListForCard', ['$scope', '$stateParams', '$location', 'Dashboard', 'Card', function($scope, $stateParams, $location, Dashboard, Card) {
     var sort;
 
     // $scope.dashboards: the list of dashboards being displayed
@@ -88,12 +88,12 @@ DashboardControllers.controller('DashListForCard', ['$scope', '$routeParams', '$
     $scope.filter = function(filterMode) {
         Dashboard.for_card({
             'filterMode': filterMode,
-            'cardId': $routeParams.cardId
+            'cardId': $stateParams.cardId
         }, function(result) {
             $scope.dashboards = result;
         }, function(errorResponse) {
             console.dir(errorResponse);
-            throw "unable to get card dashboards for card " + $routeParams.cardId + "; status: " + errorResponse.status + " (" + errorResponse.statusText + "); see log above for details";
+            throw "unable to get card dashboards for card " + $stateParams.cardId + "; status: " + errorResponse.status + " (" + errorResponse.statusText + "); see log above for details";
         });
     };
 
@@ -101,7 +101,7 @@ DashboardControllers.controller('DashListForCard', ['$scope', '$routeParams', '$
     $scope.filter('all');
 
     Card.get({
-        cardId: $routeParams.cardId
+        cardId: $stateParams.cardId
     }, function(card) {
         $scope.cardName = card.name;
     }, function(errorResponse) {
@@ -109,12 +109,12 @@ DashboardControllers.controller('DashListForCard', ['$scope', '$routeParams', '$
         if (errorResponse.status == 404) {
             $location.path('/');
         } else {
-            throw "unable to get card name for card " + $routeParams.cardId + "; status: " + errorResponse.status + " (" + errorResponse.statusText + "); see log above for details";
+            throw "unable to get card name for card " + $stateParams.cardId + "; status: " + errorResponse.status + " (" + errorResponse.statusText + "); see log above for details";
         }
     });
 }]);
 
-DashboardControllers.controller('DashDetail', ['$scope', '$routeParams', '$location', 'Dashboard', 'DashCard', function($scope, $routeParams, $location, Dashboard, DashCard) {
+DashboardControllers.controller('DashDetail', ['$scope', '$stateParams', '$location', 'Dashboard', 'DashCard', function($scope, $stateParams, $location, Dashboard, DashCard) {
 
     // $scope.dashboard: single Card being displayed/edited
     // $scope.error: any relevant error message to be displayed
@@ -189,9 +189,9 @@ DashboardControllers.controller('DashDetail', ['$scope', '$routeParams', '$locat
     $scope.dashboardLoadError = null;
 
 
-    if ($routeParams.dashId) {
+    if ($stateParams.dashId) {
         Dashboard.get({
-            'dashId': $routeParams.dashId
+            'dashId': $stateParams.dashId
         }, function(result) {
             $scope.dashboard = result.dashboard;
 
@@ -249,7 +249,7 @@ DashboardControllers.controller('DashDetail', ['$scope', '$routeParams', '$locat
 
     $scope.removeCard = function(idx) {
         Dashboard.removecard({
-            'dashId': $routeParams.dashId,
+            'dashId': $stateParams.dashId,
             'dashcardId': $scope.dashboard.ordered_cards[idx].id
         }, function(result) {
             $scope.dashboard.ordered_cards.splice(idx, 1);
@@ -291,7 +291,7 @@ DashboardControllers.controller('DashDetail', ['$scope', '$routeParams', '$locat
     $scope.toggleSubscribe = function() {
         var action = $scope.dashboard.is_subscriber ? 'unsubscribe' : 'subscribe';
         Dashboard[action]({
-            'dashId': $routeParams.dashId
+            'dashId': $stateParams.dashId
         }, function(result) {
             $scope.dashboard.is_subscriber = !$scope.dashboard.is_subscriber;
         });

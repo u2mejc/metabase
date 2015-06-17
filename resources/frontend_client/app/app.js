@@ -3,8 +3,10 @@
 
 // Declare app level module which depends on filters, and services
 var Corvus = angular.module('corvus', [
+    'ui.router',
+    'ct.ui.router.extras.sticky',
+    'ct.ui.router.extras.dsr',
     'ngAnimate',
-    'ngRoute',
     'ngCookies',
     'ngSanitize',
     'xeditable', // inplace editing capabilities
@@ -13,6 +15,7 @@ var Corvus = angular.module('corvus', [
     'gridster', // used for dashboard grids
     'ui.sortable',
     'readableTime',
+    'corvus.admin',
     'corvus.auth',
     'corvus.filters',
     'corvus.directives',
@@ -24,51 +27,53 @@ var Corvus = angular.module('corvus', [
     'corvus.operator', // this is a short term hack
     'corvus.reserve',
     'corvus.user',
-    'corvus.setup',
-    'corvusadmin.databases',
-    'corvusadmin.people',
-    'corvusadmin.settings'
+    'corvus.setup'
 ]);
-Corvus.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+Corvus.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.html5Mode({
         enabled: true,
         requireBase: false
     });
 
-    $routeProvider.when('/', {
-        template: '',
-        controller: 'Homepage',
+    $urlRouterProvider.otherwise('/404');
+
+    $stateProvider.state('app', {
+        url: '/',
+        views: {
+            'nav@': {
+                templateUrl: '/app/nav-main.html'
+            },
+            'content@': {
+                template: '',
+                controller: 'Homepage'
+            }
+        },
         resolve: {
             appState: ["AppState", function(AppState) {
                 return AppState.init();
             }]
         }
     });
-
-    $routeProvider.when('/unauthorized/', {
-        templateUrl: '/app/unauthorized.html',
-        controller: 'Unauthorized'
-    });
-
-    $routeProvider.when('/auth/', {
-        redirectTo: function(routeParams, path, search) {
-            return '/auth/login';
+    $stateProvider.state('app.unauthorized', {
+        url: 'unauthorized',
+        views: {
+            'content@': {
+                templateUrl: '/app/unauthorized.html',
+                controller: 'Unauthorized'
+            }
         }
     });
-
-    $routeProvider.when('/admin/', {
-        redirectTo: function(routeParams, path, search) {
-            return '/admin/settings';
+    $stateProvider.state('app.notfound', {
+        url: '404',
+        views: {
+            'content@': {
+                template: 'not found'
+            }
         }
-    });
-
-    // TODO: we need an appropriate homepage or something to show in this situation
-    $routeProvider.otherwise({
-        redirectTo: '/user/edit_current'
     });
 }]);
 
-Corvus.run(["AppState", "editableOptions", "editableThemes", function(AppState, editableOptions, editableThemes) {
+Corvus.run(["$rootScope", "$state", "$stateParams", "AppState", "editableOptions", "editableThemes", function($rootScope, $state, $stateParams, AppState, editableOptions, editableThemes) {
     // initialize app state
     AppState.init();
 
@@ -78,6 +83,9 @@ Corvus.run(["AppState", "editableOptions", "editableThemes", function(AppState, 
     // overwrite submit button template
     editableThemes['default'].submitTpl = '<button class="Button Button--primary" type="submit">Save</button>';
     editableThemes['default'].cancelTpl = '<button class="Button" ng-click="$form.$cancel()">cancel</button>';
+
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
 }]);
 
 

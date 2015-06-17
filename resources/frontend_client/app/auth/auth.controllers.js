@@ -104,7 +104,7 @@ AuthControllers.controller('ForgotPassword', ['$scope', '$cookies', '$location',
 }]);
 
 
-AuthControllers.controller('PasswordReset', ['$scope', '$routeParams', '$location', 'Session', function($scope, $routeParams, $location, Session) {
+AuthControllers.controller('PasswordReset', ['$scope', '$stateParams', '$location', 'Session', function($scope, $stateParams, $location, Session) {
 
     $scope.resetSuccess = false;
 
@@ -117,7 +117,7 @@ AuthControllers.controller('PasswordReset', ['$scope', '$routeParams', '$locatio
         }
 
         Session.reset_password({
-            'token': $routeParams.token,
+            'token': $stateParams.token,
             'password': password
         }, function (result) {
             $scope.resetSuccess = true;

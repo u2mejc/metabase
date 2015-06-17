@@ -1,0 +1,18 @@
+<div class="wrapper full-height flex flex-column">
+    <section class="my3 clearfix">
+        <div class="py2 float-right">
+            <div class="Button-group Button-group--blue text-uppercase text-bold">
+                <a class="Button AdminHoverItem" ui-sref=".tables" ui-sref-active="Button--active">Data</a>
+                <a class="Button AdminHoverItem" ui-sref=".settings" ui-sref-active="Button--active">Connection Details</a>
+            </div>
+        </div>
+        <h3 class="py2">{{database.name}}</h2>
+    </section>
+
+    <section class="DatabaseTablesAdmin Grid bordered rounded shadowed flex-full mb4" ui-view="tables" ng-show="$state.includes('app.admin.database.tables')">
+    </section>
+
+    <section ng-show="$state.includes('app.admin.database.settings')">
+        <div class="Grid Grid--gutters Grid--full" ui-view="settings"></div>
+    </section>
+</div>

@@ -1,0 +1,30 @@
+<nav class="AdminNav">
+    <div class="wrapper flex align-center">
+        <div class="NavTitle flex align-center">
+            <mb-icon name="gear" class="AdminGear" width="22px" height="22px"></mb-icon>
+            <span class="NavItem-text ml1">Site Administration</span>
+        </div>
+
+        <!-- admin sections -->
+        <ul class="ml4 flex flex-full">
+            <li>
+                <a class="NavItem" ui-sref="app.admin.settings" ui-sref-active="is--selected">
+                    <span class="NavItem-text">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a class="NavItem" ui-sref="app.admin.people" ui-sref-active="is--selected">
+                    <span class="NavItem-text">People</span>
+                </a>
+            </li>
+            <li>
+                <a class="NavItem" ui-sref="app.admin.databases" ui-sref-active="is--selected">
+                    <span class="NavItem-text">Databases</span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- user profile dropdown -->
+        <mb-profile-link user="user" context="nav"></mb-profile-link>
+    </div>
+</nav>

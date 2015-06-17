@@ -71,8 +71,8 @@ OperatorControllers.controller('SpecialistList', ['$scope', 'Metabase', 'Operato
 ]);
 
 
-OperatorControllers.controller('SpecialistDetail', ['$scope', '$routeParams', 'Metabase', 'Operator',
-    function($scope, $routeParams, Metabase, Operator) {
+OperatorControllers.controller('SpecialistDetail', ['$scope', '$stateParams', 'Metabase', 'Operator',
+    function($scope, $stateParams, Metabase, Operator) {
         // set the default ordering to the last message sent, as the field team is generally concerned with
         // recent messages
         $scope.orderByField = "time_newmessage_server";
@@ -80,7 +80,7 @@ OperatorControllers.controller('SpecialistDetail', ['$scope', '$routeParams', 'M
         $scope.reverseSort = true;
 
         Operator.queryInfo().then(function(queryInfo){
-            if ($routeParams.specialistId) {
+            if ($stateParams.specialistId) {
                 Metabase.dataset({
                     'database': queryInfo.database,
                     'type': 'query',
@@ -88,7 +88,7 @@ OperatorControllers.controller('SpecialistDetail', ['$scope', '$routeParams', 'M
                         'source_table': queryInfo.specialist_table,
                         'aggregation': ['rows'],
                         'breakout': [null],
-                        'filter':['=', queryInfo.specialist_id_field, parseInt($routeParams.specialistId, 10)],
+                        'filter':['=', queryInfo.specialist_id_field, parseInt($stateParams.specialistId, 10)],
                         'limit': null
                     }
                 }, function (queryResponse) {
@@ -102,7 +102,7 @@ OperatorControllers.controller('SpecialistDetail', ['$scope', '$routeParams', 'M
                             'source_table': queryInfo.conversations_table,
                             'aggregation': ['rows'],
                             'breakout': [null],
-                            'filter':['=', queryInfo.conversations_specialist_fk, parseInt($routeParams.specialistId, 10)],
+                            'filter':['=', queryInfo.conversations_specialist_fk, parseInt($stateParams.specialistId, 10)],
                             'limit': null
                         }
                     }, function (response) {
@@ -124,8 +124,8 @@ OperatorControllers.controller('SpecialistDetail', ['$scope', '$routeParams', 'M
 ]);
 
 
-OperatorControllers.controller('ConversationDetail', ['$scope', '$routeParams', 'Metabase', 'Operator',
-    function($scope, $routeParams, Metabase, Operator) {
+OperatorControllers.controller('ConversationDetail', ['$scope', '$stateParams', 'Metabase', 'Operator',
+    function($scope, $stateParams, Metabase, Operator) {
 
         $scope.toObject = function(str) {
             //var unescaped = str.replace(/\\"/g, '"');
@@ -133,7 +133,7 @@ OperatorControllers.controller('ConversationDetail', ['$scope', '$routeParams', 
         };
 
         Operator.queryInfo().then(function(queryInfo){
-            if ($routeParams.conversationId) {
+            if ($stateParams.conversationId) {
                 Metabase.dataset({
                     'database': queryInfo.database,
                     'type': 'query',
@@ -141,7 +141,7 @@ OperatorControllers.controller('ConversationDetail', ['$scope', '$routeParams', 
                         'source_table': queryInfo.conversations_table,
                         'aggregation': ['rows'],
                         'breakout': [null],
-                        'filter':['=', queryInfo.conversations_id_field, $routeParams.conversationId],
+                        'filter':['=', queryInfo.conversations_id_field, $stateParams.conversationId],
                         'limit': null
                     }
                 }, function (queryResponse) {
@@ -156,7 +156,7 @@ OperatorControllers.controller('ConversationDetail', ['$scope', '$routeParams', 
                             'source_table': queryInfo.messages_table,
                             'aggregation': ['rows'],
                             'breakout': [null],
-                            'filter':['=', queryInfo.messages_table_conversation_fk, $routeParams.conversationId],
+                            'filter':['=', queryInfo.messages_table_conversation_fk, $stateParams.conversationId],
                             'limit': null
                         }
                     }, function (response) {
