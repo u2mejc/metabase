@@ -28,7 +28,7 @@ export default React.createClass({
 
     getDefaultProps: function() {
         return {
-            querySectionClasses: 'Query-section mt1 md-mt2 flex align-center'
+            querySectionClasses: 'Query-section mt1 md-mt2 flex flex-column sm-flex-row sm-align-center'
         };
     },
 
@@ -396,7 +396,7 @@ export default React.createClass({
         if(this.props.databases && this.props.databases.length > 1) {
             return (
                 <div className={this.props.querySectionClasses + ' mt1 lg-mt2'}>
-                    <span className="Query-label">Data source:</span>
+                    <span className="Query-label mb1 sm-mb0">Data source:</span>
                     <DatabaseSelector
                         databases={this.props.databases}
                         setDatabase={this.setDatabase}
@@ -419,7 +419,7 @@ export default React.createClass({
 
             return (
                 <div className={this.props.querySectionClasses}>
-                    <span className="Query-label">Table:</span>
+                    <span className="Query-label mb1 sm-mb0">Table:</span>
                     <SelectionModule
                         placeholder="What part of your data?"
                         items={this.props.tables}
@@ -443,9 +443,9 @@ export default React.createClass({
                 this.props.options &&
                 this.props.options.fields.length > 0) {
             return (
-                <a className="QueryOption flex align-center p1 lg-p2 ml2" onClick={this.addFilter}>
+                <a className="QueryOption flex align-center p1 lg-p2 sm-ml2 mt1 sm-mt0" onClick={this.addFilter}>
                     <Icon name='filter' width={16} height={ 16} viewBox='0 0 16 16' />
-                    <span className="mr1">Filter</span> <span>{(this.props.options) ? this.props.options.name : ''}</span>
+                    <span className="sm-mr1">Filter</span> <span>{(this.props.options) ? this.props.options.name : ''}</span>
                 </a>
             );
         }
@@ -461,7 +461,7 @@ export default React.createClass({
             var breakoutLabel;
             if(this.props.query.query.breakout.length > 0) {
                 breakoutLabel = (
-                    <div className="Query-label">
+                    <div className="Query-label mb1 sm-mb0">
                         Grouped by:
                     </div>
                 );
@@ -505,7 +505,7 @@ export default React.createClass({
             } else if (this.props.query.query.breakout.length === 1 &&
                             this.props.query.query.breakout[0] !== null) {
                 addBreakoutButton = (
-                    <a className="QueryOption p1 lg-p2 ml1 lg-ml2" onClick={this.addDimension}>
+                    <a className="QueryOption p1 lg-p2 sm-ml1 lg-ml2 mt1 sm-mt0" onClick={this.addDimension}>
                         {this.renderAddIcon()}
                         Add another grouping
                     </a>

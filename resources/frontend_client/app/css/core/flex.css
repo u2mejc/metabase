@@ -12,6 +12,22 @@
     align-items: center;
 }
 
+@media screen and (--breakpoint-min-sm) {
+    .sm-align-center { align-items: center; }
+}
+
+@media screen and (--breakpoint-min-md) {
+    .md-align-center { align-items: center; }
+}
+
+@media screen and (--breakpoint-min-lg) {
+    .lg-align-center { align-items: center; }
+}
+
+@media screen and (--breakpoint-min-xl) {
+    .xl-align-center { align-items: center; }
+}
+
 .justify-center {
     justify-content: center;
 }
@@ -78,6 +94,14 @@
 
 .flex-row {
   flex-direction: row;
+}
+
+@media screen and (--breakpoint-min-sm) {
+    .sm-flex-row { flex-direction: row; }
+}
+
+@media screen and (--breakpoint-min-md) {
+    .md-flex-row { flex-direction: row; }
 }
 
 .flex-wrap {
