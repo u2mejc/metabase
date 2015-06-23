@@ -16,7 +16,7 @@ export default React.createClass({
         if (this.props.canRun) {
             var runButtonText = (this.props.isRunning) ? "Loading..." : "Find out!";
             runButton = (
-                <button className="Button Button--primary" onClick={this.props.runFn}>{runButtonText}</button>
+                <button className="QueryRunButton Button Button--primary" onClick={this.props.runFn}>{runButtonText}</button>
             );
         }
 

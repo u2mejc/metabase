@@ -742,7 +742,7 @@ export default React.createClass({
                     {this.renderLimitAndSort()}
                 </ReactCSSTransitionGroup>
 
-                <div className="Query-section Query-section--right mb2">
+                <div className="Query-section flex Query-section--right mb2">
                     <RunButton
                         canRun={this.canRun()}
                         isRunning={this.props.isRunning}

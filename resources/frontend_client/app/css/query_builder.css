@@ -28,8 +28,10 @@
 
 /* a section of the graphical query itself */
 
-.Query-section.Query-section--right {
-    justify-content: flex-end;
+@media screen and (--breakpoint-min-sm) {
+    .Query-section.Query-section--right {
+        justify-content: flex-end;
+    }
 }
 
 .QueryVisualization {
@@ -254,6 +256,13 @@
     z-index: 100;
     background-color: #fff;
     padding-bottom: 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .08);
+}
+
+@media screen and (--breakpoint-min-sm) {
+    .GuiBuilder {
+        box-shadow: none;
+    }
 }
 
 .GuiBuilder.GuiBuilder--collapsed {
@@ -335,4 +344,16 @@
     background-color: var(--brand-color);
     border-color: var(--brand-color);
     color: #fff;
+}
+
+.QueryRunButton {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media screen and (--breakpoint-min-sm) {
+    .QueryRunButton {
+        margin-top: 0;
+        width: auto;
+    }
 }
