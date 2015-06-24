@@ -65,8 +65,31 @@ CardControllers.controller('CardList', ['$scope', '$location', 'Card', function(
 }]);
 
 CardControllers.controller('CardDetail', [
-    '$rootScope', '$scope', '$routeParams', '$location', '$q', '$window', 'Card', 'Dashboard', 'CorvusFormGenerator', 'Metabase', 'VisualizationSettings', 'QueryUtils',
-    function($rootScope, $scope, $routeParams, $location, $q, $window, Card, Dashboard, CorvusFormGenerator, Metabase, VisualizationSettings, QueryUtils) {
+    '$rootScope', '$scope', '$route', '$routeParams', '$location', '$q', '$window', 'Card', 'Dashboard', 'CorvusFormGenerator', 'Metabase', 'VisualizationSettings', 'QueryUtils',
+    function($rootScope, $scope, $route, $routeParams, $location, $q, $window, Card, Dashboard, CorvusFormGenerator, Metabase, VisualizationSettings, QueryUtils) {
+        // mildly hacky way to prevent reloading controllers as the URL changes
+        var lastRoute = $route.current;
+        $scope.$on('$locationChangeSuccess', function (event) {
+            if ($route.current.$$route.controller === 'CardDetail') {
+                var params = $route.current.params;
+                $route.current = lastRoute;
+                angular.forEach(params, function(value, key) {
+                    $route.current.params[key] = value;
+                    $routeParams[key] = value;
+                });
+            }
+        });
+
+        $scope.routeParams = $routeParams;
+        $scope.$watch('routeParams', function() {
+            console.log($routeParams);
+            if ($routeParams.serializedQuery) {
+                // card.dataset_query = JSON.parse(atob($routeParams.serializedQuery));
+                // console.log(card.dataset_query.query.aggregation);
+                // renderAll();
+                // editorModel.runFn(card.dataset_query);
+            }
+        }, true);
 
         // =====  Controller local objects
 
@@ -214,6 +237,13 @@ CardControllers.controller('CardDetail', [
                 isRunning = true;
                 renderAll();
 
+                var serializedQuery = btoa(JSON.stringify(dataset_query));
+                if (card.id == undefined) {
+                    $location.url('/query/' + serializedQuery);
+                } else {
+                    $location.url('/card/' + card.id + '/' + serializedQuery);
+                }
+
                 // make our api call
                 var firstRunNewCard = (queryResult === null && card.id === undefined);
                 Metabase.dataset(dataset_query, function (result) {
@@ -358,7 +388,8 @@ CardControllers.controller('CardDetail', [
                 if (coldef.special_type === 'id' || (coldef.special_type === 'fk' && coldef.target)) {
                     return true;
                 } else {
-                    return false;
+                    // return false;
+                    return true;
                 }
             },
             cellClickedFn: function(rowIndex, columnIndex) {
@@ -391,6 +422,16 @@ CardControllers.controller('CardDetail', [
                     editorModel.loadTableInfoFn(card.dataset_query.query.source_table);
 
                     // run it
+                    editorModel.runFn(card.dataset_query);
+                } else {
+                    if (card.dataset_query.query.filter && card.dataset_query.query.filter.length > 0) {
+                        if (card.dataset_query.query.filter[0] !== "AND") {
+                            card.dataset_query.query.filter = ["AND", card.dataset_query.query.filter];
+                        }
+                    } else {
+                        card.dataset_query.query.filter = ["AND"];
+                    }
+                    card.dataset_query.query.filter.push(["=", coldef.id, value]);
                     editorModel.runFn(card.dataset_query);
                 }
             },
@@ -588,7 +629,13 @@ CardControllers.controller('CardDetail', [
 
         // meant to be called once on controller startup
         var initAndRender = function() {
-            if ($routeParams.cardId) {
+            if ($routeParams.serializedQuery) {
+                card.dataset_query = JSON.parse(atob($routeParams.serializedQuery));
+                editorModel.loadDatabaseInfoFn(card.dataset_query.database);
+                editorModel.loadTableInfoFn(card.dataset_query.query.source_table);
+                editorModel.runFn(card.dataset_query);
+                // renderAll();
+            } else if ($routeParams.cardId) {
                 loadCardAndRender($routeParams.cardId, false);
 
             } else if ($routeParams.clone) {

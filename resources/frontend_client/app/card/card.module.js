@@ -22,4 +22,12 @@ Card.config(['$routeProvider', function($routeProvider) {
         templateUrl: '/app/card/partials/card_detail.html',
         controller: 'CardDetail'
     });
+    $routeProvider.when('/query/:serializedQuery', {
+        templateUrl: '/app/card/partials/card_detail.html',
+        controller: 'CardDetail'
+    });
+    $routeProvider.when('/card/:cardId/:serializedQuery', {
+        templateUrl: '/app/card/partials/card_detail.html',
+        controller: 'CardDetail'
+    });
 }]);
