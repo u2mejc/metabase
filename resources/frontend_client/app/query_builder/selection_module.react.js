@@ -159,7 +159,7 @@ export default React.createClass({
         return (
             <div className={moduleClasses}>
                 <div className="SelectionModule-trigger">
-                    <a className="QueryOption p1 lg-p2 flex align-center" onClick={this._toggleOpen}>
+                    <a className="QueryOption flex align-center" onClick={this._toggleOpen}>
                         {placeholder}
                         {remove}
                     </a>

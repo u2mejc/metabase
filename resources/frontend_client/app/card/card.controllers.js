@@ -291,7 +291,7 @@ CardControllers.controller('CardDetail', [
             notifyQueryModifiedFn: function(dataset_query) {
                 // we are being told that the query has been modified
                 card.dataset_query = dataset_query;
-                renderAll();
+                editorModel.runFn(card.dataset_query);
             },
             autocompleteResultsFn: function(prefix) {
                 var apiCall = Metabase.db_autocomplete_suggestions({

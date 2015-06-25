@@ -365,12 +365,12 @@ export default React.createClass({
         return (
             <Table
                 className="MB-DataTable"
-                rowHeight={55}
+                rowHeight={35}
                 rowGetter={this.rowGetter}
                 rowsCount={this.props.data.rows.length}
                 width={this.state.width}
                 height={this.state.height}
-                headerHeight={75}
+                headerHeight={45}
                 isColumnResizing={this.isColumnResizing}
                 onColumnResizeEndCallback={component.columnResized}>
                 {tableColumns}

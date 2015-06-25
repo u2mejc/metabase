@@ -13,7 +13,7 @@ export default React.createClass({
 
     getDefaultProps: function() {
         return {
-            querySectionClasses: 'mt1 md-mt2 flex align-center'
+            querySectionClasses: 'inline-block'
         };
     },
 
@@ -92,7 +92,7 @@ export default React.createClass({
             }
 
             aggregationTarget = (
-                <div className="flex align-center">
+                <div>
                     <span className="mx2">of</span>
                     <SelectionModule
                         placeholder="What attribute?"
@@ -108,7 +108,8 @@ export default React.createClass({
         }
 
         return (
-            <div className={this.props.querySectionClasses}>
+            <div className="inline-block">
+                Measure:
                 <SelectionModule
                     placeholder="What data?"
                     items={this.state.availableAggregations}

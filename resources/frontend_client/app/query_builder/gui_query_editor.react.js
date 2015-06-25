@@ -28,7 +28,7 @@ export default React.createClass({
 
     getDefaultProps: function() {
         return {
-            querySectionClasses: 'Query-section mt1 md-mt2 flex align-center'
+            querySectionClasses: 'inline-block'
         };
     },
 
@@ -395,7 +395,7 @@ export default React.createClass({
     renderDbSelector: function() {
         if(this.props.databases && this.props.databases.length > 1) {
             return (
-                <div className={this.props.querySectionClasses + ' mt1 lg-mt2'}>
+                <div className="mt1 lg-mt2">
                     <span className="Query-label">Data source:</span>
                     <DatabaseSelector
                         databases={this.props.databases}
@@ -429,9 +429,6 @@ export default React.createClass({
                         isInitiallyOpen={sourceTableListOpen}
                         action={this.setSourceTable}
                     />
-                    <ReactCSSTransitionGroup transitionName="Transition-qb-section">
-                        {this.renderFilterButton()}
-                    </ReactCSSTransitionGroup>
                 </div>
             );
         }
@@ -443,7 +440,7 @@ export default React.createClass({
                 this.props.options &&
                 this.props.options.fields.length > 0) {
             return (
-                <a className="QueryOption flex align-center p1 lg-p2 ml2" onClick={this.addFilter}>
+                <a className="QueryOption" onClick={this.addFilter}>
                     <Icon name='filter' width={16} height={ 16} viewBox='0 0 16 16' />
                     <span className="mr1">Filter</span> <span>{(this.props.options) ? this.props.options.name : ''}</span>
                 </a>
@@ -461,7 +458,7 @@ export default React.createClass({
             var breakoutLabel;
             if(this.props.query.query.breakout.length > 0) {
                 breakoutLabel = (
-                    <div className="Query-label">
+                    <div>
                         Grouped by:
                     </div>
                 );
@@ -476,7 +473,7 @@ export default React.createClass({
                     }
 
                     return (
-                        <div className="DimensionList">
+                        <div className="inline-block">
                             <SelectionModule
                                 placeholder='What part of your data?'
                                 display="1"
@@ -497,7 +494,7 @@ export default React.createClass({
             var addBreakoutButton;
             if (this.props.query.query.breakout.length === 0) {
                 addBreakoutButton = (
-                    <a className="QueryOption QueryOption--offset p1 lg-p2" onClick={this.addDimension}>
+                    <a className="QueryOption" onClick={this.addDimension}>
                         {this.renderAddIcon()}
                         Add a grouping
                     </a>
@@ -505,7 +502,7 @@ export default React.createClass({
             } else if (this.props.query.query.breakout.length === 1 &&
                             this.props.query.query.breakout[0] !== null) {
                 addBreakoutButton = (
-                    <a className="QueryOption p1 lg-p2 ml1 lg-ml2" onClick={this.addDimension}>
+                    <a className="QueryOption" onClick={this.addDimension}>
                         {this.renderAddIcon()}
                         Add another grouping
                     </a>
@@ -513,10 +510,12 @@ export default React.createClass({
             }
 
             return (
-                <div className={this.props.querySectionClasses}>
+                <div className="inline-block">
                     {breakoutLabel}
-                    {breakoutList}
-                    {addBreakoutButton}
+                    <div>
+                        {breakoutList}
+                        {addBreakoutButton}
+                    </div>
                 </div>
             );
         }
@@ -565,7 +564,7 @@ export default React.createClass({
             var addFilterButton;
             if (this.canAddFilter(queryFilters)) {
                 addFilterButton = (
-                    <a className="QueryOption p1 lg-p2" onClick={this.addFilter}>
+                    <a className="QueryOption" onClick={this.addFilter}>
                         {this.renderAddIcon()}
                         Add another filter
                     </a>
@@ -573,7 +572,7 @@ export default React.createClass({
             }
 
             return (
-                <div className={this.props.querySectionClasses}>
+                <div>
                     <span className="Query-label">Filtered by:</span>
                     <div className="Query-filters">
                         {filterList}
@@ -600,7 +599,7 @@ export default React.createClass({
                 );
             } else {
                 limitSection = (
-                    <div className="QueryOption p1 lg-p2 flex align-center">
+                    <div className="QueryOption">
                         <a onClick={this.addLimit}>
                             {this.renderAddIcon()}
                             Add row limit
@@ -631,7 +630,7 @@ export default React.createClass({
             var sortSection;
             if (sortList.length === 0) {
                 sortSection = (
-                    <div className="QueryOption p1 lg-p2 flex align-center">
+                    <div>
                         <a onClick={this.addSort}>
                             {this.renderAddIcon()}
                             Add sort
@@ -647,7 +646,7 @@ export default React.createClass({
                 }
 
                 sortSection = (
-                    <div className="flex align-center">
+                    <div>
                         <span className="m2">sorted by</span>
                         {sortList}
                         {addSortButton}
@@ -668,7 +667,7 @@ export default React.createClass({
         } else if (this.canAddLimitAndSort()) {
             return (
                 <div className={this.props.querySectionClasses}>
-                    <a className="QueryOption QueryOption--offset p1 lg-p2" onClick={this.addLimit}>
+                    <a className="QueryOption" onClick={this.addLimit}>
                         {this.renderAddIcon()}
                         Set row limits and sorting
                     </a>
@@ -678,55 +677,26 @@ export default React.createClass({
 
     },
 
-    toggleOpen: function() {
-        this.props.toggleExpandCollapseFn();
-    },
-
-    toggleText: function() {
-        return (this.props.isExpanded) ? 'Hide query' : 'Show query';
-    },
-
-    toggleIcon: function () {
-        var iconSize = '12px'
-        if(this.props.isExpanded) {
-            return (
-                <Icon name='chevronup' width={iconSize} height={iconSize} />
-            );
-        } else {
-            return (
-                <Icon name='chevrondown' width={iconSize} height={iconSize} />
-            );
-        }
-    },
-
-    openStatus: function() {
+    renderSource: function () {
         return (
-            <a href="#" className="QueryToggle px2 py1 no-decoration bg-white flex align-center" onClick={this.toggleOpen}>
-                <span className="mr1">
-                    {this.toggleIcon()}
-                </span>
-                {this.toggleText()}
-            </a>
+            <div className="inline-block">
+                <div>
+                    {this.renderTableSelector()}
+                </div>
+            </div>
         );
     },
 
     render: function() {
-        var guiBuilderClasses = cx({
-            'GuiBuilder': true,
-            'GuiBuilder--collapsed': !this.props.isExpanded,
-        });
         return (
-            <div className={guiBuilderClasses}>
-                {this.renderDbSelector()}
-                {this.renderTableSelector()}
-                {this.renderFilterSelector()}
-                {this.renderBreakouts()}
-                {this.renderLimitAndSort()}
-
-                <div className="QueryToggleWrapper absolute left right flex layout-centered">
-                    {this.openStatus()}
+            <div className="wrapper">
+                {this.renderSource()}
+                <span className="ml1">
                     {this.renderAggregation()}
-                </div>
+                </span>
+                {this.renderBreakouts()}
+                {this.renderFilterButton()}
+                {this.renderFilterSelector()}
             </div>
         );
     }

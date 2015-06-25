@@ -26,16 +26,6 @@
     transition: fill .3s linear;
 }
 
-/* a section of the graphical query itself */
-.Query-section {
-    display: flex;
-    align-items: center;
-}
-
-.Query-section.Query-section--right {
-    justify-content: flex-end;
-}
-
 .QueryVisualization {
     display: flex;
     flex: 1;
@@ -276,28 +266,6 @@
     color: var(--brand-color);
     border-color: var(--brand-color);
     transition: color .3s linear, border .3s linear;
-}
-
-/* @transitions */
-
-.Transition-qb-section-enter {
-    opacity: 0.01;
-    transition: opacity .3s linear !important;
-}
-
-.Transition-qb-section-enter-active {
-    opacity: 1;
-    transition: opacity .3s linear !important;
-}
-
-.Transition-qb-section-leave {
-    opacity: 1;
-    transition: opacity .3s linear !important;
-}
-
-.Transition-qb-section-leave-active {
-    opacity: 0.01;
-    transition: opacity .3s linear !important;
 }
 
 .AddToDashSuccess {
