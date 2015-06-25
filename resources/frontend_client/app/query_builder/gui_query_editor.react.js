@@ -713,7 +713,6 @@ export default React.createClass({
     render: function() {
         var guiBuilderClasses = cx({
             'GuiBuilder': true,
-            'wrapper': true,
             'GuiBuilder--collapsed': !this.props.isExpanded,
         });
         return (

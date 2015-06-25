@@ -262,7 +262,6 @@ export default React.createClass({
     },
 
     showMetadataForField: function (columnId) {
-        console.log('we be here?')
         // if we already have one then set it immediately to prevent jumping
         if(this.state.metadataField) {
             this.setState({
@@ -273,12 +272,11 @@ export default React.createClass({
                 this.setState({
                     metadataField: columnId
                 });
-            }.bind(this), 1500)
+            }.bind(this), 1000);
         }
     },
 
     hideMetadataForField: function (columnId) {
-        console.log('we be here?')
         this.setState({
             metadataField: null
         });
@@ -305,7 +303,7 @@ export default React.createClass({
                             <span className="BreakoutTrigger text-brand" onClick={this.updateDimension.bind(null, columnId, 0)}>
                                 <Icon name="add" width="16px" height="16px" />
                             </span>
-                        )
+                        );
                     }
                 }
         }

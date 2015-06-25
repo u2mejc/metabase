@@ -64,12 +64,3 @@
     margin: 0 auto;
     border-radius: 99px;
 }
-
-.Visualization .public_fixedDataTable_header,
-.Visualization .public_fixedDataTable_header .public_fixedDataTableCell_main,
-.Visualization .public_fixedDataTable_header .fixedDataTableCellGroup_cellGroup,
-.Visualization .fixedDataTable_rowsContainer,
-.Visualization .public_fixedDataTable_main,
-.Visualization .public_fixedDataTableCell_main.public_fixedDataTableCell_alignRight {
-    overflow: auto !important;
-}
