@@ -110,6 +110,9 @@ export default React.createClass({
     },
 
     setSort: function(fieldId) {
+        this.setState({
+            metadataField: null
+        })
         this.props.setSortFn(fieldId);
     },
 
@@ -194,6 +197,7 @@ export default React.createClass({
         var column = this.props.data.cols[columnIndex],
             colVal = (column !== null) ? column.name.toString() : null;
 
+
         var headerClasses = cx({
             'MB-DataTable-header' : true,
             'flex': true,
@@ -211,15 +215,54 @@ export default React.createClass({
             sortFn = this.setSort.bind(null, fieldId);
         }
 
+        var metadataPopover;
+        if(this.state.metadataField === column.id) {
+            var tetherOptions = {
+                attachment: "top middle",
+                targetAttachment: "bottom middle",
+            };
+            metadataPopover = (
+                <Popover tetherOptions={tetherOptions}>
+                    <div className="p4 bordered border-brand rounded shadowed bg-white">
+                        <ul>
+                            <li>
+                                Description:
+                                <div>
+                                    {column.description}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </Popover>
+            )
+        }
+
         return (
-            <div key={columnIndex} className={headerClasses}>
+            <div key={columnIndex} className={headerClasses} onMouseEnter={this.showMetadataForField.bind(null, column.id)} onMouseLeave={this.hideMetadataForField.bind(null, column.id)}>
                 {this.renderBreakoutTrigger(column.id)}
-                <span className="flex-align-right" onClick={sortFn}>
+                <span className="inline-block flex-align-right" onClick={sortFn}>
                     {this.renderSortIndicator()}
                     {colVal}
+                    {metadataPopover}
                 </span>
             </div>
         );
+    },
+
+    showMetadataForField: function (columnId) {
+        console.log('we be here?')
+        setTimeout(function () {
+            this.setState({
+                metadataField: columnId
+            });
+        }.bind(this), 1500)
+    },
+
+    hideMetadataForField: function (columnId) {
+        console.log('we be here?')
+        this.setState({
+            metadataField: null
+        });
     },
 
     updateDimension: function(dimension, index) {
