@@ -273,7 +273,7 @@ export default React.createClass({
         } else {
             if (this.queryIsDirty()) {
                 queryModified = (
-                    <div className="flex mt2 layout-centered text-headsup">
+                    <div className="flex mt2 layout-centered text-headsup" onClick={this.props.runQueryFn}>
                         <span className="Badge Badge--headsUp mr2">Heads up</span> The data below is out of date because your query has changed
                     </div>
                 );
@@ -357,6 +357,10 @@ export default React.createClass({
                             sort={sort}
                             cellIsClickableFn={this.props.cellIsClickableFn}
                             cellClickedFn={this.props.cellClickedFn}
+                            metadata={this.props.metadata}
+                            breakoutColumnFn={this.props.breakoutColumnFn}
+                            query={this.props.query}
+                            notifyQueryModifiedFn={this.props.notifyQueryModifiedFn}
                         />
                     );
 
@@ -386,29 +390,28 @@ export default React.createClass({
             'relative': true,
             'full': true,
             'flex': !this.props.isObjectDetail,
-            'flex-column': !this.props.isObjectDetail
+            'flex-column': !this.props.isObjectDetail,
+            'mt2': true
         });
 
         var visualizationClasses = cx({
             'Visualization': true,
             'Visualization--errors': (this.props.result && this.props.result.error),
             'Visualization--loading': this.props.isRunning,
-            'wrapper': true,
             'full': true,
             'flex': true,
             'flex-full': true,
             'QueryBuilder-section': true,
-            'pt2 lg-pt4': true
         });
 
         return (
             <div className={wrapperClasses}>
+                {this.renderFooter(tableFootnote)}
                 {queryModified}
                 {loading}
                 <div className={visualizationClasses}>
                     {viz}
                 </div>
-                {this.renderFooter(tableFootnote)}
             </div>
         );
     }

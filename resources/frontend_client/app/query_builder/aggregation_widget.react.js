@@ -13,7 +13,7 @@ export default React.createClass({
 
     getDefaultProps: function() {
         return {
-            querySectionClasses: 'Query-section mt1 md-mt2 flex align-center'
+            querySectionClasses: 'mt1 md-mt2 flex align-center'
         };
     },
 
@@ -109,7 +109,6 @@ export default React.createClass({
 
         return (
             <div className={this.props.querySectionClasses}>
-                <span className="Query-label">I want to see:</span>
                 <SelectionModule
                     placeholder="What data?"
                     items={this.state.availableAggregations}

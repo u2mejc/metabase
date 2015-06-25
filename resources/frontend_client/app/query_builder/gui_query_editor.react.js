@@ -730,9 +730,6 @@ export default React.createClass({
                     {this.renderFilterSelector()}
                 </ReactCSSTransitionGroup>
 
-                <ReactCSSTransitionGroup transitionName="Transition-qb-section">
-                    {this.renderAggregation()}
-                </ReactCSSTransitionGroup>
 
                 <ReactCSSTransitionGroup transitionName="Transition-qb-section">
                     {this.renderBreakouts()}
@@ -751,6 +748,7 @@ export default React.createClass({
                 </div>
                 <div className="QueryToggleWrapper absolute left right flex layout-centered">
                     {this.openStatus()}
+                    {this.renderAggregation()}
                 </div>
             </div>
         );

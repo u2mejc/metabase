@@ -306,6 +306,7 @@ CardControllers.controller('CardDetail', [
             }
         };
 
+
         var visualizationModel = {
             visualizationSettingsApi: VisualizationSettings,
             card: null,
@@ -317,6 +318,14 @@ CardControllers.controller('CardDetail', [
                 card.display = type;
 
                 renderAll();
+            },
+            notifyQueryModifiedFn: function(dataset_query) {
+                // we are being told that the query has been modified
+                card.dataset_query = dataset_query;
+                editorModel.runFn(card.dataset_query);
+            },
+            runQueryFn: function () {
+                editorModel.runFn(card.dataset_query);
             },
             setChartColorFn: function(color) {
                 var vizSettings = card.visualization_settings;
@@ -387,6 +396,10 @@ CardControllers.controller('CardDetail', [
                 } else {
                     return false;
                 }
+            },
+            breakoutColumnFn: function (breakoutColumn) {
+                console.log('breakoutColumn', breakoutColumn);
+                if(!queryResult) return false;
             },
             cellClickedFn: function(rowIndex, columnIndex, filter) {
                 if (!queryResult) return false;
@@ -497,12 +510,13 @@ CardControllers.controller('CardDetail', [
             visualizationModel.tableForeignKeys = tableForeignKeys;
             visualizationModel.isRunning = isRunning;
             visualizationModel.isObjectDetail = isObjectDetail;
+            visualizationModel.metadata = tableMetadata;
+            visualizationModel.query = card.dataset_query;
 
             React.render(new QueryVisualization(visualizationModel), document.getElementById('react_qb_viz'));
         };
 
         var renderAll = function() {
-            renderHeader();
             renderEditor();
             renderVisualization();
         };

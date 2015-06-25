@@ -140,6 +140,13 @@ export default React.createClass({
         });
     },
 
+    setCurrentCell: function (rowIndex, cellDataKey) {
+        this.setState({
+            currentRowIndex: rowIndex,
+            currentCellDataKey: cellDataKey
+        });
+    },
+
     cellRenderer: function(cellData, cellDataKey, rowData, rowIndex, columnData, width) {
         // TODO: should we be casting all values toString()?
         cellData = (cellData !== null) ? cellData.toString() : null;
@@ -151,11 +158,11 @@ export default React.createClass({
             var popover = null;
             if (this.state.popover && this.state.popover.rowIndex === rowIndex && this.state.popover.cellDataKey === cellDataKey) {
                 var tetherOptions = {
-                    targetAttachment: "middle right",
-                    attachment: "middle left"
+                    targetAttachment: "middle middle",
+                    attachment: "middle middle"
                 };
                 var operators = [">", "=", "!=", "<"].map(function(operator) {
-                    return (<li key={operator} className="p1" onClick={this.popoverFilterClicked.bind(null, rowIndex, cellDataKey, operator)}>{operator}</li>);
+                    return (<li key={operator} className="inline-block bordered text-brand-hover text-white-hover rounded p1" onClick={this.popoverFilterClicked.bind(null, rowIndex, cellDataKey, operator)}>{operator}</li>);
                 }, this);
                 popover = (
                     <Popover tetherOptions={tetherOptions}>
@@ -191,30 +198,69 @@ export default React.createClass({
             'MB-DataTable-header' : true,
             'flex': true,
             'align-center': true,
+            'text-align-right': true,
             'MB-DataTable-header--sorted': (this.props.sort && (this.props.sort[0][0] === column.id)),
         });
 
         // set the initial state of the sorting indicator chevron
-        var sortChevron = (<Icon name="chevrondown" width="8px" height="8px"></Icon>);
-
-        if(this.props.sort && this.props.sort[0][1] === 'ascending') {
-            sortChevron = (<Icon name="chevronup" width="8px" height="8px"></Icon>);
-        }
+        var sortFn;
 
         if (this.isSortable()) {
             // ICK.  this is hacky for dealing with aggregations.  need something better
             var fieldId = (column.id) ? column.id : "agg";
+            sortFn = this.setSort.bind(null, fieldId);
+        }
 
-            return (
-                <div key={columnIndex} className={headerClasses} onClick={this.setSort.bind(null, fieldId)}>
+        return (
+            <div key={columnIndex} className={headerClasses}>
+                {this.renderBreakoutTrigger(column.id)}
+                <span className="flex-align-right" onClick={sortFn}>
+                    {this.renderSortIndicator()}
                     {colVal}
-                    <span className="ml1">
-                        {sortChevron}
-                    </span>
-                </div>
-            );
-        } else {
-            return (<div className={headerClasses}>{colVal}</div>);
+                </span>
+            </div>
+        );
+    },
+
+    updateDimension: function(dimension, index) {
+        var query = this.props.query;
+        query.query.breakout[index] = dimension;
+
+        this.setQuery(query, true);
+    },
+
+    setQuery: function(dataset_query, notify) {
+        this.props.notifyQueryModifiedFn(dataset_query);
+    },
+
+    renderBreakoutTrigger: function (columnId) {
+        if (this.props.metadata &&
+                this.props.metadata.breakout_options.fields.length > 0) {
+                var breakouts = this.props.metadata.breakout_options.fields;
+                for(var b in breakouts) {
+                    if(breakouts[b][0] === columnId) {
+                        return (
+                            <span className="BreakoutTrigger text-brand" onClick={this.updateDimension.bind(null, columnId, 0)}>
+                                <Icon name="add" width="16px" height="16px" />
+                            </span>
+                        )
+                    }
+                }
+        }
+    },
+
+    renderSortIndicator: function () {
+        if(this.isSortable()) {
+            var sortChevron = (<Icon name="chevrondown" width="8px" height="8px"></Icon>);
+
+            if(this.props.sort && this.props.sort[0][1] === 'ascending') {
+                sortChevron = (<Icon name="chevronup" width="8px" height="8px"></Icon>);
+            }
+            return (
+                <span className="SortIndicator mr1">
+                    {sortChevron}
+                </span>
+            )
         }
     },
 
@@ -228,20 +274,30 @@ export default React.createClass({
             var colVal = (column !== null) ? column.name.toString() : null;
             var colWidth = component.state.columnWidths[idx];
 
-            if (!colWidth) {
-                colWidth = 75;
+            colWidth = 200;
+
+            var align = "right";
+            if(idx === 0) {
+                align="left"
             }
+
+            var columnClasses = cx({
+                'MB-DataTable-column': true,
+            })
+
 
             return (
                 <Column
                     key={'col_' + idx}
-                    className="MB-DataTable-column"
+                    className={columnClasses}
                     width={colWidth}
                     isResizable={true}
                     headerRenderer={component.tableHeaderRenderer.bind(null, idx)}
                     cellRenderer={component.cellRenderer}
                     dataKey={idx}
-                    label={colVal}>
+                    label={colVal}
+                    align={align}
+                    >
                 </Column>
             );
         });
@@ -249,12 +305,12 @@ export default React.createClass({
         return (
             <Table
                 className="MB-DataTable"
-                rowHeight={35}
+                rowHeight={55}
                 rowGetter={this.rowGetter}
                 rowsCount={this.props.data.rows.length}
                 width={this.state.width}
                 height={this.state.height}
-                headerHeight={50}
+                headerHeight={75}
                 isColumnResizing={this.isColumnResizing}
                 onColumnResizeEndCallback={component.columnResized}>
                 {tableColumns}
