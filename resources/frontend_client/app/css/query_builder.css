@@ -329,3 +329,7 @@
     border-color: var(--brand-color);
     color: #fff;
 }
+
+.SelectionItems {
+    z-index: 2000;
+}

@@ -273,8 +273,8 @@ export default React.createClass({
         } else {
             if (this.queryIsDirty()) {
                 queryModified = (
-                    <div className="flex mt2 layout-centered text-headsup" onClick={this.props.runQueryFn}>
-                        <span className="Badge Badge--headsUp mr2">Heads up</span> The data below is out of date because your query has changed
+                    <div className="flex mt2 layout-centered bg-brand text-white py2 cursor-pointer" onClick={this.props.runQueryFn}>
+                        Your query has changed. Click here to see the results.
                     </div>
                 );
             }

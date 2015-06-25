@@ -718,34 +718,12 @@ export default React.createClass({
         });
         return (
             <div className={guiBuilderClasses}>
-                <ReactCSSTransitionGroup transitionName="Transition-qb-section">
-                    {this.renderDbSelector()}
-                </ReactCSSTransitionGroup>
+                {this.renderDbSelector()}
+                {this.renderTableSelector()}
+                {this.renderFilterSelector()}
+                {this.renderBreakouts()}
+                {this.renderLimitAndSort()}
 
-                <ReactCSSTransitionGroup transitionName="Transition-qb-section">
-                    {this.renderTableSelector()}
-                </ReactCSSTransitionGroup>
-
-                <ReactCSSTransitionGroup transitionName="Transition-qb-section">
-                    {this.renderFilterSelector()}
-                </ReactCSSTransitionGroup>
-
-
-                <ReactCSSTransitionGroup transitionName="Transition-qb-section">
-                    {this.renderBreakouts()}
-                </ReactCSSTransitionGroup>
-
-                <ReactCSSTransitionGroup transitionName="Transition-qb-section">
-                    {this.renderLimitAndSort()}
-                </ReactCSSTransitionGroup>
-
-                <div className="Query-section Query-section--right mb2">
-                    <RunButton
-                        canRun={this.canRun()}
-                        isRunning={this.props.isRunning}
-                        runFn={this.runQuery}
-                    />
-                </div>
                 <div className="QueryToggleWrapper absolute left right flex layout-centered">
                     {this.openStatus()}
                     {this.renderAggregation()}
