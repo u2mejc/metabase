@@ -82,12 +82,9 @@ CardControllers.controller('CardDetail', [
 
         $scope.routeParams = $routeParams;
         $scope.$watch('routeParams', function() {
-            console.log($routeParams);
             if ($routeParams.serializedQuery) {
-                // card.dataset_query = JSON.parse(atob($routeParams.serializedQuery));
-                // console.log(card.dataset_query.query.aggregation);
-                // renderAll();
-                // editorModel.runFn(card.dataset_query);
+                card.dataset_query = JSON.parse(atob($routeParams.serializedQuery));
+                editorModel.runFn(card.dataset_query);
             }
         }, true);
 
