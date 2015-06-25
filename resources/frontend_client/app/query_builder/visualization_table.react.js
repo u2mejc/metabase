@@ -2,6 +2,7 @@
 
 import FixedDataTable from 'fixed-data-table';
 import Icon from './icon.react';
+import Popover from './popover.react';
 
 var cx = React.addons.classSet;
 var Table = FixedDataTable.Table;
@@ -33,7 +34,8 @@ export default React.createClass({
             width: 0,
             height: 0,
             columnWidths: [],
-            colDefs: null
+            colDefs: null,
+            popover: null
         };
     },
 
@@ -115,8 +117,27 @@ export default React.createClass({
         this.props.cellClickedFn(rowIndex, columnIndex);
     },
 
+    popoverFilterClicked: function(rowIndex, columnIndex, operator) {
+        this.props.cellClickedFn(rowIndex, columnIndex, operator);
+    },
+
     rowGetter: function(rowIndex) {
-        return this.props.data.rows[rowIndex];
+        var row = {
+            hasPopover: this.state.popover && this.state.popover.rowIndex === rowIndex || false
+        };
+        for (var i = 0; i < this.props.data.rows[rowIndex].length; i++) {
+            row[i] = this.props.data.rows[rowIndex][i];
+        }
+        return row;
+    },
+
+    showPopover: function(rowIndex, cellDataKey) {
+        this.setState({
+            popover: {
+                rowIndex: rowIndex,
+                cellDataKey: cellDataKey
+            }
+        });
     },
 
     cellRenderer: function(cellData, cellDataKey, rowData, rowIndex, columnData, width) {
@@ -125,9 +146,31 @@ export default React.createClass({
 
         var key = 'cl'+rowIndex+'_'+cellDataKey;
         if (this.props.cellIsClickableFn(rowIndex, cellDataKey)) {
-            return (<a key={key} className="link" href="#" onClick={this.cellClicked.bind(null, rowIndex, cellDataKey)}>{cellData}</a>);
+            return (<a className="link" href="#" onClick={this.cellClicked.bind(null, rowIndex, cellDataKey)}>{cellData}</a>);
         } else {
-            return (<div key={key}>{cellData}</div>);
+            var popover = null;
+            if (this.state.popover && this.state.popover.rowIndex === rowIndex && this.state.popover.cellDataKey === cellDataKey) {
+                var tetherOptions = {
+                    targetAttachment: "middle right",
+                    attachment: "middle left"
+                };
+                var operators = [">", "=", "!=", "<"].map(function(operator) {
+                    return (<li key={operator} className="p1" onClick={this.popoverFilterClicked.bind(null, rowIndex, cellDataKey, operator)}>{operator}</li>);
+                }, this);
+                popover = (
+                    <Popover tetherOptions={tetherOptions}>
+                        <div className="bg-white bordered shadowed p4">
+                            <ul>{operators}</ul>
+                        </div>
+                    </Popover>
+                );
+            }
+            return (
+                <div key={key}>
+                    <div onClick={this.showPopover.bind(null, rowIndex, cellDataKey)}>{cellData}</div>
+                    {popover}
+                </div>
+            );
         }
     },
 
