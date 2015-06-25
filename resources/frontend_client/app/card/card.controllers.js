@@ -99,7 +99,7 @@ CardControllers.controller('CardDetail', [
                 type: "query",
                 query: {
                     source_table: null,
-                    aggregation: [null],
+                    aggregation: ["rows"],
                     breakout: [],
                     filter: []
                 }
@@ -180,7 +180,7 @@ CardControllers.controller('CardDetail', [
 
         var editorModel = {
             isRunning: false,
-            isExpanded: true,
+            isExpanded: false,
             databases: null,
             tables: null,
             options: null,
@@ -671,6 +671,7 @@ CardControllers.controller('CardDetail', [
                 }
 
                 cardJson = JSON.stringify(card);
+                editorModel.runFn(card.dataset_query);
 
                 renderAll();
             }
