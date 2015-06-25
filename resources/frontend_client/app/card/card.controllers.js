@@ -388,11 +388,10 @@ CardControllers.controller('CardDetail', [
                 if (coldef.special_type === 'id' || (coldef.special_type === 'fk' && coldef.target)) {
                     return true;
                 } else {
-                    // return false;
-                    return true;
+                    return false;
                 }
             },
-            cellClickedFn: function(rowIndex, columnIndex) {
+            cellClickedFn: function(rowIndex, columnIndex, filter) {
                 if (!queryResult) return false;
 
                 // lookup the coldef and cell value of the cell we are taking action on
@@ -431,7 +430,7 @@ CardControllers.controller('CardDetail', [
                     } else {
                         card.dataset_query.query.filter = ["AND"];
                     }
-                    card.dataset_query.query.filter.push(["=", coldef.id, value]);
+                    card.dataset_query.query.filter.push([filter, coldef.id, value]);
                     editorModel.runFn(card.dataset_query);
                 }
             },
