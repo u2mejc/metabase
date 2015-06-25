@@ -48,3 +48,8 @@
 .tether-target-attached-right .PopoverBody--withArrow:after {
 	right: 12px;
 }
+
+.tether-target-attached-middle .PopoverBody--withArrow:before,
+.tether-target-attached-middle .PopoverBody--withArrow:after {
+	margin: 0 auto;
+}

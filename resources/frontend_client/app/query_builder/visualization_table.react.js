@@ -221,18 +221,30 @@ export default React.createClass({
                 attachment: "top middle",
                 targetAttachment: "bottom middle",
             };
+            console.log(column)
             metadataPopover = (
-                <Popover tetherOptions={tetherOptions}>
-                    <div className="p4 bordered border-brand rounded shadowed bg-white">
+                <Popover tetherOptions={tetherOptions}
+                    className="PopoverBody PopoverBody--withArrow p4">
                         <ul>
                             <li>
                                 Description:
-                                <div>
+                                <div className="text-bold mb1">
                                     {column.description}
                                 </div>
                             </li>
+                            <li>
+                                Type:
+                                <div className="text-bold mb1">
+                                    {column.base_type}
+                                </div>
+                            </li>
+                            <li>
+                                Metabase Type:
+                                <div className="text-bold mb1">
+                                    {column.special_type}
+                                </div>
+                            </li>
                         </ul>
-                    </div>
                 </Popover>
             )
         }
@@ -251,11 +263,18 @@ export default React.createClass({
 
     showMetadataForField: function (columnId) {
         console.log('we be here?')
-        setTimeout(function () {
+        // if we already have one then set it immediately to prevent jumping
+        if(this.state.metadataField) {
             this.setState({
                 metadataField: columnId
             });
-        }.bind(this), 1500)
+        } else {
+            setTimeout(function () {
+                this.setState({
+                    metadataField: columnId
+                });
+            }.bind(this), 1500)
+        }
     },
 
     hideMetadataForField: function (columnId) {
