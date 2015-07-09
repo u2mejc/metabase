@@ -689,7 +689,7 @@ export default React.createClass({
 
     render: function() {
         return (
-            <div className="wrapper">
+            <div className="px2 mt2">
                 {this.renderSource()}
                 <span className="ml1">
                     {this.renderAggregation()}

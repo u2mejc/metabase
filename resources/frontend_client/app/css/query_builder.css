@@ -62,7 +62,11 @@
 
 .Query-filter .input {
     border-radius: 0;
+    padding: 0;
+    padding: 0.5rem 0.75rem;
     border-color: var(--selection-color);
+    background-color: var(--selection-color);
+    color: var(--brand-color);
 }
 
 .Query-filter .Icon-close {
@@ -278,6 +282,7 @@
     border-radius: 2px;
     color: var(--brand-color);
     line-height: 1;
+    padding: 0.5rem 0.75rem;;
 }
 
 .QueryOption--offset {
@@ -301,4 +306,15 @@
 
 .SelectionItems {
     z-index: 2000;
+}
+
+.FilterOperator {
+    font-size: 2.4rem;
+    display: inline-block;
+    margin: 0 1.4rem;
+    border-radius: 99px;
+}
+
+.FilterOperator:hover {
+    color: var(--brand-color);
 }

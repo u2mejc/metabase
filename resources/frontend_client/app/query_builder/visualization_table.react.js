@@ -165,11 +165,12 @@ export default React.createClass({
                     attachment: "middle middle"
                 };
                 var operators = [">", "=", "!=", "<"].map(function(operator) {
-                    return (<li key={operator} className="inline-block bordered text-brand-hover text-white-hover rounded p1" onClick={this.popoverFilterClicked.bind(null, rowIndex, cellDataKey, operator)}>{operator}</li>);
+                    return (<li key={operator} className="FilterOperator" onClick={this.popoverFilterClicked.bind(null, rowIndex, cellDataKey, operator)}>{operator}</li>);
                 }, this);
                 popover = (
                     <Popover tetherOptions={tetherOptions}>
                         <div className="bg-white bordered shadowed p4">
+                            <h2>{columnData}</h2>
                             <ul>{operators}</ul>
                         </div>
                     </Popover>
@@ -202,7 +203,6 @@ export default React.createClass({
             'MB-DataTable-header' : true,
             'flex': true,
             'align-center': true,
-            'text-align-right': true,
             'MB-DataTable-header--sorted': (this.props.sort && (this.props.sort[0][0] === column.id)),
         });
 
@@ -247,12 +247,13 @@ export default React.createClass({
                         </ul>
                 </Popover>
             )
+            metadataPopover = null;
         }
 
         return (
             <div key={columnIndex} className={headerClasses} onMouseEnter={this.showMetadataForField.bind(null, column.id)} onMouseLeave={this.hideMetadataForField.bind(null, column.id)}>
                 {this.renderBreakoutTrigger(column.id)}
-                <span className="inline-block flex-align-right" onClick={sortFn}>
+                <span className="inline-block" onClick={sortFn}>
                     {this.renderSortIndicator()}
                     {colVal}
                     {metadataPopover}
@@ -295,7 +296,7 @@ export default React.createClass({
 
     renderBreakoutTrigger: function (columnId) {
         if (this.props.metadata &&
-                this.props.metadata.breakout_options.fields.length > 0) {
+                this.props.metadata.breakout_options.fields.length > 0 && false) {
                 var breakouts = this.props.metadata.breakout_options.fields;
                 for(var b in breakouts) {
                     if(breakouts[b][0] === columnId) {
@@ -356,7 +357,6 @@ export default React.createClass({
                     cellRenderer={component.cellRenderer}
                     dataKey={idx}
                     label={colVal}
-                    align={align}
                     >
                 </Column>
             );
