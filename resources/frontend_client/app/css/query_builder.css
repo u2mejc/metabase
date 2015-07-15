@@ -390,10 +390,6 @@
     overflow: hidden;
 }
 
-.DataReference-container {
-    width: 300px;
-}
-
 .DataReference h1 {
     font-size: 20pt;
 }
@@ -414,6 +410,30 @@
 
 .DataReference-paneCount {
     padding-right: 0.6em;
+}
+
+.DataReference-node text {
+    fill: #509EE3;
+}
+.DataReference-node:hover text {
+    fill: white;
+}
+.DataReference-node circle {
+    fill: rgb(204, 223, 246);
+    stroke: #F9FBFC;
+    stroke-width: 3;
+}
+.DataReference-node:hover circle {
+    fill: #509EE3;
+}
+
+.DataReference-link {
+    stroke: #509EE3;
+    stroke-width: 4;
+}
+
+#arrowhead {
+    fill: #509EE3;
 }
 
 /* object detail */

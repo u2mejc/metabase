@@ -3,6 +3,7 @@
 import DataReferenceMain from './data_reference_main.react';
 import DataReferenceTable from './data_reference_table.react';
 import DataReferenceField from './data_reference_field.react';
+import DataReferenceGraph from './data_reference_graph.react';
 import Icon from './icon.react';
 import inflection from 'inflection';
 
@@ -23,7 +24,7 @@ export default React.createClass({
 
     getInitialState: function() {
         return {
-            stack: [],
+            stack: [{ type: "graph", database: { id: 17 }}],
             tables: {},
             fields: {}
         };
@@ -51,16 +52,24 @@ export default React.createClass({
         });
     },
 
+    showGraph: function(database) {
+        this.setState({
+            stack: this.state.stack.concat({ type: "graph", database: database })
+        });
+    },
+
     render: function() {
         var content;
         if (this.state.stack.length === 0) {
-            content = <DataReferenceMain {...this.props} showTable={this.showTable} />
+            content = <DataReferenceMain {...this.props} showTable={this.showTable} showGraph={this.showGraph} />
         } else {
             var page = this.state.stack[this.state.stack.length - 1];
             if (page.type === "table") {
                 content = <DataReferenceTable {...this.props} table={page.table} showField={this.showField} />
             } else if (page.type === "field") {
                 content = <DataReferenceField {...this.props} field={page.field}/>
+            } else if (page.type === "graph") {
+                content = <DataReferenceGraph {...this.props} database={page.database} showTable={this.showTable} showField={this.showField}/>
             }
         }
 

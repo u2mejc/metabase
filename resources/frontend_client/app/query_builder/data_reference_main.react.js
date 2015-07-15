@@ -53,7 +53,9 @@ export default React.createClass({
                         <li key={database.id}>
                             <div className="my2">
                                 <h2 className="inline-block">{database.name}</h2>
-                                <span className="ml1">{tableCount}</span>
+                                <a className="text-default text-brand-hover no-decoration ml1" href="#" onClick={this.props.showGraph.bind(null, database)}>
+                                    {tableCount}
+                                </a>
                             </div>
                             <ul>{tables}</ul>
                         </li>

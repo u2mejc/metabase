@@ -93,7 +93,7 @@ CardControllers.controller('CardDetail', [
             }
         };
 
-        $scope.isShowingDataReference = false;
+        $scope.isShowingDataReference = true;
 
         var queryResult = null,
             databases = null,
