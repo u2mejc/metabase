@@ -1,7 +1,7 @@
 'use strict';
 
 import { CardRenderer } from '../card/card.charting';
-import QueryVisualizationTable from './visualization_table.react';
+import VisualizationTableController from './visualization_table_controller.react';
 import QueryVisualizationChart from './visualization_chart.react';
 import QueryVisualizationObjectDetailTable from './visualization_object_detail_table.react';
 import RunButton from './run_button.react';
@@ -158,7 +158,8 @@ export default React.createClass({
                             tableForeignKeyReferences={this.props.tableForeignKeyReferences}
                             cellIsClickableFn={this.props.cellIsClickableFn}
                             cellClickedFn={this.props.cellClickedFn}
-                            followForeignKeyFn={this.props.followForeignKeyFn} />
+                            followForeignKeyFn={this.props.followForeignKeyFn}
+                            />
                     );
 
                 } else if (this.props.result.data.rows.length === 0) {
@@ -190,10 +191,10 @@ export default React.createClass({
 
                 } else if (this.props.card.display === "table") {
 
-                    var sort = (this.props.card.dataset_query.query && this.props.card.dataset_query.query.order_by) ?
+                    let sort = (this.props.card.dataset_query.query && this.props.card.dataset_query.query.order_by) ?
                                     this.props.card.dataset_query.query.order_by : null;
                     viz = (
-                        <QueryVisualizationTable
+                        <VisualizationTableController
                             data={this.props.result.data}
                             maxRows={this.props.maxTableRows}
                             setSortFn={this.props.setSortFn}

@@ -1,12 +1,10 @@
 'use strict';
 /*global _*/
 
-import FixedDataTable from 'fixed-data-table';
+import { Table, Column } from 'fixed-data-table';
 import Icon from './icon.react';
 
 var cx = React.addons.classSet;
-var Table = FixedDataTable.Table;
-var Column = FixedDataTable.Column;
 
 export default React.createClass({
     displayName: 'QueryVisualizationTable',
@@ -25,92 +23,8 @@ export default React.createClass({
     getDefaultProps: function() {
         return {
             maxRows: 2000,
-            minColumnWidth: 75
+            minColumnWidth: 100
         };
-    },
-
-    getInitialState: function() {
-        return {
-            width: 0,
-            height: 0,
-            columnWidths: [],
-            colDefs: null
-        };
-    },
-
-    componentWillMount: function() {
-        if (this.props.data) {
-            this.setState({
-                colDefs: JSON.stringify(this.props.data.cols)
-            });
-        }
-    },
-
-    componentWillReceiveProps: function(newProps) {
-        // TODO: check if our data has changed and specifically if our columns list has changed
-        if (JSON.stringify(newProps.data.cols) !== this.state.colDefs) {
-            // if the columns have changed then reset any column widths we have setup
-            this.setState({
-                colDefs: JSON.stringify(this.props.data.cols),
-                columnWidths: this.calculateColumnWidths(this.state.width, this.props.minColumnWidth, newProps.data.cols)
-            });
-        }
-    },
-
-    componentDidMount: function() {
-        this.calculateSizing(this.getInitialState());
-    },
-
-    shouldComponentUpdate: function(nextProps, nextState) {
-        // this is required because we don't pass in the containing element size as a property :-/
-        // if size changes don't update yet because state will change in a moment
-        this.calculateSizing(nextState)
-
-        // compare props and state to determine if we should re-render
-        // NOTE: this is essentially the same as React.addons.PureRenderMixin but
-        // we currently need to recalculate the container size here.
-        return !_.isEqual(this.props, nextProps) || !_.isEqual(this.state, nextState);
-    },
-
-    // availableWidth, minColumnWidth, # of columns
-    // previousWidths, prevWidth
-    calculateColumnWidths: function(availableWidth, minColumnWidth, colDefs, prevAvailableWidth, prevColumnWidths) {
-        // TODO: maintain column spacing on a window resize
-
-        var calcColumnWidth = (colDefs.length > 0) ? availableWidth / colDefs.length : minColumnWidth;
-        var columnWidths = colDefs.map(function (column, idx) {
-            return (minColumnWidth > calcColumnWidth) ? minColumnWidth : calcColumnWidth;
-        });
-
-        return columnWidths;
-    },
-
-    calculateSizing: function(prevState) {
-        var element = this.getDOMNode(); //React.findDOMNode(this);
-
-        // account for padding of our parent
-        var style = window.getComputedStyle(element.parentElement, null);
-        var paddingTop = Math.ceil(parseFloat(style.getPropertyValue("padding-top")));
-        var paddingLeft = Math.ceil(parseFloat(style.getPropertyValue("padding-left")));
-        var paddingRight = Math.ceil(parseFloat(style.getPropertyValue("padding-right")));
-
-        var width = element.parentElement.offsetWidth - paddingLeft - paddingRight;
-        var height = element.parentElement.offsetHeight - paddingTop;
-
-        if (width !== prevState.width || height !== prevState.height) {
-            var updatedState = {
-                width: width,
-                height: height
-            };
-
-            if (width !== prevState.width) {
-                // NOTE: we remove 2 pixels from width to allow for a border pixel on each side
-                var tableColumnWidths = this.calculateColumnWidths(width - 2, this.props.minColumnWidth, this.props.data.cols, prevState.width, prevState.columnWidths);
-                updatedState.columnWidths = tableColumnWidths;
-            }
-
-            this.setState(updatedState);
-        }
     },
 
     isSortable: function() {
@@ -139,15 +53,6 @@ export default React.createClass({
         } else {
             return (<div key={key}>{cellData}</div>);
         }
-    },
-
-    columnResized: function(width, idx) {
-        var tableColumnWidths = this.state.columnWidths.slice();
-        tableColumnWidths[idx] = width;
-        this.setState({
-            columnWidths: tableColumnWidths
-        });
-        this.isColumnResizing = false;
     },
 
     tableHeaderRenderer: function(columnIndex) {
@@ -190,41 +95,34 @@ export default React.createClass({
             return false;
         }
 
-        var component = this;
-        var tableColumns = this.props.data.cols.map(function (column, idx) {
-            var colVal = (column !== null) ? column.name.toString() : null;
-            var colWidth = component.state.columnWidths[idx];
-
-            if (!colWidth) {
-                colWidth = 75;
-            }
-
-            return (
-                <Column
-                    key={'col_' + idx}
-                    className="MB-DataTable-column"
-                    width={colWidth}
-                    isResizable={true}
-                    headerRenderer={component.tableHeaderRenderer.bind(null, idx)}
-                    cellRenderer={component.cellRenderer}
-                    dataKey={idx}
-                    label={colVal}>
-                </Column>
-            );
-        });
-
         return (
             <Table
                 className="MB-DataTable"
-                rowHeight={35}
+                rowHeight={25}
                 rowGetter={this.rowGetter}
                 rowsCount={this.props.data.rows.length}
-                width={this.state.width}
-                maxHeight={this.state.height}
-                headerHeight={50}
+                width={this.props.width}
+                maxHeight={this.props.height}
+                headerHeight={40}
                 isColumnResizing={this.isColumnResizing}
-                onColumnResizeEndCallback={component.columnResized}>
-                {tableColumns}
+                onColumnResizeEndCallback={this.columnResized}
+            >
+                { this.props.data.cols.map((column, index) => {
+                    let colVal = (column !== null) ? column.name.toString() : null;
+                    // let width = this.props.data.cols.length / this.props.width;
+                    return (
+                        <Column
+                            key={'col_' + index}
+                            className="MB-DataTable-column"
+                            width={75}
+                            isResizable={false}
+                            headerRenderer={this.tableHeaderRenderer.bind(null, index)}
+                            cellRenderer={this.cellRenderer}
+                            dataKey={index}
+                            label={colVal}>
+                        </Column>
+                    );
+                }) }
             </Table>
         );
     }
