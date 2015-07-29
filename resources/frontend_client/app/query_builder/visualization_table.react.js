@@ -169,6 +169,7 @@ export default React.createClass({
                     targetAttachment: "middle center",
                     attachment: "middle center"
                 };
+                var column = this.props.data.cols[cellDataKey];
                 var operators = ["<", "=", "≠", ">"].map(function(operator) {
                     return (<li key={operator} className="p2 text-brand-hover" onClick={this.popoverFilterClicked.bind(null, rowIndex, cellDataKey, operator)}>{operator}</li>);
                 }, this);
@@ -178,6 +179,8 @@ export default React.createClass({
                         handleClickOutside={this.handleClickOutside}
                     >
                         <div className="bg-white bordered shadowed p1">
+                            <div>{column.display_name}</div>
+                            <div>{cellData}</div>
                             <ul className="h1 flex align-center">{operators}</ul>
                         </div>
                     </Popover>
